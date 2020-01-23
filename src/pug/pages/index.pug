@@ -1,0 +1,21 @@
+extends ../layouts/general
+
+block variables
+	- var title = 'INDEX'
+	- var pageClass = 'indexPage'
+
+block content
+
+	.wrapper
+		h1 WEBPACK
+
+		.lib1 lib1
+		.lib2 lib2
+
+	img(src="/assets/img/first.jpg")
+	img(src="/assets/img/second.jpg")
+
+
+	//block script
+	script(src="/assets/js/libs/lib1.js")
+	script(src="/assets/js/libs/lib2.js")
