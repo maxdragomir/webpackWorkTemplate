@@ -1,2 +1,2 @@
-# webpackTemplate PUG/SASS/Babel7v/postcss
-Webpack template for work
+# Webpack Template 
+**PUG | SASS | Babel7v | PostCss** 
