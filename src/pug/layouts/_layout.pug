@@ -1,0 +1,17 @@
+include  ../mixins/__name
+block variables
+
+doctype html
+html(lang='en')
+	head
+		include _head
+		block head
+
+	body(class=lotteryClass)
+
+		//START
+		block content
+		//END
+
+	//SCRIPTS
+	block script
