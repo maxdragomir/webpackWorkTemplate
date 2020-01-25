@@ -6,10 +6,45 @@ html(lang='en')
 	head
 		include _head
 
+
 	body(class=lotteryName)
+		//- Styles main start
+		link(href="assets/styles/libs/perfect-scrollbar.css")
+		link(href="assets/styles/libs/slick-slider.css")
+		//- Styles main end
 
-		//- Content start
+		//- Styles page start
+		link(href="assets/styles/libs/animate.css")
+		//- Styles page end
 
-		block content
+		// ----------------------------------------------------------------------------------------------------------------------
+		// ----------------------------------------------------------------------------------------------------------------------
 
-		//- Content end
+		// Landing
+		div(class=`${lotteryName} ${lotteryName}-wrapper ${lotteryName}-raffle`)
+			//- inner
+			div(class=`${lotteryName}-inner`)
+
+				//- Content start
+
+				block content
+
+				//- Content end
+
+
+		// ----------------------------------------------------------------------------------------------------------------------
+		// ----------------------------------------------------------------------------------------------------------------------
+
+		//- Scripts main start
+		script(src="assets/js/libs/jQuery.js")
+		script(src="assets/js/libs/perfect-scrollbar.js")
+		//- Scripts main end
+
+		//- Scripts page start
+		script(src="assets/js/libs/jQuery-viewport-checker.js")
+		script(src="assets/js/libs/slick-slider.js")
+		script(src="assets/js/libs/gsap-animation/TweenMax.min.js")
+		script(src="assets/js/libs/gsap-animation/ScrollMagic.min.js")
+		script(src="assets/js/libs/gsap-animation/animation.gsap.js")
+		script(src="assets/js/libs/gsap-animation/debug.addIndicators.min.js")
+		//- Scripts page end
