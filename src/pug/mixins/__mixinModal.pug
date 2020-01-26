@@ -1,0 +1,65 @@
+
+// Custom
+mixin addModalCustom(modalName)
+	div(class=`${lotteryName}-modal ${lotteryName}-modal__${modalName}`)
+		div(class=`${lotteryName}-modal__close`).arcticmodal-close
+		div(class=`${lotteryName}-modal__body`).is-animating
+
+
+// Enter
+mixin addModalEnter()
+	div(class=`${lotteryName}-modal ${lotteryName}-modal__enter`)
+		div(class=`${lotteryName}-modal__close`).arcticmodal-close
+		div(class=`${lotteryName}-modal__body`).is-animating
+			div(class=`${lotteryName}-modal__text`)
+				span Для участия Вам необходимо
+				span
+					span(class=`${lotteryName}-modal__textColor`) войти
+					| или
+					span(class=`${lotteryName}-modal__textColor`) зарегистрироваться
+					| !
+			div(class=`${lotteryName}-modal__action`)
+				a(href="#!" class=`${lotteryName}-modal__btn ${lotteryName}-modal__btn--main`)
+					span Войти
+				a(href="#!" class=`${lotteryName}-modal__btn ${lotteryName}-modal__btn--secondary`)
+					span Регистрация
+
+
+// Rules
+mixin addModalRules()
+	div(class=`${lotteryName}-modal ${lotteryName}-modal__rules`)
+		div(class=`${lotteryName}-modal__close`).arcticmodal-close
+		div(class=`${lotteryName}-modal__body`).is-animating
+		div(class=`${lotteryName}-modal__scrollBlock ${lotteryName}-scroll`)
+			block
+
+
+// Tickets
+mixin addModalTickets(countTickets)
+	div(class=`${lotteryName}-modal ${lotteryName}-modal__tickets`)
+		div(class=`${lotteryName}-modal__close`).arcticmodal-close
+		div(class=`${lotteryName}-modal__body`).is-animating
+			div(class=`${lotteryName}-modal__title`)
+				span Мои билеты
+				span 15 800
+			div(class=`${lotteryName}-modal__wrapper`)
+					div(class=`${lotteryName}-modal__scrollBlock ${lotteryName}-scroll`)
+						div(class=`${lotteryName}-modal__ticket win`) 79542362
+						- for (var i = 0; i <= countTickets-1; i++)
+							div(class=`${lotteryName}-modal__ticket`) 79542362
+
+
+// Win
+mixin addModalWin(modalName, modalImg, modalText)
+	div(class=`${lotteryName}-modal ${lotteryName}-modal__win ${lotteryName}-modal__${modalName}`)
+		div(class=`${lotteryName}-modal__close`).arcticmodal-close
+		div(class=`${lotteryName}-modal__body`).is-animating
+			div(class=`${lotteryName}-modal__info`)
+				div(class=`${lotteryName}-modal__title`)
+					span Вы выиграли!
+				div(class=`${lotteryName}-modal__wrapper`)
+					div(class=`${lotteryName}-modal__img`)
+						img(src=modalImg)
+					div(class=`${lotteryName}-modal__text`)
+						span= modalText
+

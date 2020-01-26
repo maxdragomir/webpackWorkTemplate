@@ -1,0 +1,25 @@
+
+mixin addBtn(classBtn)
+	a(href="#!" class=`${lotteryName}-${classBtn} ${lotteryName}-${classBtn}--main`)
+		span(class=`${lotteryName}-btnInner`)
+			span Сделать Ставку
+
+
+mixin addImg(classImg, urlImg)
+	div(class=`${lotteryName}-${classImg}`)
+		img(src=urlImg)
+
+
+mixin addShadowTitle(titleText, titleClass)
+	div(class=`${lotteryName}-title ${lotteryName}-title${titleClass}`)
+		span(data-shadow=titleText)
+			= titleText
+
+mixin addBreadcrumbs(nameLottery)
+	ul.breadcrumbs
+		li
+			a(href="#") Главная
+		li
+			a(href="#") lottery
+		li
+			= nameLottery

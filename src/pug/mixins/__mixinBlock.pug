@@ -1,0 +1,13 @@
+
+
+// доработать класс блока wrapper
+mixin addTicketsScroll(countTicket)
+	div(class=`${lotteryName}-wrapper ${lotteryName}-scroll`)
+		- for (var i = 0; i <= countTicket; i++)
+			div(class=`${lotteryName}-ticket`) 79542362
+
+
+mixin addBtnModal(nameModalOpen, nameBtn)
+	button(data-modal=`.${lotteryName}-modal__${nameModalOpen}` class=`${lotteryName}-addition__btn ${lotteryName}-modalShow` type='button')
+		span= nameBtn
+
