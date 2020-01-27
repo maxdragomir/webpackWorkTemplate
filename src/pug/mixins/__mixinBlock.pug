@@ -7,7 +7,16 @@ mixin addTicketsScroll(countTicket)
 			div(class=`${lotteryName}-ticket`) 79542362
 
 
-mixin addBtnModal(nameModalOpen, nameBtn)
-	button(data-modal=`.${lotteryName}-modal__${nameModalOpen}` class=`${lotteryName}-addition__btn ${lotteryName}-modalShow` type='button')
-		span= nameBtn
+mixin addBreadcrumbs(nameLottery)
+	ul.breadcrumbs
+		li
+			a(href="#") Главная
+		li
+			a(href="#") Lottery
+		li
+			= nameLottery
 
+
+mixin addImg(classImg, urlImg)
+	div(class=`${lotteryName}-${classImg}`)
+		img(src=urlImg)

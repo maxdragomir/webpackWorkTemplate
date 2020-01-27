@@ -8,6 +8,7 @@ const PATHS = {
   src: path.join(__dirname, '../src'),
   dist: path.join(__dirname, '../myBuild'),
   assets: 'assets/',
+  phpFiles: 'phpFiles/',
 };
 
 const PAGES_DIR = `${PATHS.src}/pug/pages/`,
@@ -102,6 +103,10 @@ module.exports = {
       template: `${PAGES_DIR}/${page}`,
       filename: `./${page.replace(/\.pug/,'.html')}`
     })),
+    // ...PAGES.map(page => new HtmlWebpackPlugin({
+    //   template: `${PAGES_DIR}/${page}`,
+    //   filename: `./${page.replace(/\.pug/,'.php')}`
+    // })),
     new CopyWebpackPlugin([
       {from: `${PATHS.src}/img`, to: `${PATHS.assets}img`},
       {from: `${PATHS.src}/fonts`, to: `${PATHS.assets}fonts`},
