@@ -80,7 +80,8 @@ typings/
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+myBuild
+
 
 # Gatsby files
 .cache/
@@ -89,7 +90,7 @@ dist
 # public
 
 # vuepress build output
-.vuepress/dist
+.vuepress/myBuild
 
 # Serverless directories
 .serverless/
@@ -105,6 +106,3 @@ dist
 
 # phpStorm
 .idea
-
-# myBuild
-myBuild

@@ -4,6 +4,9 @@ include  ../mixins/__mixinModal
 
 block variables
 	- var lotteryName = 'testTest'
+script.
+	let lotteryName = 'testTest'
+
 
 doctype html
 html(lang='en')
@@ -12,9 +15,14 @@ html(lang='en')
 
 
 	body(class=lotteryName)
+		// <?php include('../assets/header-new.php'); ?> -------------------------------------------------------------------
+		// -----------------------------------------------------------------------------------------------------------------
+		// -----------------------------------------------------------------------------------------------------------------
+
 
 		//- Styles main start
 		link(href="assets/styles/libs/perfect-scrollbar.css")
+		link(href="assets/styles/libs/jquery.arcticmodal-0.3.css")
 		link(href="assets/styles/libs/slick-slider.css")
 		//- Styles main end
 
@@ -22,11 +30,13 @@ html(lang='en')
 		link(href="assets/styles/libs/animate.css")
 		//- Styles page end
 
+
 		// -----------------------------------------------------------------------------------------------------------------
 		// -----------------------------------------------------------------------------------------------------------------
 
+
 		// Landing
-		div(class=`${lotteryName} ${lotteryName}-wrapper`)
+		div(class=`${lotteryName}-wrapper`)
 			div(class=`${lotteryName}-inner`)
 
 				//- Content start
@@ -39,9 +49,12 @@ html(lang='en')
 		// -----------------------------------------------------------------------------------------------------------------
 		// -----------------------------------------------------------------------------------------------------------------
 
+
 		//- Scripts main start
 		script(src="assets/js/libs/jQuery.js")
 		script(src="assets/js/libs/perfect-scrollbar.js")
+		script(src="assets/js/libs/jquery.arcticmodal-0.3.min.js")
+		script(src="assets/js/libs/jquery.countdown.min.js")
 		//- Scripts main end
 
 		//- Scripts page start
@@ -52,3 +65,8 @@ html(lang='en')
 		script(src="assets/js/libs/gsap-animation/animation.gsap.js")
 		script(src="assets/js/libs/gsap-animation/debug.addIndicators.min.js")
 		//- Scripts page end
+
+
+		// -----------------------------------------------------------------------------------------------------------------
+		// -----------------------------------------------------------------------------------------------------------------
+		// <?php include('../assets/footer-new.php'); ?> -------------------------------------------------------------------

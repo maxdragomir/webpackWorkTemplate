@@ -4,8 +4,8 @@
   "description": "myTemplate",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --open --config webpackConfig/webpack.dev.config.js",
-    "build": "webpack --config webpackConfig/webpack.build.config.js"
+    "dev": "webpack-dev-server --open --config webpackConfig/webpack.dev.config.js --progress",
+    "build": "webpack --config webpackConfig/webpack.build.config.js --progress"
   },
   "browserslist": [
     "> 1%",

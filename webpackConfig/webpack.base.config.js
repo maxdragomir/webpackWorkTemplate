@@ -33,17 +33,7 @@ module.exports = {
   },
 
   optimization: {
-    minimize: false,
-    // splitChunks: {
-    //   cacheGroups: {
-    //     vendor: {
-    //       name: 'vendors',
-    //       test: /node_modules/,
-    //       chunks: 'all',
-    //       enforce: true
-    //     }
-    //   }
-    // }
+    minimize: true,
   },
 
   module: {
@@ -55,7 +45,7 @@ module.exports = {
       loader: 'babel-loader',
       exclude: '/node_modules/'
     }, {
-      test: /\.(img|jpg|gif|svg)$/,
+      test: /\.(jpe?g|gif|svg|png)$/,
       loader: 'file-loader',
       options: {
         name: '[name].[ext]'
@@ -89,31 +79,28 @@ module.exports = {
   resolve: {
     alias: {
       '~': 'src'
-    }
+    },
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: `${PATHS.assets}styles/[name].css`
-    }),
     // new HtmlWebpackPlugin({
     //   template: `${PATHS.src}/index.html`,
     //   filename: './index.html'
     // }),
-    ...PAGES.map(page => new HtmlWebpackPlugin({
-      template: `${PAGES_DIR}/${page}`,
-      filename: `./${page.replace(/\.pug/,'.html')}`
-    })),
-    // ...PAGES.map(page => new HtmlWebpackPlugin({
-    //   template: `${PAGES_DIR}/${page}`,
-    //   filename: `./${page.replace(/\.pug/,'.php')}`
-    // })),
+    new MiniCssExtractPlugin({
+      filename: `${PATHS.assets}styles/[name].css`
+    }),
     new CopyWebpackPlugin([
       {from: `${PATHS.src}/img`, to: `${PATHS.assets}img`},
       {from: `${PATHS.src}/fonts`, to: `${PATHS.assets}fonts`},
 
       {from: `${PATHS.src}/styles/libs`, to: `${PATHS.assets}styles/libs`},
       {from: `${PATHS.src}/js/libs`, to: `${PATHS.assets}js/libs`},
-    ])
+    ]),
+    ...PAGES.map(page => new HtmlWebpackPlugin({
+      template: `${PAGES_DIR}/${page}`,
+      filename: `./${page.replace(/\.pug/,'.html')}`
+      // filename: `./${page.replace(/\.pug/,'.php')}`
+    })),
   ]
 };
 

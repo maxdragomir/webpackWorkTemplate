@@ -1,8 +1,9 @@
 extends ../layouts/_layout
 
-block content
 
-	h1 WEBPACK
+block content
+	//h1 WEBPACK
+	//+addBreadcrumbs(lotteryName)
 	//+addShadowTitle("Привет", "Prizes")
 	//+addTicketsScroll(50)
 	//+addModalWin("win1", "img/modal/modal-car.png", "KIA STINGER")
@@ -19,7 +20,20 @@ block content
 	//	+addBtnModal("result", "r")
 
 	//+addModalTickets(1)
-	//+addImg("prizeImg", "img/modal/modal-car.png")
+	//+addImg("prizeImg", "assets/img/first.jpg")
 	//+addModalEnter()
 	//+addBtn("action__btn")
-	//+addBreadcrumbs("nameLottery")
+	//+addTimer("timerSteps")
+	+addBreadcrumbs("nameLottery")
+
+	include ../particles/main
+
+
+	//- Modal
+	div(style="display: none")
+		+addModalEnter()
+
+	//- Addition Btn
+	div(class=`${lotteryName}-addition`)
+		+addBtnModal("enter", "E")
+

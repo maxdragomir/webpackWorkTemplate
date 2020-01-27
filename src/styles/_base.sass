@@ -4,3 +4,184 @@
 
 body
   font-family: Roboto, sans-serif
+
+.testTest
+  a
+    text-decoration: none
+    transform: scale(1)
+    will-change: transform
+    transition: all .5s ease
+    &:active
+      transform: scale(0.95)
+      transition: all .2s ease
+
+  .breadcrumbs
+    font-size: 14px
+    position: absolute
+    top: 23px
+    left: 20px
+    font-style: normal
+    z-index: 2
+
+    li
+      color: #000
+      text-transform: uppercase
+      display: inline-block
+      position: relative
+      font-weight: bold
+      &:first-child:before
+        content: none
+      &:before
+        content: "/"
+        margin-left: 4px
+        margin-right: 8px
+
+    a
+      color: inherit
+      text-decoration: underline
+      font-weight: normal
+
+
+      &:hover
+        text-decoration: none
+
+
+  .no-animate
+    animation: none !important
+
+  &-addition
+    position: fixed
+    height: 100%
+    left: 0
+    bottom: 5%
+    display: flex
+    justify-content: flex-end
+    flex-flow: column
+    z-index: 999
+    transition: all 0.5s ease
+    &__Btn
+      position: relative
+      display: flex
+      justify-content: center
+      align-items: center
+      text-align: center
+      cursor: pointer
+      min-width: 40px
+      height: 40px
+      font-weight: 900
+      font-size: 22px
+      background: #fff
+      color: #333
+      border: 2px solid #fff
+      outline: none
+      text-transform: uppercase
+      margin-bottom: 5px
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2)
+      transform: scale(1)
+      will-change: transform
+      transition: all 0.3s ease
+      span
+        display: block
+      &:last-child
+        margin-bottom: 0
+      &:hover
+        background: #333
+        color: #fff
+        transition: all 0.3s ease
+      &:active
+        transform: scale(0.9)
+        transition: all 0.1s ease
+
+
+  &-wrapper
+    position: relative
+    width: 100%
+    height: 100%
+    overflow: hidden
+    color: #000
+    background: #fff
+    margin: 0 auto
+    font-family: 'Roboto', sans-serif
+    line-height: 1
+    font-weight: 400
+    text-size-adjust: 100%
+    font-smooth: antialiased
+    transition: all 1s ease
+
+  &-inner
+    position: relative
+    width: 100%
+    margin: 0 auto
+    box-shadow: 5px 5px 100px rgba(0,0,0, .5)
+    overflow: hidden
+    background-size: auto
+    z-index: 1
+    background: #3d3d40
+    @include deskMin1900
+      width: 1920px
+
+  //modal
+  &-modal
+    position: relative
+    margin: 0 auto
+    color: #000
+    font-family: 'Roboto', sans-serif
+    box-shadow: 0 10px 30px rgba(0,0,0, .6)
+    box-sizing: border-box
+    text-size-adjust: none
+    background: #fff
+    background-size: 100% 100%
+    $modal: &
+
+    *
+      outline: none
+    *:after, *:before
+      content: normal
+
+    a, button
+      text-decoration: none
+      transition: all .5s ease
+      &:active
+        transform: scale(0.97)
+        transition: all .2s ease
+
+    &__body
+      position: relative
+      width: 100%
+      height: 100%
+      z-index: 2
+
+    &__close
+      width: 40px
+      height: 40px
+      position: absolute
+      border-radius: 50%
+      right: -20px
+      top: -20px
+      background: #999
+      cursor: pointer
+      z-index: 5
+      transform-origin: center
+      transform: scale(1) rotate(0)
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.25)
+      transition: .5s ease
+      &:after
+        content: ""
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        background: url(/assets/img/modal/close.png) center no-repeat
+        -webkit-background-size: 40%
+        background-size: 40%
+      &:hover
+        transform: scale(1) rotate(90deg)
+      &:active
+        transform: scale(0.8) rotate(90deg)
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+        transition: all .2s ease
+
+  &-sectionMain
+    position: relative
+    height: 100vh

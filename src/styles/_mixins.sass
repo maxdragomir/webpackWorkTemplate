@@ -17,3 +17,59 @@
 @mixin size($width, $height: $width)
   width: $width
   height: $height
+
+// responsive
+@mixin deskMin1900
+  @media only screen and (min-width: 1900px)
+    @content
+@mixin deskMax1800
+  @media only screen and (max-width: 1800px)
+    @content
+@mixin deskMax1700
+  @media only screen and (max-width: 1700px)
+    @content
+@mixin deskMax1600
+  @media only screen and (max-width: 1600px)
+    @content
+@mixin deskMax1500
+  @media only screen and (max-width: 1500px)
+    @content
+@mixin deskMax1400
+  @media only screen and (max-width: 1400px)
+    @content
+@mixin deskMax1300
+  @media only screen and (max-width: 1300px)
+    @content
+@mixin deskMax1200
+  @media only screen and (max-width: 1200px)
+    @content
+@mixin deskMax1100
+  @media only screen and (max-width: 1100px)
+    @content
+@mixin deskMax1000
+  @media only screen and (max-width: 1000px)
+    @content
+@mixin mobMax900
+  @media only screen and (max-width: 900px)
+    @content
+@mixin mobMax800
+  @media only screen and (max-width: 800px)
+    @content
+@mixin mobMax600
+  @media only screen and (max-width: 600px)
+    @content
+@mixin mobMax550
+  @media only screen and (max-width: 550px)
+    @content
+@mixin mobMax350
+  @media only screen and (max-width: 350px)
+    @content
+@mixin mobPopup
+  @media only screen and (max-height: 320px) and (max-width: 568px)
+    @content
+
+//ie fix
+@mixin ieFix
+  @media all and (-ms-high-contrast: none)
+    @content
+
