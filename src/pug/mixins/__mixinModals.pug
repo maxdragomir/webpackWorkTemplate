@@ -1,6 +1,7 @@
 
 //- Custom
 mixin addModalCustom(modalName)
+	- modalName = modalName || "custom"
 	div(class=`${lotteryName}-modal ${lotteryName}-modal__${modalName}`)
 		div(class=`${lotteryName}-modal__close`).arcticmodal-close
 		div(class=`${lotteryName}-modal__body`).is-animating
@@ -34,8 +35,10 @@ mixin addModalRules()
 			block
 
 
+
 //- Tickets
 mixin addModalTickets(countTickets)
+	- countTickets = countTickets || 100
 	div(class=`${lotteryName}-modal ${lotteryName}-modal__tickets`)
 		div(class=`${lotteryName}-modal__close`).arcticmodal-close
 		div(class=`${lotteryName}-modal__body`).is-animating
@@ -45,13 +48,16 @@ mixin addModalTickets(countTickets)
 			div(class=`${lotteryName}-modal__wrapper`)
 					div(class=`${lotteryName}-modal__scrollBlock ${lotteryName}-scroll`)
 						div(class=`${lotteryName}-modal__ticket`).win 79542362
-						- for (var i = 0; i <= countTickets-1; i++)
+						- for (var i = 0; i < countTickets; i++)
 							div(class=`${lotteryName}-modal__ticket`) 79542362
 
 
 //- Win
-mixin addModalWin(modalName, modalImg, modalText)
-	div(class=`${lotteryName}-modal ${lotteryName}-modal__win ${lotteryName}-modal__${modalName}`)
+mixin addModalWin(modalClass, modalText, modalImg)
+	- modalClass = modalClass || "no class name"
+	- modalText = modalText || "no text"
+	- modalImg = modalImg || "no img"
+	div(class=`${lotteryName}-modal ${lotteryName}-modal__win ${lotteryName}-modal__${modalClass}`)
 		div(class=`${lotteryName}-modal__close`).arcticmodal-close
 		div(class=`${lotteryName}-modal__body`).is-animating
 			div(class=`${lotteryName}-modal__info`)

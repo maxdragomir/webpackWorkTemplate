@@ -1,12 +1,12 @@
-include  ../mixins/all
-
-include ../layouts/_vars
+include ../mixins/all
 
 doctype html
 html(lang='en')
 	head
 		include _head
+
 	body(class=lotteryName)
+
 		// <?php include('../assets/header-new.php'); ?> -------------------------------------------------------------------
 		// -----------------------------------------------------------------------------------------------------------------
 		// -----------------------------------------------------------------------------------------------------------------
@@ -50,7 +50,8 @@ html(lang='en')
 		//- Scripts main end
 
 		//- Scripts page start
-		script(src="assets/js/libs/jQuery-viewport-checker.js")
+		script(src="assets/js/libs/scrollreveal.min.js")
+		//script(src="assets/js/libs/jQuery-viewport-checker.js")
 		script(src="assets/js/libs/slick-slider.js")
 		script(src="assets/js/libs/gsap-animation/TweenMax.min.js")
 		script(src="assets/js/libs/gsap-animation/ScrollMagic.min.js")

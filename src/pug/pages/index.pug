@@ -1,17 +1,27 @@
 extends ../layouts/_layout
-//include ../layouts/_vars
-
+block variables
 
 block content
-	+addBreadcrumbs("nameLottery")
 
-	include ../particles/main
+	//- Breadcrumbs
+	+addBreadcrumbs(lotteryName)
+
+
+
+
+	include ../particles/_sectionMain
+	include ../particles/_sectionSteps
+
+
+
 
 	//- Modal
 	div(style="display: none")
 		+addModalEnter()
 
+
 	//- Addition Btn
 	div(class=`${lotteryName}-addition`)
-		+addBtnModal("enter", "E")
+		+addBtnModal("E", "enter")
+
 

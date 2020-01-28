@@ -1,13 +1,13 @@
 
-
-//- доработать класс блока wrapper
 mixin addTicketsScroll(countTicket)
-	div(class=`${lotteryName}-wrapper ${lotteryName}-scroll`)
-		- for (var i = 0; i <= countTicket; i++)
+	- countTicket = countTicket || 100
+	div(class=`${lotteryName}-wrapperTickets ${lotteryName}-scroll`)
+		- for (var i = 0; i < countTicket; i++)
 			div(class=`${lotteryName}-ticket`) 79542362
 
 
 mixin addBreadcrumbs(nameLottery)
+	- nameLottery = nameLottery || "New"
 	ul.breadcrumbs
 		li
 			a(href="#") Home
@@ -18,11 +18,22 @@ mixin addBreadcrumbs(nameLottery)
 
 
 mixin addImg(classImg, urlImg)
-	div(class=`${lotteryName}-${classImg}`)
+	if classImg
+		- var noClass = `${lotteryName}-${classImg}`
+	else
+		- var noClass = ""
+
+	div(class=`${lotteryName}-img ${noClass}`)
 		img(src=urlImg)
 
+
 mixin addTimer(classTimer)
-	div(class=`${lotteryName}-timer ${lotteryName}-${classTimer}`)
+	if classTimer
+		- var noClass = `${lotteryName}-${classTimer}`
+	else
+		- var noClass = ""
+
+	div(class=`${lotteryName}-timer ${noClass}`)
 		ul(class=`${lotteryName}-timerList`)
 			li
 				b 11

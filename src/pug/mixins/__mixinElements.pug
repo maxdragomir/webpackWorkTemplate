@@ -1,0 +1,29 @@
+
+mixin addBtn(btnClass, btnText)
+	- btnClass = btnClass || "btn"
+	- btnText = btnText || "Сделать Ставку"
+	a(href="#!" class=`${lotteryName}-${btnClass} ${lotteryName}-${btnClass}--main`)
+		span(class=`${lotteryName}-btnInner`)
+			span= btnText
+
+
+mixin addShadowTitle(titleText, titleClass)
+	- titleText = titleText || "TITLE"
+	if titleClass
+		- var noClass = `${lotteryName}-${titleClass}`
+	else
+		- var noClass = ""
+
+	div(class=`${lotteryName}-title ${noClass}`)
+		span(data-shadow=titleText)
+			= titleText
+
+
+mixin addBtnModal(nameBtn, nameModalOpen)
+	- nameBtn = nameBtn || "P"
+	if nameModalOpen
+		button(data-modal=`.${lotteryName}-modal__${nameModalOpen}` class=`${lotteryName}-addition__btn ${lotteryName}-modalShow` type='button')
+			span= nameBtn
+	else
+		- var noClass = ""
+

@@ -1,3 +1,3 @@
-import './js/common'
-// import './js/default'
 import './styles/app.sass'
+import './js/default'
+import './js/common'
