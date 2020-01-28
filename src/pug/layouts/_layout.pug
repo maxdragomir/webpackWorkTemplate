@@ -1,19 +1,11 @@
-include  ../mixins/__mixinBlock
-include  ../mixins/__mixinElement
-include  ../mixins/__mixinModal
+include  ../mixins/all
 
-block variables
-	- var lotteryName = 'testTest'
-script.
-	let lotteryName = 'testTest'
-
+include ../layouts/_vars
 
 doctype html
 html(lang='en')
 	head
 		include _head
-
-
 	body(class=lotteryName)
 		// <?php include('../assets/header-new.php'); ?> -------------------------------------------------------------------
 		// -----------------------------------------------------------------------------------------------------------------
