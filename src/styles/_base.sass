@@ -11,7 +11,7 @@ body
     transform: scale(1)
     will-change: transform
     transition: all .5s ease
-    #{$active}
+    &:active
       transform: scale(0.95)
       transition: all .2s ease
 
@@ -59,7 +59,7 @@ body
     flex-flow: column
     z-index: 999
     transition: all 0.5s ease
-    &__Btn
+    &__btn
       position: relative
       display: flex
       justify-content: center
