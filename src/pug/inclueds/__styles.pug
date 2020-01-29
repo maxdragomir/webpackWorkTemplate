@@ -1,0 +1,15 @@
+//- Styles default start
+
+link(href="assets/styles/libs/perfect-scrollbar.css", rel="stylesheet")
+link(href="assets/styles/libs/arcticmodal.css", rel="stylesheet")
+link(href="assets/styles/libs/slick-slider.css", rel="stylesheet")
+link(href="assets/styles/libs/animate.css", rel="stylesheet")
+
+//- Styles default end
+
+//- Styles main start
+
+each css in htmlWebpackPlugin.files.css
+	link(href=css, rel='stylesheet')
+
+//- Styles main end

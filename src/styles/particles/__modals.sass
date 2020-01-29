@@ -1,0 +1,280 @@
+// Modal:
+// =====================================================================================================================
+
+
+.#{$lotteryName}
+  &-modal
+    position: relative
+    margin: 0 auto
+    color: #000
+    font-family: 'Roboto', sans-serif
+    box-shadow: 0 10px 30px rgba(0,0,0, .6)
+    box-sizing: border-box
+    text-size-adjust: none
+    background: #fff
+    background-size: 100% 100%
+    $modal: &
+
+    *
+      outline: none
+      &:after, &:before
+        content: normal
+
+    a, button
+      text-decoration: none
+      transition: all .5s ease
+      &:active
+        transform: scale(0.97)
+        transition: all .2s ease
+
+    &__body
+      position: relative
+      width: 100%
+      height: 100%
+      z-index: 2
+
+    //animation
+    .is-animating
+      opacity: 0
+      transform: translateY(50px)
+      transition: all .5s ease
+      &.show
+        opacity: 1
+        transform: translateY(0)
+        transition: all .5s ease .1s
+
+    &__close
+      width: 40px
+      height: 40px
+      position: absolute
+      border-radius: 50%
+      right: -20px
+      top: -20px
+      background: #999
+      cursor: pointer
+      z-index: 5
+      transform-origin: center
+      transform: scale(1) rotate(0)
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.25)
+      transition: .5s ease
+      &:after
+        content: ""
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        background: url(/assets/img/modal/close.png) center no-repeat
+        -webkit-background-size: 40%
+        background-size: 40%
+      &:hover
+        transform: scale(1) rotate(90deg)
+      &:active
+        transform: scale(0.8) rotate(90deg)
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+        transition: all .2s ease
+
+
+    //enter
+    &__enter
+      position: relative
+      width: 500px
+      min-height: 234px
+      display: flex
+      justify-content: center
+      align-items: center
+      padding: 20px 10px
+    &__enter &
+      &__text
+        text-align: center
+        font-size: 20px
+        font-weight: 400
+        line-height: 1.5
+        margin-top: 30px
+        font-style: italic
+        text-transform: uppercase
+        color: #333
+        & > span
+          display: block
+        &Color
+          font-weight: 900
+      &__action
+        position: relative
+        display: flex
+        justify-content: center
+        align-items: center
+        margin: 30px 0 0
+
+      &__btn--main
+        position: relative
+        display: block
+        cursor: pointer
+        outline: none
+        padding: 0
+        border: 0
+        margin: 0 15px
+        text-align: center
+        color: #fff
+        background: #2e8514
+        border-radius: 50px
+        font-size: 18px
+        font-weight: 600
+        text-transform: uppercase
+        transform: translate3d(0, 0, 0)
+        backface-visibility: hidden
+        will-change: transform
+        box-shadow: 5px 5px 24px 3px rgba(0, 0, 0, .25)
+        z-index: 1
+        span
+          position: relative
+          display: block
+          padding: 17px 60px
+          z-index: 1
+        &:before
+          content: ""
+          position: absolute
+          top: 50%
+          left: 50%
+          width: 100%
+          height: 100%
+          margin: 0 auto
+          background: linear-gradient(180deg, #4de222 0%, #2e8514 100%)
+          z-index: 1
+          border-radius: 50px
+          opacity: 1
+          transform: translate(-50%, -50%)
+          transition: all 0.5s ease
+        &:after
+          content: ''
+          position: absolute
+          left: 50%
+          top: 50%
+          transform: translate(-50%, -50%) scale(1)
+          width: 100%
+          height: 100%
+          background: #2e8514
+          border-radius: 50px
+          z-index: -1
+          opacity: .5
+          transition: all .5s ease
+          animation: fillActive .6s linear forwards
+          pointer-events: none
+        &:hover
+          box-shadow: 10px 10px 20px 0 rgba(0, 0, 0, .25)
+          transition: all .5s ease
+          &:before
+            animation: opacity .6s ease infinite forwards
+          &:after
+            animation: fill .6s ease infinite forwards
+        &:active
+          box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, .25)
+          transition: all .2s ease
+          &:before
+            animation: opacityActive .6s linear forwards
+          &:after
+            animation: fillActive .6s linear forwards
+
+      &__btn--secondary
+        position: relative
+        display: block
+        cursor: pointer
+        outline: none
+        padding: 0
+        border: 0
+        margin: 0 15px
+        text-align: center
+        color: #000
+        background: #ddd
+        font-size: 14px
+        font-weight: 600
+        text-transform: uppercase
+        transform: translate3d(0, 0, 0)
+        backface-visibility: hidden
+        will-change: transform
+        border-radius: 50px
+        box-shadow: 5px 5px 24px 3px rgba(0, 0, 0, .25)
+        z-index: 1
+        transition: all .5s ease
+        span
+          position: relative
+          display: block
+          padding: 12px 31px
+          z-index: 1
+        &:before
+          content: ""
+          position: absolute
+          top: 50%
+          left: 50%
+          width: 100%
+          height: 100%
+          margin: 0 auto
+          background: linear-gradient(180deg, #fff 0%, #999999 100%)
+          z-index: 1
+          opacity: 1
+          transform: translate(-50%, -50%)
+          border-radius: 50px
+          transition: all 0.5s ease
+        &:hover
+          background: #fff
+          box-shadow: 10px 10px 20px 0 rgba(0, 0, 0, .25)
+          transition: all .5s ease
+          &:before
+            opacity: 0
+            transition: all .5s ease
+        &:active
+          box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, .25)
+          transition: all .2s ease
+
+    //rules
+    &__rules
+      width: 700px
+      height: auto
+      padding: 20px 10px
+      ul, ol, p
+        padding: 0
+        margin: 0
+    &__rules &
+      &__scrollBlock
+        position: relative
+        max-height: 310px
+        overflow: hidden
+        font-size: 16px
+        padding: 0 15px 0 15px
+        color: #333
+      &__title
+        font-size: 40px
+        text-align: center
+        color: #333
+        font-weight: 900
+      &__text
+        font-size: 14px
+        &--color
+          color: red
+        &--big
+          font-size: 20px
+          margin-bottom: 10px
+          font-weight: bold
+          color: #333
+          &:not(:first-child)
+            margin-top: 20px
+        &--normal
+          font-size: 16px
+          margin-bottom: 0
+        &--medium
+          font-size: 18px
+          margin-bottom: 10px
+        &--italic
+          font-style: italic
+
+      &__list
+        padding-left: 20px
+        li
+          margin-bottom: 10px
+        &--disc
+          list-style: disc
+          padding-left: 30px
+        &--decimal
+          list-style: decimal
+          padding-left: 30px
+        &--none
+          list-style: none

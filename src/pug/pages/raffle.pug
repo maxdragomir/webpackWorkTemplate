@@ -1,9 +1,28 @@
-//extends ../layouts/_layout
-//
-//block variables
-//	- var pageClass = ''
-//
-//block content
+extends ../layouts/__main
+
+block vars
+	-lotteryName = 'testTest'
+	-jsReveal = 'js-animate'
+
+block content
+
+	section(class=`${lotteryName}-sectionMain`)
+		h1 RAFFLE
 
 
 
+
+
+
+	// -------------------------------------------------------------------------------------------------------------------
+	// -------------------------------------------------------------------------------------------------------------------
+
+	//- Addition Btn start
+	div(class=`${lotteryName}-addition`)
+		+addBtnModal("E", "enter")
+	//- Addition Btn end
+
+	//- Modal start
+	div(style="display: none")
+		+addModalEnter()
+	//- Modal end

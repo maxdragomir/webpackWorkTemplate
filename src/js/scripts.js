@@ -1,6 +1,9 @@
-// General:
+// Scripts:
 // =====================================================================================================================
 
-import './js/default'
-import './js/scripts'
-import './styles/app.sass'
+
+// let add = (a, b) => a+b;
+// console.log(add(10,5));
+
+console.log(`lol kek ${lotteryName}`);
+

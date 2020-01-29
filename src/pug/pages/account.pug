@@ -1,8 +1,10 @@
-//extends ../layouts/_layout
-//
-//block variables
-//	var lotteryName = 'testTest'
-//
-//block content
-//
-//
+extends ../layouts/__main
+
+block vars
+	-lotteryName = 'testTest'
+	-jsReveal = 'js-animate'
+
+block content
+
+	section(class=`${lotteryName}-sectionMain`)
+		h1 ACCOUNT

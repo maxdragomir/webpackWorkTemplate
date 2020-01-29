@@ -2,9 +2,6 @@
 // =====================================================================================================================
 
 
-body
-  font-family: Roboto, sans-serif
-
 .#{$lotteryName}
   a
     text-decoration: none
@@ -45,10 +42,8 @@ body
       &:hover
         text-decoration: none
 
-
   .no-animate
     animation: none !important
-
   &-addition
     position: fixed
     height: 100%
@@ -92,7 +87,6 @@ body
         transform: scale(0.9)
         transition: all 0.1s ease
 
-
   &-wrapper
     position: relative
     width: 100%
@@ -117,10 +111,44 @@ body
     background-size: auto
     z-index: 1
     background: #3d3d40
-    @include deskMin1900
+    @include mediaMixin(min, 1900)
       width: 1920px
+
+  &-scroll
+    .ps-scrollbar-y-rail
+      position: absolute
+      display: block
+      width: 1px !important
+      background: #e5e5e5 !important
+      opacity: 1 !important
+      right: 6px !important
+    .ps-scrollbar-y
+      position: absolute
+      display: block
+      background: #333 !important
+      width: 7px !important
+      opacity: 1 !important
+      right: -3px !important
+      cursor: pointer
+      border-radius: 2px !important
+      transform: scale(1)
+      transition: transform .5s ease
+    .ps-scrollbar-y:hover, .ps-scrollbar-y:active
+      background: #333 !important
+    .ps-scrollbar-x-rail
+      display: none !important
 
 
   section
     position: relative
+    display: block
     height: 100vh
+    h1
+      position: absolute
+      top: 50%
+      left: 50%
+      color: #fff
+      font-size: 100px
+      text-transform: uppercase
+      transform: translate(-50%, -50%)
+
