@@ -5,13 +5,6 @@ html(lang='en')
 	head
 		include _head
 
-	body(class=lotteryName)
-
-		// <?php include('../assets/header-new.php'); ?> -------------------------------------------------------------------
-		// -----------------------------------------------------------------------------------------------------------------
-		// -----------------------------------------------------------------------------------------------------------------
-
-
 		//- Styles main start
 		link(href="assets/styles/libs/perfect-scrollbar.css")
 		link(href="assets/styles/libs/jquery.arcticmodal-0.3.css")
@@ -20,7 +13,16 @@ html(lang='en')
 
 		//- Styles page start
 		link(href="assets/styles/libs/animate.css")
+
+		each css in htmlWebpackPlugin.files.css
+			link(href=css, rel='stylesheet')
 		//- Styles page end
+
+	body(class=lotteryName)
+
+		// <?php include('../assets/header-new.php'); ?> -------------------------------------------------------------------
+		// -----------------------------------------------------------------------------------------------------------------
+		// -----------------------------------------------------------------------------------------------------------------
 
 
 		// -----------------------------------------------------------------------------------------------------------------
@@ -57,6 +59,8 @@ html(lang='en')
 		script(src="assets/js/libs/gsap-animation/ScrollMagic.min.js")
 		script(src="assets/js/libs/gsap-animation/animation.gsap.js")
 		script(src="assets/js/libs/gsap-animation/debug.addIndicators.min.js")
+		each js in htmlWebpackPlugin.files.js
+			script(type='text/javascript', src=js, defer)
 		//- Scripts page end
 
 
