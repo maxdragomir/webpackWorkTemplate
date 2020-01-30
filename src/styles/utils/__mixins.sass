@@ -25,7 +25,8 @@
     @content
 
 //ie fix
-@mixin ieFix
+@mixin ieFix($color)
   @media all and (-ms-high-contrast: none)
-    @content
+    background: transparent !important
+    color: #{$color} !important
 

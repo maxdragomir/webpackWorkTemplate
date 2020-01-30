@@ -33,7 +33,7 @@
       height: 100%
       z-index: 2
 
-    //animation
+    // animating
     .is-animating
       opacity: 0
       transform: translateY(50px)
@@ -43,6 +43,7 @@
         transform: translateY(0)
         transition: all .5s ease .1s
 
+    // close
     &__close
       width: 40px
       height: 40px
@@ -57,15 +58,14 @@
       transform: scale(1) rotate(0)
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.25)
       transition: .5s ease
-      &:after
-        content: ""
+      &Img
         position: absolute
         top: 0
         bottom: 0
         left: 0
         right: 0
-        background: url(/assets/img/modal/close.png) center no-repeat
-        -webkit-background-size: 40%
+        background-position: center
+        background-repeat: no-repeat
         background-size: 40%
       &:hover
         transform: scale(1) rotate(90deg)
@@ -75,7 +75,7 @@
         transition: all .2s ease
 
 
-    //enter
+    // enter
     &__enter
       position: relative
       width: 500px
@@ -91,7 +91,6 @@
         font-weight: 400
         line-height: 1.5
         margin-top: 30px
-        font-style: italic
         text-transform: uppercase
         color: #333
         & > span
@@ -225,7 +224,8 @@
           box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, .25)
           transition: all .2s ease
 
-    //rules
+
+    // rules
     &__rules
       width: 700px
       height: auto
@@ -267,14 +267,54 @@
           font-style: italic
 
       &__list
-        padding-left: 20px
+        padding-left: 15px
         li
           margin-bottom: 10px
         &--disc
           list-style: disc
-          padding-left: 30px
+          padding-left: 20px
         &--decimal
           list-style: decimal
-          padding-left: 30px
+          padding-left: 20px
         &--none
           list-style: none
+
+    //tickets
+    &__tickets
+      width: 740px
+      height: auto
+      padding: 20px
+    &__tickets &
+      &__title
+        font-size: 36px
+        text-align: center
+        text-transform: uppercase
+        font-weight: 600
+        color: #333
+        margin: 20px 0
+      &__wrapper
+        position: relative
+        margin-top: 10px
+        padding: 10px
+        border: 1px solid #999
+        background: #f3f3f3
+      &__scrollBlock
+        position: relative
+        display: flex
+        flex-flow: wrap
+        list-style: none
+        width: 100%
+        max-height: 210px
+        overflow: hidden
+        font-style: normal
+      &__ticket
+        display: flex
+        justify-content: center
+        align-items: center
+        margin: 5px 0 0 0
+        width: 100px
+        height: 30px
+        font-size: 15px
+        color: #333
+        &.win
+          color: red
