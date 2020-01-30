@@ -1,0 +1,15 @@
+//- Mixin element shadowTitle
+//- ====================================================================================================================
+
+
+mixin addShadowTitle(titleText, titleClass)
+	- titleText = titleText || "TITLE"
+
+	if titleClass
+		- var noClass = `${lotteryName}-${titleClass}`
+	else
+		- var noClass = ""
+
+	div(class=`${lotteryName}-title ${noClass}`)
+		span(data-shadow=titleText)
+			= titleText

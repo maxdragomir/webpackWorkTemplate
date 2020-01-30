@@ -3,31 +3,31 @@
 
 
 // Btn main
-@keyframes fillActive
+@include animation(fillActive)
   0%
     opacity: 0.2
     transform: translate(-50%, -50%) scale(1.1, 1.3)
   100%
     opacity: 0
     transform: translate(-50%, -50%) scale(1)
-@keyframes fill
+@include animation(fill)
   0%
     opacity: 1
     transform: translate(-50%, -50%) scale(1)
   100%
     opacity: 0
     transform: translate(-50%, -50%) scale(1.1, 1.3)
-@keyframes opacity
+@include animation(opacity)
   0%
     opacity: 1
   100%
     opacity: .8
-@keyframes opacityActive
+@include animation(opacityActive)
   0%
     opacity: 1
   100%
     opacity: .8
-@keyframes light
+@include animation(light)
   20%,100%
     width: 50%
     opacity: 0

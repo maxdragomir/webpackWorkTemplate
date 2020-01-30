@@ -1,0 +1,20 @@
+//- Mixin modal win
+//- ====================================================================================================================
+
+mixin addModalWin(modalClass, modalText, modalImg)
+	- modalClass = modalClass || "no class name"
+	- modalText = modalText || "no text"
+	- modalImg = modalImg || "no img"
+
+	div(class=`${lotteryName}-modal ${lotteryName}-modal__win ${lotteryName}-modal__${modalClass}`)
+		div(class=`${lotteryName}-modal__close`).arcticmodal-close
+			div(class=`${lotteryName}-modal__closeImg`, style="background-image: url(assets/img/modal/close.png)")
+		div(class=`${lotteryName}-modal__body`).is-animating
+			div(class=`${lotteryName}-modal__info`)
+				div(class=`${lotteryName}-modal__title`)
+					span Вы выиграли!
+				div(class=`${lotteryName}-modal__wrapper`)
+					div(class=`${lotteryName}-modal__img`)
+						img(src=modalImg)
+					div(class=`${lotteryName}-modal__text`)
+						span= modalText

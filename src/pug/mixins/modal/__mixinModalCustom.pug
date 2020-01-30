@@ -1,0 +1,10 @@
+//- Mixin modal custom
+//- ====================================================================================================================
+
+mixin addModalCustom(modalName)
+	- modalName = modalName || "custom"
+
+	div(class=`${lotteryName}-modal ${lotteryName}-modal__${modalName}`)
+		div(class=`${lotteryName}-modal__close`).arcticmodal-close
+		div(class=`${lotteryName}-modal__body`).is-animating
+

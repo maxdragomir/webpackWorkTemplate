@@ -3,11 +3,12 @@ extends ../layouts/__main
 block vars
 	-lotteryName = 'testTest'
 	-jsReveal = 'js-animate'
+	-lotteryPage = 'raffle'
 
 block content
 
 	section(class=`${lotteryName}-sectionMain`)
-		h1 RAFFLE
+		h1(class=`${lotteryName}-title`)= lotteryPage
 
 
 

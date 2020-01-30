@@ -1,0 +1,20 @@
+//- Mixin modal enter
+//- ====================================================================================================================
+
+mixin addModalEnter()
+	div(class=`${lotteryName}-modal ${lotteryName}-modal__enter`)
+		div(class=`${lotteryName}-modal__close`).arcticmodal-close
+			div(class=`${lotteryName}-modal__closeImg`, style="background-image: url(assets/img/modal/close.png)")
+		div(class=`${lotteryName}-modal__body`).is-animating
+			div(class=`${lotteryName}-modal__text`)
+				span Для участия Вам необходимо
+				span
+					span(class=`${lotteryName}-modal__textColor`) войти
+					| или
+					span(class=`${lotteryName}-modal__textColor`) зарегистрироваться
+					| !
+			div(class=`${lotteryName}-modal__action`)
+				a(href="#!" class=`${lotteryName}-modal__btn ${lotteryName}-modal__btn--main`)
+					span Войти
+				a(href="#!" class=`${lotteryName}-modal__btn ${lotteryName}-modal__btn--secondary`)
+					span Регистрация

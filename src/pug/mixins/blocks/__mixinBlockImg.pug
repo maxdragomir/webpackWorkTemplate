@@ -1,0 +1,12 @@
+//- Mixin block img
+//- ====================================================================================================================
+
+
+mixin addImg(classImg, urlImg)
+	if classImg
+		- var noClass = `${lotteryName}-${classImg}`
+	else
+		- var noClass = ""
+
+	div(class=`${lotteryName}-img ${noClass}`)
+		img(src=urlImg)

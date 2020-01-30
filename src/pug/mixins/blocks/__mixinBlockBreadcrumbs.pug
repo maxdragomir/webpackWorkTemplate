@@ -1,0 +1,13 @@
+//- Mixin block breadcrumbs
+//- ====================================================================================================================
+
+
+mixin addBreadcrumbs(nameLottery)
+	- nameLottery = nameLottery || "New"
+	ul.breadcrumbs
+		li
+			a(href="#") Home
+		li
+			a(href="#") Lottery
+		li
+			= nameLottery

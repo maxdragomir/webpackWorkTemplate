@@ -3,13 +3,15 @@ extends ../layouts/__main
 block vars
 	-lotteryName = 'testTest'
 	-jsReveal = 'js-animate'
+	-lotteryPage = 'index'
 
 block content
 
 	section(class=`${lotteryName}-sectionMain`)
 		div(class=`${lotteryName}-container`)
 			+addTicketsBtn()
-			h1(class=`${lotteryName}-title`) INDEX
+			h1(class=`${lotteryName}-title`)= lotteryPage
+			//+addImg("test", "assets/img/first.jpg")
 
 
 
@@ -18,8 +20,6 @@ block content
 
 
 
-	// -------------------------------------------------------------------------------------------------------------------
-	// -------------------------------------------------------------------------------------------------------------------
 
 	//- Addition Btn start
 	div(class=`${lotteryName}-addition`)

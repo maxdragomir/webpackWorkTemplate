@@ -21,7 +21,7 @@
     z-index: 2
 
     li
-      color: #000
+      color: #fff
       text-transform: uppercase
       display: inline-block
       position: relative
@@ -46,7 +46,6 @@
     animation: none !important
   &-addition
     position: fixed
-    height: 100%
     left: 0
     bottom: 5%
     display: flex
@@ -89,7 +88,7 @@
 
   &-wrapper
     position: relative
-    width: 100%
+    @include size(100%)
     overflow: hidden
     color: #000
     background: #fff
@@ -113,6 +112,7 @@
     background: #3d3d40
     @include mediaMixin(min, 1900)
       width: 1920px
+
 
   &-scroll
     .ps-scrollbar-y-rail
@@ -141,7 +141,7 @@
 
   &-wrapperBtn
     position: absolute
-    top: 25px
+    top: 30px
     right: 25px
     z-index: 5
 
@@ -153,13 +153,13 @@
     padding: 0
     border: 0
     text-align: center
-    background: #333
+    background: #fff
     border-radius: 50px
     transform: translate3d(-50%, -50%, 0)
     backface-visibility: hidden
     box-shadow: 10px 10px 24px 3px rgba(0, 0, 0, .25)
     z-index: 2
-    transition: all .2s ease-in-out
+    transition: all .2s ease
     span
       position: relative
       display: block
@@ -172,37 +172,17 @@
       z-index: 1
       will-change: transform
       color: #333
-      transition: all .5s ease-in-out
-
-    &:before
-      content: ""
-      position: absolute
-      top: 50%
-      left: 50%
-      width: 100%
-      height: 100%
-      margin: 0 auto
-      background: #eee
-      z-index: 1
-      border-radius: 50px
-      opacity: 1
-      transform: translate(-50%, -50%)
-      transition: all .5s ease-in-out
+      transition: all .5s ease
 
     &:hover
+      background: #999
       box-shadow: 10px 10px 20px 0 rgba(0, 0, 0, .25)
-      transition: all .2s ease-in-out
+      transition: all .2s ease
       span
         color: #fff
-      &:before
-        opacity: 0
-        transition: all .2s ease-in-out
     &:active
       box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, .25)
-      transition: all .2s ease-in-out
-      &:before
-        opacity: 0
-        transition: all .2s ease-in-out
+      transition: all .2s ease
 
 
   &-container
@@ -226,10 +206,7 @@
     font-weight: 900
     text-align: center
     text-transform: uppercase
-    background: linear-gradient(to top, #febe0d 0%, #f6ce60 70%)
-    -webkit-background-clip: text
-    -webkit-text-fill-color: transparent
-    @include ieFix(#febe0d)
+    @include gradientText(top, #febe0d,  0%, #f6ce60, 100%)
 
   section
     position: relative

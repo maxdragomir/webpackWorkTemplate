@@ -1,0 +1,10 @@
+//- Mixin modal rules
+//- ====================================================================================================================
+
+mixin addModalRules()
+	div(class=`${lotteryName}-modal ${lotteryName}-modal__rules`)
+		div(class=`${lotteryName}-modal__close`).arcticmodal-close
+			div(class=`${lotteryName}-modal__closeImg`, style="background-image: url(assets/img/modal/close.png)")
+		div(class=`${lotteryName}-modal__body`).is-animating
+			div(class=`${lotteryName}-modal__scrollBlock ${lotteryName}-scroll`)
+				block

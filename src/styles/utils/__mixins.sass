@@ -24,9 +24,20 @@
   @media only screen and (#{$minMax}-width: #{$width}px)
     @content
 
-//ie fix
+// ieFix
 @mixin ieFix($color)
   @media all and (-ms-high-contrast: none)
     background: transparent !important
     color: #{$color} !important
 
+// keyframes
+@mixin animation($name)
+  @keyframes #{$name}
+    @content
+
+// gradientText
+@mixin gradientText($direction, $fColor, $fColorPercent, $sColor, $sColorPercent)
+  background: linear-gradient(to #{$direction}, #{$fColor} #{$fColorPercent}, #{$sColor} #{$sColorPercent})
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  @include ieFix(#{$fColor})

@@ -1,0 +1,18 @@
+//- Mixin modal tickets
+//- ====================================================================================================================
+
+mixin addModalTickets(countTickets)
+	- countTickets = countTickets || 100
+
+	div(class=`${lotteryName}-modal ${lotteryName}-modal__tickets`)
+		div(class=`${lotteryName}-modal__close`).arcticmodal-close
+			div(class=`${lotteryName}-modal__closeImg`, style="background-image: url(assets/img/modal/close.png)")
+		div(class=`${lotteryName}-modal__body`).is-animating
+			div(class=`${lotteryName}-modal__title`)
+				span Мои билеты:
+				span 15 800
+			div(class=`${lotteryName}-modal__wrapper`)
+				div(class=`${lotteryName}-modal__scrollBlock ${lotteryName}-scroll`)
+					div(class=`${lotteryName}-modal__ticket`).win 79542362
+					- for (var i = 0; i < countTickets; i++)
+						div(class=`${lotteryName}-modal__ticket`) 79542362
