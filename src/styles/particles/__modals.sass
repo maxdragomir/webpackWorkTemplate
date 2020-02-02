@@ -32,6 +32,7 @@
       height: 100%
       z-index: 2
 
+
     // animating
     .is-animating
       opacity: 0
@@ -41,6 +42,7 @@
         opacity: 1
         transform: translateY(0)
         transition: all .5s ease .1s
+
 
     // close
     &__close
@@ -76,7 +78,6 @@
 
     // enter
     &__enter
-      position: relative
       width: 500px
       min-height: 234px
       display: flex
@@ -302,3 +303,44 @@
         color: #333
         &.win
           color: red
+
+    &__win
+      width: 500px
+      min-height: 230px
+    &__win &
+      &__info
+        display: block
+        height: 100%
+        font-family: Roboto, sans-serif
+        text-align: center
+        line-height: 1
+        span
+          display: block
+      &__img
+        margin: 0 10px 0 1px
+        img
+          max-width: 100%
+      &__title
+        font-size: 30px
+        text-transform: uppercase
+        line-height: 1
+        font-weight: 900
+        padding-top: 30px
+      &__text
+        text-align: left
+        text-transform: uppercase
+        color: inherit
+        line-height: 1.1
+        span
+          display: block
+          font-size: 20px
+          font-weight: 400
+        b
+          display: block
+          font-size: 30px
+          font-weight: 900
+      &__wrapper
+        display: flex
+        justify-content: flex-start
+        align-items: center
+        padding-top: 10px

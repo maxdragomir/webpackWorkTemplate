@@ -1,9 +1,10 @@
 //- Mixin modal win
 //- ====================================================================================================================
 
-mixin addModalWin(modalClass, modalText, modalImg)
+mixin addModalWin(modalClass, modalText, modalText2, modalImg)
 	- modalClass = modalClass || "no class name"
 	- modalText = modalText || "no text"
+	- modalText2 = modalText2 || ""
 	- modalImg = modalImg || "no img"
 
 	div(class=`${lotteryName}-modal ${lotteryName}-modal__win ${lotteryName}-modal__${modalClass}`)
@@ -17,4 +18,5 @@ mixin addModalWin(modalClass, modalText, modalImg)
 					div(class=`${lotteryName}-modal__img`)
 						img(src=modalImg)
 					div(class=`${lotteryName}-modal__text`)
-						span= modalText
+						b= modalText
+						span= modalText2
