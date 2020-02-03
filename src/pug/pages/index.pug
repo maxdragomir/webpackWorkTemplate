@@ -12,11 +12,7 @@ block content
 			+addTicketsBtn()
 			h1(class=`${lotteryName}-title`)= lotteryPage
 			//+addImg("test", "assets/img/first.jpg")
-
-
-
-
-
+			+addTimer("timerClass")
 
 
 
@@ -27,6 +23,7 @@ block content
 		+addBtnModal("R", "rules")
 		+addBtnModal("T", "tickets")
 		+addBtnModal("W1", "win1")
+		+addBtnModal("W2", "win2")
 	//- Addition Btn end
 
 	//- Modal start
@@ -88,7 +85,6 @@ block content
 						span(class=`${lotteryName}-modal__text--color`) 10 место:
 						| 100 рублей
 
-
 				p(class=`${lotteryName}-modal__text--big`) Правила и условия:
 				ol(class=`${lotteryName}-modal__list ${lotteryName}-list--decimal`)
 					li Принимая участие в акции, вы подтверждаете, что ознакомились с правилами ее проведения и принимаете их.
@@ -109,9 +105,13 @@ block content
 					li Если MELBET обнаружит, что он стал жертвой мошенничества или отмывания денег, то он имеет право закрыть аккаунт пользователя и заморозить остаток на счету.
 					li Любые решения компании относительно данной акции являются окончательными и обязательными для исполнения.
 
-
-
 		+addModalTickets(100)
-		+addModalWin("win1", "text", "texttext")
+		+addModalWin("win1", "https://picsum.photos/150")
+			span Lorem ipsum dolor
+			b lorem
+		+addModalWin("win2", "https://picsum.photos/150")
+			span Lorem ipsum dolor sit
+			b Lorem ipsum.
+
 
 	//- Modal end

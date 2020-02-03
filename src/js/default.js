@@ -25,43 +25,43 @@ $(document).ready(function() {
 		$(modalOpen).arcticmodal({
 			afterOpen: function(data, el) {
 				var scroll = $(el).find(`.${lotteryName}-scroll`);
-
-				$(`.${lotteryName}-modal__body`).addClass("show");
 				if (scroll.length) scroll.perfectScrollbar("update");
+
+				$(el).addClass(`${lotteryName}-modal--show`);
 			},
-			beforeClose: function() {
-				$(`.${lotteryName}-modal__body`).removeClass("show");
+			beforeClose: function(data, el) {
+				$(el).removeClass(`${lotteryName}-modal--show`);
 			}
 		});
 	});
 	$(`.${lotteryName}-modal__${hash}`).arcticmodal({
 		afterOpen: function(data, el) {
-			var scroll = $(el).find(`.${lotteryName}-scroll`);
-
-			$(`.${lotteryName}-modal__body`).addClass("show");
+			var scroll = modal.find(`.${lotteryName}-scroll`);
 			if (scroll.length) scroll.perfectScrollbar("update");
+
+			$(el).addClass(`${lotteryName}-modal--show`);
 		},
-		beforeClose: function() {
-			$(`.${lotteryName}-modal__body`).removeClass("show");
+		beforeClose: function(data, el) {
+			$(el).removeClass(`${lotteryName}-modal--show`);
 		}
 	});
 
 	// Timers
 	let timerDate = new Date(2030, 12, 12, 0, 15, 0);
-	$(`.${lotteryName}-timer`).countdown({
-		until: timerDate,
-		padZeroes: true,
-		format: "DHMS",
-		labels: ["Years", "Months", "Weeks", "дней", "часов", "минут", "секунд"],
-		labels1: ["Year", "Month", "Week", "дней", "часов", "минут", "секунд"],
-		labels2: ["Year", "Month", "Week", "дней", "часов", "минут", "секунд"],
-		layout: `<ul class="${lotteryName}-timerList">
-            <li><b>{d10}{d1}</b> <span>{dl}</span></li>
-            <li><b>{h10}{h1}</b> <span>{hl}</span></li>
-            <li><b>{m10}{m1}</b> <span>{ml}</span></li>
-            <li><b>{s10}{s1}</b> <span>{sl}</span></li>
-            </ul>`
-	});
+	// $(`.${lotteryName}-timer`).countdown({
+	// 	until: timerDate,
+	// 	padZeroes: true,
+	// 	format: "DHMS",
+	// 	labels: ["Years", "Months", "Weeks", "дней", "часов", "минут", "секунд"],
+	// 	labels1: ["Year", "Month", "Week", "дней", "часов", "минут", "секунд"],
+	// 	labels2: ["Year", "Month", "Week", "дней", "часов", "минут", "секунд"],
+	// 	layout: `<ul class="${lotteryName}-timerList">
+	//         <li><b>{d10}{d1}</b> <span>{dl}</span></li>
+	//         <li><b>{h10}{h1}</b> <span>{hl}</span></li>
+	//         <li><b>{m10}{m1}</b> <span>{ml}</span></li>
+	//         <li><b>{s10}{s1}</b> <span>{sl}</span></li>
+	//         </ul>`
+	// });
 
 	// Animation ScrollReveal
 	if (window.ScrollReveal) {

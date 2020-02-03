@@ -5,7 +5,8 @@ mixin addModalEnter()
 	div(class=`${lotteryName}-modal ${lotteryName}-modal__enter`)
 		div(class=`${lotteryName}-modal__close`).arcticmodal-close
 			div(class=`${lotteryName}-modal__closeImg`, style="background-image: url(assets/img/modal/close.png)")
-		div(class=`${lotteryName}-modal__body`).is-animating
+		div(class=`${lotteryName}-modal__bg`)
+		div(class=`${lotteryName}-modal__body`)
 			div(class=`${lotteryName}-modal__text`)
 				span Для участия Вам необходимо
 				span

@@ -1,7 +1,24 @@
-// Index page:
-// =====================================================================================================================
+/*! Index page */
+/*======================================================================================================================*/
 
 
-.#{$lotteryName}-#{$lotteryPageAccount}
+.#{$lotteryName}-wrapper
+  &.#{$lotteryName}-#{$lotteryPageIndex}
 
-  .#{$lotteryName}
+    section
+      position: relative
+      display: block
+      height: 100vh
+      h1
+        position: relative
+        display: flex
+        align-items: center
+        justify-content: center
+        color: #fff
+        font-size: 100px
+        text-transform: uppercase
+        height: 50vh
+
+    .#{$lotteryName}
+      &-title
+        @include gradientText(top, #febe0d,  0%, #f6ce60, 100%)

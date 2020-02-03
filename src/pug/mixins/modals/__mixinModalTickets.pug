@@ -7,7 +7,8 @@ mixin addModalTickets(countTickets)
 	div(class=`${lotteryName}-modal ${lotteryName}-modal__tickets`)
 		div(class=`${lotteryName}-modal__close`).arcticmodal-close
 			div(class=`${lotteryName}-modal__closeImg`, style="background-image: url(assets/img/modal/close.png)")
-		div(class=`${lotteryName}-modal__body`).is-animating
+		div(class=`${lotteryName}-modal__bg`)
+		div(class=`${lotteryName}-modal__body`)
 			div(class=`${lotteryName}-modal__title`)
 				span Мои билеты:
 				span 15 800
