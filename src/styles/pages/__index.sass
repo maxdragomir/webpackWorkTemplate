@@ -2,23 +2,21 @@
 /*======================================================================================================================*/
 
 
-.#{$lotteryName}-wrapper
-  &.#{$lotteryName}-#{$lotteryPageIndex}
+.#{$lotteryName}
 
-    section
+  section
+    h1
       position: relative
-      display: block
-      height: 100vh
-      h1
-        position: relative
-        display: flex
-        align-items: center
-        justify-content: center
-        color: #fff
-        font-size: 100px
-        text-transform: uppercase
-        height: 50vh
+      color: #fff
+      font-size: 100px
+      text-transform: uppercase
 
-    .#{$lotteryName}
-      &-title
-        @include gradientText(top, #febe0d,  0%, #f6ce60, 100%)
+  &-titleWrapper
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: center
+    min-height: 10vh
+
+  &-title
+    @include gradientText(top, #febe0d,  0%, #f6ce60, 100%)

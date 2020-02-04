@@ -48,34 +48,40 @@ $(document).ready(function() {
 
 	// Timers
 	let timerDate = new Date(2030, 12, 12, 0, 15, 0);
-	// $(`.${lotteryName}-timer`).countdown({
-	// 	until: timerDate,
-	// 	padZeroes: true,
-	// 	format: "DHMS",
-	// 	labels: ["Years", "Months", "Weeks", "дней", "часов", "минут", "секунд"],
-	// 	labels1: ["Year", "Month", "Week", "дней", "часов", "минут", "секунд"],
-	// 	labels2: ["Year", "Month", "Week", "дней", "часов", "минут", "секунд"],
-	// 	layout: `<ul class="${lotteryName}-timerList">
-	//         <li><b>{d10}{d1}</b> <span>{dl}</span></li>
-	//         <li><b>{h10}{h1}</b> <span>{hl}</span></li>
-	//         <li><b>{m10}{m1}</b> <span>{ml}</span></li>
-	//         <li><b>{s10}{s1}</b> <span>{sl}</span></li>
-	//         </ul>`
-	// });
+	$(`.${lotteryName}-timer__wrapper`).countdown({
+		until: timerDate,
+		padZeroes: true,
+		format: "DHMS",
+		labels: ["Years", "Months", "Weeks", "дней", "часов", "минут", "секунд"],
+		labels1: ["Year", "Month", "Week", "дней", "часов", "минут", "секунд"],
+		labels2: ["Year", "Month", "Week", "дней", "часов", "минут", "секунд"],
+		layout: `<ul class="${lotteryName}-timer__list">
+	        <li><b>{d10}{d1}</b> <span>{dl}</span></li>
+	        <li><b>{h10}{h1}</b> <span>{hl}</span></li>
+	        <li><b>{m10}{m1}</b> <span>{ml}</span></li>
+	        <li><b>{s10}{s1}</b> <span>{sl}</span></li>
+	        </ul>`
+	});
 
 	// Animation ScrollReveal
 	if (window.ScrollReveal) {
 		window.sr = ScrollReveal({
 			reset: true,
-			duration: 0,
 			delay: 0,
-			afterReveal: function(domEl) {
-				$(domEl).addClass("revealed");
+			easing: "ease-in-out",
+			opacity: 0,
+			viewFactor: 1.0,
+			viewOffset: {
+				top: 100
 			},
-			afterReset: function(domEl) {
-				$(domEl).removeClass("revealed");
+			afterReveal: function(el) {
+				$(el).addClass("revealed");
 			}
+			// afterReset: function(el) {
+			// 	$(el).removeClass("revealed");
+			// }
 		});
+
 		sr.reveal(`.${jsReveal}`);
 	}
 });

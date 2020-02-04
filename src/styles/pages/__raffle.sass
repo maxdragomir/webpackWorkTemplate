@@ -6,5 +6,12 @@
   &.#{$lotteryName}-#{$lotteryPageRaffle}
 
     .#{$lotteryName}
+      &-titleWrapper
+        position: relative
+        display: flex
+        align-items: center
+        justify-content: center
+        min-height: 50vh
+
       &-title
-        @include gradientText(top, green,  0%, red, 100%)
+        @include gradientText(top, #3d3d40,  0%, #000, 100%)

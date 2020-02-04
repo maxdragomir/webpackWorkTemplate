@@ -8,13 +8,21 @@ block vars
 block content
 
 	section(class=`${lotteryName}-sectionMain`)
+
 		div(class=`${lotteryName}-container`)
-			+addTicketsBtn()
-			h1(class=`${lotteryName}-title`)= lotteryPage
-			//+addImg("test", "assets/img/first.jpg")
-			+addTimer("timerClass")
+			+addTicketsBtn("", "secondary")
+			div(class=`${lotteryName}-titleWrapper ${jsReveal}`)
+				h1(class=`${lotteryName}-title`)= lotteryPage
+			div(class=`${lotteryName}-actions`)
+				+addMainBtn("", "main")
 
+	section(class=`${lotteryName}-sectionMain`)
+		div(class=`${lotteryName}-container`)
+			+addTimer()
 
+	section(class=`${lotteryName}-sectionMain`)
+		div(class=`${lotteryName}-container`)
+			+addImg("test", "assets/img/first.jpg")
 
 
 	//- Addition Btn start

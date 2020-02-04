@@ -4,9 +4,10 @@
 
 mixin addImg(classImg, urlImg)
 	if classImg
-		- var noClass = `${lotteryName}-${classImg}`
+		- var newClass = `${lotteryName}-${classImg}`
 	else
-		- var noClass = ""
+		- var newClass = ""
 
-	div(class=`${lotteryName}-img ${noClass}`)
+
+	div(class=`${lotteryName}-img ${newClass}`)
 		img(src=urlImg)

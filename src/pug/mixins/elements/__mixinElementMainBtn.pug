@@ -1,10 +1,10 @@
 //- Mixin element mainBtn
 //- ====================================================================================================================
 
-mixin addMainBtn(btnText, btnClass)
+mixin addMainBtn(btnText, btnClassMod)
 	- btnText = btnText || "Сделать Ставку"
-	- btnClass = btnClass || "btn"
+	- btnClassMod = btnClassMod || "custom"
 
-	a(href="#!" class=`${lotteryName}-${btnClass} ${lotteryName}-${btnClass}--main`)
+	a(href="#!" class=`${lotteryName}-btn ${lotteryName}-btn--${btnClassMod}`)
 		span(class=`${lotteryName}-btnInner`)
 			span= btnText

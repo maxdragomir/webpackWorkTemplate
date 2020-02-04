@@ -1,10 +1,10 @@
 //- Mixin element ticketsBtn
 //- ====================================================================================================================
 
-mixin addTicketsBtn(btnText, btnClass)
+mixin addTicketsBtn(btnText, btnClassMod)
 	- btnText = btnText || "Мои Билеты"
-	- btnClass = btnClass || "btn"
+	- btnClassMod = btnClassMod || "custom"
 
 	div(class=`${lotteryName}-wrapperBtn`)
-		a(href="#!" data-modal=`.${lotteryName}-modal__tickets` class=`${lotteryName}-${btnClass} ${lotteryName}-${btnClass}--secondary ${lotteryName}-modalShow`)
+		a(href="#!" data-modal=`.${lotteryName}-modal__tickets` class=`${lotteryName}-btn ${lotteryName}-btn--${btnClassMod} ${lotteryName}-modalShow`)
 			span= btnText
