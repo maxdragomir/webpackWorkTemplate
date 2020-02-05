@@ -1,6 +1,19 @@
 /*! Base */
 /*======================================================================================================================*/
 
+
+html
+  font-size: $fontSize
+  @include mediaMixin(max, 1600)
+    font-size: 15px
+  @include mediaMixin(max, 1300)
+    font-size: 14px
+  @include mediaMixin(max, 800)
+    font-size: 13px
+  @include mediaMixin(max, 570)
+    font-size: 12px
+
+
 .#{$lotteryName}
 
   a
@@ -14,19 +27,18 @@
 
   section
     position: relative
-    padding: 50px 0
+    padding: rem(50) 0
 
   .no-animate
     animation: none !important
 
   .breadcrumbs
-    font-size: 14px
     position: absolute
-    top: 23px
-    left: 20px
+    top: rem(20)
+    left: rem(20)
     font-style: normal
     z-index: 2
-
+    font-size: rem(14)
     li
       color: #fff
       text-transform: uppercase
@@ -37,8 +49,8 @@
         content: none
       &:before
         content: "/"
-        margin-left: 4px
-        margin-right: 8px
+        margin-left: rem(4)
+        margin-right: rem(8)
 
     a
       color: inherit
@@ -66,17 +78,16 @@
       align-items: center
       text-align: center
       cursor: pointer
-      min-width: 40px
-      height: 40px
       font-weight: 900
-      font-size: 22px
+      font-size: rem(22)
+      padding: rem(10) rem(5)
       background: #fff
       color: #333
       border: 2px solid #fff
       outline: none
       text-transform: uppercase
-      margin-bottom: 5px
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2)
+      margin-bottom: rem(5)
+      box-shadow: 0 rem(10) rem(20) rgba(0, 0, 0, 0.2)
       transform: scale(1)
       will-change: transform
       transition: all 0.3s ease
@@ -96,26 +107,28 @@
   &-wrapper
     position: relative
     width: 100%
-    color: #000
-    background: #fff
     margin: 0 auto
+    font-weight: $fontWeight
+    line-height: $lineHeight
+    color: $colorWrapper
+    background: $bgWrapper
+    font-size: rem(16)
     font-family: 'Roboto', sans-serif
-    line-height: 1
-    overflow: hidden
-    font-weight: 400
     text-size-adjust: 100%
     font-smooth: antialiased
+    overflow: hidden
     transition: all 1s ease
+
   &-inner
     position: relative
     width: 100%
     min-height: 100vh
     margin: 0 auto
-    box-shadow: 5px 5px 100px rgba(0,0,0, .5)
     overflow: hidden
     background-size: auto
     z-index: 1
-    background: #3d3d40
+    background: $bgInner
+    box-shadow: 5px 5px 100px rgba(0,0,0, .5)
     @include mediaMixin(min, 1900)
       width: 1920px
 
@@ -145,77 +158,82 @@
       display: none !important
 
 
-  &-wrapperBtn
-    position: absolute
-    top: -25px
-    right: 0
-    z-index: 5
-
   &-container
     position: relative
-    width: 1300px
+    width: 100%
+    max-width: $container
     margin: 0 auto
     z-index: 1
     &--big
       position: relative
-      width: 100%
+      max-width: $containerBig
       margin: 0 auto
     &--small
       position: relative
-      width: 800px
+      max-width: $containerSmall
       margin: 0 auto
 
 
   &-title
     position: relative
-    font-size: 100px
+    font-size: rem(100)
     font-weight: 900
     text-align: center
     text-transform: uppercase
+
 
   &-timer
     position: relative
     color: #fff
     &__title
       text-align: center
-      font-size: 20px
-      padding: 10px 0
+      font-size: rem(20)
+      padding: rem(10) 0
     &__list
       display: flex
       justify-content: space-between
       align-items: center
       margin: 0 auto
-      width: 460px
+      width: rem(460)
       line-height: 1
       li
         position: relative
         flex: 1
         flex-basis: 25%
-        font-size: 70px
+        font-size: rem(70)
         font-weight: 900
         text-align: center
         b
           font-weight: 900
         span
           display: block
-          margin-top: 5px
+          margin-top: rem(5)
           text-transform: capitalize
-          font-size: 16px
+          font-size: rem(16)
           font-weight: 500
         & + li:before
           content: ':'
           position: absolute
           top: 0
-          font-size: 60px
+          font-size: rem(60)
           font-weight: 900
           left: -50%
           width: 100%
           height: 100%
           transform: translate3d(0, 0, 0)
 
+
   &-actions
     text-align: center
-    padding: 50px 0
+    padding: rem(50) 0
+
+
+  &-wrapperBtn
+    position: absolute
+    top: rem(-25)
+    right: rem(20)
+    z-index: 5
+
 
   &-btn
     position: relative
@@ -228,17 +246,16 @@
     margin: 0 auto
     color: #333
     background: #eee
-    border-radius: 50px
-    box-shadow: 10px 10px 24px 3px rgba(0, 0, 0, .25)
+    border-radius: rem(50)
+    box-shadow: rem(10) rem(10) rem(24) rem(3) rgba(0, 0, 0, .25)
     z-index: 2
     &Inner
       position: relative
       display: block
-      min-width: 250px
       overflow: hidden
-      border-radius: 50px
-      padding: 21px
-      font-size: 18px
+      border-radius: rem(50)
+      padding: rem(21) rem(50)
+      font-size: rem(18)
       font-weight: 900
       transform: translate3d(0, 0, 0)
       will-change: transform
@@ -252,17 +269,17 @@
         will-change: transform
         transition: all .5s ease
     &:hover
-      box-shadow: 10px 10px 20px 0 rgba(0, 0, 0, .25)
+      box-shadow: rem(10) rem(10) rem(20) 0 rgba(0, 0, 0, .25)
       transition: all .5s ease
     &:active
-      box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, .25)
+      box-shadow: rem(5) rem(5) rem(10) 0 rgba(0, 0, 0, .25)
       transition: all .2s ease
 
   &-btn--main
     color: #fff
     background: #4de222
-    &Inner
-      min-width: 300px
+    & > span
+      padding: rem(21) rem(70)
       &:after
         content: ''
         position: absolute
@@ -287,7 +304,7 @@
       margin: 0 auto
       background: linear-gradient(180deg, #4de222 0%, #2e8514 100%)
       z-index: 1
-      border-radius: 50px
+      border-radius: rem(50)
       opacity: 1
       transform: translate(-50%, -50%)
       transition: all 0.5s ease
@@ -301,7 +318,7 @@
       width: 100%
       height: 100%
       background: #4de222
-      border-radius: 50px
+      border-radius: rem(50)
       z-index: -1
       opacity: .5
       transition: all .5s ease
@@ -322,14 +339,13 @@
     color: #333
     span
       display: block
-      min-width: 200px
-      padding: 12px
-      font-size: 16px
+      padding: rem(12) rem(55)
+      font-size: rem(16)
       font-weight: 600
     &:hover
       background: #999
-      box-shadow: 10px 10px 20px 0 rgba(0, 0, 0, .25)
+      box-shadow: rem(10) rem(10) rem(20) 0 rgba(0, 0, 0, .25)
       span
         color: #fff
     &:active
-      box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, .25)
+      box-shadow: rem(5) rem(5) rem(10) 0 rgba(0, 0, 0, .25)

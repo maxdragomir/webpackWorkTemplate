@@ -14,6 +14,9 @@ $(document).ready(function() {
 	// CustomScroll
 	let scrollBar = $(`.${lotteryName}-scroll`);
 	scrollBar.perfectScrollbar();
+	$(window).on('resize', function () {
+		$(`.${lotteryName}-scroll`).perfectScrollbar("update");
+	});
 
 	// Modal
 	let modal = $(`.${lotteryName}-modalShow`);
@@ -36,7 +39,7 @@ $(document).ready(function() {
 	});
 	$(`.${lotteryName}-modal__${hash}`).arcticmodal({
 		afterOpen: function(data, el) {
-			var scroll = modal.find(`.${lotteryName}-scroll`);
+			var scroll = $(el).find(`.${lotteryName}-scroll`);
 			if (scroll.length) scroll.perfectScrollbar("update");
 
 			$(el).addClass(`${lotteryName}-modal--show`);
