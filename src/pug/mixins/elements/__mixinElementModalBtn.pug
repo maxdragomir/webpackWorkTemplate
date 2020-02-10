@@ -5,6 +5,6 @@ mixin addBtnModal(nameBtn, nameModalOpen)
 	- nameBtn = nameBtn || "P"
 
 	if nameModalOpen
-		button(data-modal=`.${lotteryName}-modal__${nameModalOpen}` class=`${lotteryName}-addition__btn ${lotteryName}-modalShow` type='button')
+		button(data-modal=`.${lotteryName}-modal__${nameModalOpen}` class=`${lotteryName}-addition__btn ${lotteryName}-modalShow` type='button')&attributes(attributes)
 			span= nameBtn
 

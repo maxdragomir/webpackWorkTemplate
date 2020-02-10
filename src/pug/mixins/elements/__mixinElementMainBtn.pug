@@ -5,6 +5,6 @@ mixin addMainBtn(btnText, btnClassMod)
 	- btnText = btnText || "Сделать Ставку"
 	- btnClassMod = btnClassMod || "custom"
 
-	a(href="#!" class=`${lotteryName}-btn ${lotteryName}-btn--${btnClassMod}`)
+	a(href="#!" class=`${lotteryName}-btn ${lotteryName}-btn--${btnClassMod}`)&attributes(attributes)
 		span(class=`${lotteryName}-btnInner`)
 			span= btnText

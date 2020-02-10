@@ -5,6 +5,6 @@ mixin addTicketsBtn(btnText, btnClassMod)
 	- btnText = btnText || "Мои Билеты"
 	- btnClassMod = btnClassMod || "custom"
 
-	div(class=`${lotteryName}-wrapperBtn`)
+	div(class=`${lotteryName}-wrapperBtn`)&attributes(attributes)
 		a(href="#!" data-modal=`.${lotteryName}-modal__tickets` class=`${lotteryName}-btn ${lotteryName}-btn--${btnClassMod} ${lotteryName}-modalShow`)
 			span= btnText

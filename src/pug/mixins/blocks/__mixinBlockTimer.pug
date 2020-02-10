@@ -9,7 +9,7 @@ mixin addTimer(classTimer, timerTitle)
 	else
 		- var newClass = ""
 
-	div(class=`${lotteryName}-timer ${newClass}`)
+	div(class=`${lotteryName}-timer ${newClass}`)&attributes(attributes)
 		div(class=`${lotteryName}-timer__title`)
 			span= timerTitle
 		div(class=`${lotteryName}-timer__wrapper`)

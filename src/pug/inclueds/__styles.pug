@@ -9,7 +9,9 @@ link(href="assets/styles/libs/animate.css", rel="stylesheet")
 
 //- Styles main start
 
-each css in htmlWebpackPlugin.files.css
-	link(href=css, rel='stylesheet')
+each cssName in htmlWebpackPlugin.files.css
+	link(href=cssName, rel='stylesheet')
+// - for (var cssIndex = 0; cssIndex < htmlWebpackPlugin.files.css.length; cssIndex++)
+// 	link(href=htmlWebpackPlugin.files.css[cssIndex], rel='stylesheet')
 
 //- Styles main end

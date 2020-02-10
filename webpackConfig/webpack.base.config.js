@@ -8,7 +8,7 @@ const PATHS = {
   src: path.join(__dirname, '../src'),
   dist: path.join(__dirname, '../myBuild'),
   assets: 'assets/',
-  phpFiles: 'phpFiles/',
+  // phpFiles: 'phpFiles/',
 };
 
 const PAGES_DIR = `${PATHS.src}/pug/pages/`,
@@ -22,14 +22,13 @@ module.exports = {
 
   entry: {
     app: PATHS.src,
-    // test: `${PATHS.src}/test.js`
+    // appRTL: `${PATHS.src}/appRTL.js`
   },
 
   output: {
     filename: `${PATHS.assets}js/[name].[hash].js`,
     path: PATHS.dist,
     publicPath: ''
-    // publicPath: '/'
   },
 
   optimization: {
@@ -138,7 +137,12 @@ module.exports = {
     ...PAGES.map(page => new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/${page}`,
       filename: `./${page.replace(/\.pug/,'.html')}`,
-      inject: false
+      inject: false,
+      minify: {
+        collapseWhitespace: false,
+        preserveLineBreaks: false,
+        removeComments: false
+      },
       // filename: `./${page.replace(/\.pug/,'.php')}`
     })),
   ]

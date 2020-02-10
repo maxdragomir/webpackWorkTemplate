@@ -14,7 +14,7 @@ $(document).ready(function() {
 	// CustomScroll
 	let scrollBar = $(`.${lotteryName}-scroll`);
 	scrollBar.perfectScrollbar();
-	$(window).on('resize', function () {
+	$(window).on("resize", function() {
 		$(`.${lotteryName}-scroll`).perfectScrollbar("update");
 	});
 
@@ -67,5 +67,4 @@ $(document).ready(function() {
 	});
 
 	// Animation
-
 });

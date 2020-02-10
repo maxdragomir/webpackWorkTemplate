@@ -13,6 +13,7 @@ const controller = new ScrollMagic.Controller();
 // Optional: data-animation-scroll-duration="50%" (bind to scroll)
 // Optional: data-animation-ease="Linear"
 // Optional: data-animation-offset="100" (0)
+
 NodeList.prototype.forEach = Array.prototype.forEach;
 document
   .querySelectorAll("[data-animation], [data-animation-mobile]")

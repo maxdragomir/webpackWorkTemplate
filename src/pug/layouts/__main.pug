@@ -16,7 +16,7 @@ html(lang='en')
 
 		include ../inclueds/__head
 
-	body(class=lotteryName)
+	body
 		// <?php include('../assets/header-new.php'); ?> -------------------------------------------------------------------
 		// -----------------------------------------------------------------------------------------------------------------
 		include ../inclueds/__styles
@@ -24,7 +24,7 @@ html(lang='en')
 
 
 		// Landing
-		div(class=`${lotteryName}-wrapper ${lotteryName}-${lotteryPage}`)
+		div(class=`${lotteryName} ${lotteryName}-wrapper ${lotteryName}-${lotteryPage}`)
 			div(class=`${lotteryName}-inner`)
 				//- Breadcrumbs start
 				+addBreadcrumbs(lotteryName)
