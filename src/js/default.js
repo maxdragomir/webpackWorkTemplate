@@ -66,25 +66,6 @@ $(document).ready(function() {
 	        </ul>`
 	});
 
-	// Animation ScrollReveal
-	if (window.ScrollReveal) {
-		window.sr = ScrollReveal({
-			reset: true,
-			delay: 0,
-			easing: "ease-in-out",
-			opacity: 0,
-			viewFactor: 1.0,
-			viewOffset: {
-				top: 100
-			},
-			afterReveal: function(el) {
-				$(el).addClass("revealed");
-			}
-			// afterReset: function(el) {
-			// 	$(el).removeClass("revealed");
-			// }
-		});
+	// Animation
 
-		sr.reveal(`.${jsReveal}`);
-	}
 });

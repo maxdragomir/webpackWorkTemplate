@@ -8,6 +8,5 @@ mixin addImg(classImg, urlImg)
 	else
 		- var newClass = ""
 
-
-	div(class=`${lotteryName}-img ${newClass}`)
+	div(class=`${lotteryName}-img ${newClass}`)&attributes(attributes)
 		img(src=urlImg)
