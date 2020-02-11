@@ -83,7 +83,7 @@ document
       ...toTarget,
       ease
     });
-    console.log({ "tween options": tween, tweenDuration: tweenDuration });
+    // console.log({ "tween options": tween, tweenDuration: tweenDuration });
 
     let sceneOptions = {
       triggerElement: triggerEl,
@@ -97,11 +97,11 @@ document
     if (isDev) scene.addIndicators();
     scene.addTo(controller);
 
-    if (isDev) {
-      console.log({
-        animated: element,
-        scene: scene,
-        "trigger-animation-element": triggerEl
-      });
-    }
+    // if (isDev) {
+    //   console.log({
+    //     animated: element,
+    //     scene: scene,
+    //     "trigger-animation-element": triggerEl
+    //   });
+    // }
   });

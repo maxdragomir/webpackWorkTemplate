@@ -7,6 +7,14 @@ block vars
 
 block content
 
+	section
+		#app
+			button(@click='component = !component')
+				| lol btn
+
+			example-component(v-if='component')
+
+
 	section(class=`${lotteryName}-sectionMain`)
 
 		div(class=`${lotteryName}-container`)
