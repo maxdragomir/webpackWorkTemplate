@@ -142,8 +142,9 @@ module.exports = {
       {from: `${PATHS.src}/styles/libs`, to: `${PATHS.assets}styles/libs`},
       {from: `${PATHS.src}/js/libs`, to: `${PATHS.assets}js/libs`},
     ]),
+
     new MiniCssExtractPlugin({
-      filename: `${PATHS.assets}styles/[name].[hash].css`
+      filename: `${PATHS.assets}styles/scss/[name].[hash].css`
     }),
     ...PAGES.map(page => new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/${page}`,

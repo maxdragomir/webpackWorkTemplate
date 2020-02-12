@@ -1,0 +1,40 @@
+
+/// Функция возвращающая направление left или right в зависимости от $direction и $is_rtl
+/// @param {String} - $direction
+/// @param {Number} - $is_rtl
+@function opposite-direction($directions) {
+  $opposite-directions: ();
+  $direction-map: (
+          'top':    'bottom',
+          'right':  'left',
+          'bottom': 'top',
+          'left':   'right',
+          'center': 'center',
+          'ltr':    'rtl',
+          'rtl':    'ltr'
+  );
+
+  @each $direction in $directions {
+    $direction: to-lower-case($direction);
+
+    @if map-has-key($direction-map, $direction) {
+      $opposite-directions: append($opposite-directions, unquote(map-get($direction-map, $direction)));
+    } @else {
+      @warn "No opposite direction can be found for #{$direction}. Direction omitted.";
+    }
+  }
+
+  @return $opposite-directions;
+}
+
+@function dir($direction: left) {
+  @if not index(right left, $direction) {
+    @error "Direction must be either `right` or `left`.";
+  }
+  @if ($is_rtl == 0) {
+    @return $direction;
+  } @else if ($is_rtl == 1) {
+    @return opposite-direction($direction);
+  }
+}
+

@@ -1,0 +1,57 @@
+/* General */
+/*======================================================================================================================*/
+
+
+@import "functions";
+@import "_vars";
+@import "_m-rtl";
+@import "_f-rtl";
+
+
+.#{$lotteryName} {
+  &-wrapper {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+    color: $colorWrapper;
+    background: $bgWrapper;
+    font-size: $fontSize;
+    font-family: 'Roboto', sans-serif;
+    text-size-adjust: 100%;
+    font-smooth: antialiased;
+    overflow: hidden;
+    transition: all 1s ease;
+
+  }
+  &-inner {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    overflow: hidden;
+    background-size: auto;
+    z-index: 1;
+    background: $bgInner;
+    box-shadow: 5px 5px 100px rgba(0,0,0, .5);
+  }
+  &-title {
+    position: relative;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: em(100px, $fontSize);
+    @include em((
+      margin: 50px 0
+    ), $fontSize);
+  }
+}
+
+
+
+
+//@include mediaMixin(min, 1900)
+//width: 1920px
+
+

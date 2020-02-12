@@ -2,13 +2,6 @@
 /*======================================================================================================================*/
 
 
-html
-  font-size: 62.5%
-  @media screen and (min-device-width: 375px)
-    font-size: 72.5%
-  //font-size: $fontSize
-  ju
-
 .#{$lotteryName}
 
   a
@@ -29,11 +22,12 @@ html
 
   .breadcrumbs
     position: absolute
-    top: rem(20)
-    left: rem(20)
     font-style: normal
     z-index: 2
-    font-size: rem(14)
+    @include em((top: 20px, left: 20px), $fontSize)
+
+
+
     li
       color: #fff
       text-transform: uppercase
@@ -178,11 +172,10 @@ html
 
   &-title
     position: relative
-    font-size: rem(100)
+    font-size: em(100px, $fontSize)
     font-weight: 900
     text-align: center
     text-transform: uppercase
-
 
   &-timer
     position: relative
