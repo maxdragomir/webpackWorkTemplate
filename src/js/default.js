@@ -50,21 +50,25 @@ $(document).ready(function() {
 	});
 
 	// Timers
-	let timerDate = new Date(2030, 12, 12, 0, 15, 0);
-	$(`.${lotteryName}-timer__wrapper`).countdown({
-		until: timerDate,
-		padZeroes: true,
-		format: "DHMS",
-		labels: ["Years", "Months", "Weeks", "дней", "часов", "минут", "секунд"],
-		labels1: ["Year", "Month", "Week", "дней", "часов", "минут", "секунд"],
-		labels2: ["Year", "Month", "Week", "дней", "часов", "минут", "секунд"],
-		layout: `<ul class="${lotteryName}-timer__list">
-	        <li><b>{d10}{d1}</b> <span>{dl}</span></li>
-	        <li><b>{h10}{h1}</b> <span>{hl}</span></li>
-	        <li><b>{m10}{m1}</b> <span>{ml}</span></li>
-	        <li><b>{s10}{s1}</b> <span>{sl}</span></li>
-	        </ul>`
-	});
+	if(!isDev) {
+		let timerDate = new Date(2030, 12, 12, 0, 15, 0);
+		$(`.${lotteryName}-timer__wrapper`).countdown({
+			until: timerDate,
+			padZeroes: true,
+			format: "DHMS",
+			labels: ["Years", "Months", "Weeks", "дней", "часов", "минут", "секунд"],
+			labels1: ["Year", "Month", "Week", "дней", "часов", "минут", "секунд"],
+			labels2: ["Year", "Month", "Week", "дней", "часов", "минут", "секунд"],
+			layout: `<ul class="${lotteryName}-timer__list">
+				<li><b>{d10}{d1}</b> <span>{dl}</span></li>
+				<li><b>{h10}{h1}</b> <span>{hl}</span></li>
+				<li><b>{m10}{m1}</b> <span>{ml}</span></li>
+				<li><b>{s10}{s1}</b> <span>{sl}</span></li>
+				</ul>`
+		});
+	}
 
 	// Animation
+
+
 });

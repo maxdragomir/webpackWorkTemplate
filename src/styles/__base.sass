@@ -3,16 +3,11 @@
 
 
 html
-  font-size: $fontSize
-  @include mediaMixin(max, 1600)
-    font-size: 15px
-  @include mediaMixin(max, 1300)
-    font-size: 14px
-  @include mediaMixin(max, 800)
-    font-size: 13px
-  @include mediaMixin(max, 570)
-    font-size: 12px
-
+  font-size: 62.5%
+  @media screen and (min-device-width: 375px)
+    font-size: 72.5%
+  //font-size: $fontSize
+  ju
 
 .#{$lotteryName}
 
@@ -112,13 +107,20 @@ html
     line-height: $lineHeight
     color: $colorWrapper
     background: $bgWrapper
-    font-size: rem(16)
+    font-size: $fontSize
     font-family: 'Roboto', sans-serif
     text-size-adjust: 100%
     font-smooth: antialiased
     overflow: hidden
     transition: all 1s ease
-
+    @include mediaMixin(max, 1600)
+      font-size: 15px
+    @include mediaMixin(max, 1300)
+      font-size: 14px
+    @include mediaMixin(max, 800)
+      font-size: 13px
+    @include mediaMixin(max, 570)
+      font-size: 12px
   &-inner
     position: relative
     width: 100%
