@@ -1,11 +1,10 @@
 // General:
 // =====================================================================================================================
 
-import "./styles/sass/app.sass";
-// import "./styles/scss/app.scss";
+// import "./styles/sass/app.sass";
+import "./styles/scss/app.scss";
 import "./js/default";
 import "./js/scripts";
-
 
 // window.Vue = require('vue');
 // import store from './js/vue/store'

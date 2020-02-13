@@ -1,0 +1,120 @@
+
+/// Функция возвращающая направление left или right в зависимости от $direction и $is_rtl
+/// @param {String} - $direction
+/// @param {Number} - $is_rtl
+@function opposite-direction($directions) {
+  $opposite-directions: ();
+  $direction-map: (
+          'top':    'bottom',
+          'right':  'left',
+          'bottom': 'top',
+          'left':   'right',
+          'center': 'center',
+          'ltr':    'rtl',
+          'rtl':    'ltr'
+  );
+
+  @each $direction in $directions {
+    $direction: to-lower-case($direction);
+
+    @if map-has-key($direction-map, $direction) {
+      $opposite-directions: append($opposite-directions, unquote(map-get($direction-map, $direction)));
+    } @else {
+      @warn "No opposite direction can be found for #{$direction}. Direction omitted.";
+    }
+  }
+
+
+  @if ($is_rtl == 0) {
+    @return $directions;
+  } @else if ($is_rtl == 1) {
+    @return $opposite-directions;
+  }
+}
+
+/*
+ * Функция возвращающая null вместо error если значение в списке не найдено
+ * @param {List} $list - список
+ * @param {Number}$index - индекс эелемента
+ */
+
+
+@function nth-value($list, $index) {
+  @return if(length($list) >= $index, nth($list, $index), null);
+}
+
+/*Функция замены чего-либо в строке
+  @author Hugo Giraudel
+  @param {String} $string - строка в которой ищем
+  @param {String} $search - то что нужно заменить
+  @param {String} $replace ('') - то на что нужно заменить
+  @return {String} - обновленная строка
+*/
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+
+/*
+ Миксин для rtl
+ Примеры:
+   @include dir((
+      margin-left: 20px
+      padding-right: 10px
+      margin: 10px 10px 10px 10px
+    )); //указание контекста
+ */
+
+
+@mixin dir($properties) {
+  $rules: ();
+  @each $property in map-keys($properties) {
+    @if (length(map_get($properties, $property)) == 4) {
+      $rules: map_get($properties, $property);
+      @if ($property == 'border-radius') {
+        #{$property} : nth-value($rules, if($is_rtl == 0, 1, 2)) nth-value($rules, if($is_rtl == 0, 2, 1)) nth-value($rules, if($is_rtl == 0, 3, 4)) nth-value($rules, if($is_rtl == 0, 4, 3));
+      }@else {
+        #{$property} : nth-value($rules, 1) nth-value($rules, if($is_rtl == 0, 2, 4)) nth-value($rules, 3) nth-value($rules, if($is_rtl != 0, 2, 4));
+      }
+    } @else {
+      @if (str_index($property, 'right') != null and str_index($property, 'right') > 0 == true) {
+        #{str-replace($property, 'right', dir(right))}: map_get($properties, $property);
+      } @else {
+        #{str-replace($property, 'left', dir())} : map_get($properties, $property);
+      }
+    }
+  }
+}
+
+@function to-bool($value) {
+  @if ($value == '' or $value == 0 or $value == ()) {
+    @return false
+  } @else {
+    @return true
+  }
+}
+
+@mixin dir-content {
+  @if to-bool($is_rtl) {
+    @content;
+  }
+}
+
+
+@function dir($direction: left) {
+  @if not index(right left, $direction) {
+    @error "Direction must be either `right` or `left`.";
+  }
+  @if ($is_rtl == 0) {
+    @return $direction;
+  } @else if ($is_rtl == 1) {
+    @return opposite-direction($direction);
+  }
+}
+

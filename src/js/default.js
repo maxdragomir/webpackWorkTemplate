@@ -50,7 +50,7 @@ $(document).ready(function() {
 	});
 
 	// Timers
-	if(!isDev) {
+	if (!isDev) {
 		let timerDate = new Date(2030, 12, 12, 0, 15, 0);
 		$(`.${lotteryName}-timer__wrapper`).countdown({
 			until: timerDate,
@@ -69,6 +69,4 @@ $(document).ready(function() {
 	}
 
 	// Animation
-
-
 });
