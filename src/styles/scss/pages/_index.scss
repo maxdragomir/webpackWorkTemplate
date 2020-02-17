@@ -1,0 +1,29 @@
+/*! Index page */
+/*======================================================================================================================*/
+
+
+.#{$lotteryName} {
+  section {
+    h1 {
+      position: relative;
+      color: #fff;
+      text-transform: uppercase;
+    }
+  }
+  &-titleWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &-title {
+    @include gradientText(top, #febe0d,  0%, #f6ce60, 100%)
+  }
+  &-test {
+    @include em((
+      margin: 0 50px,
+      box-shadow: 5px 5px 20px rgba(#000, .5)
+    ), $fontSize)
+  }
+}
+

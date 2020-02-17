@@ -1,0 +1,48 @@
+/*! Animation */
+/*======================================================================================================================*/
+
+
+// Btn main
+@keyframes bgPulseActive {
+  0% {
+    opacity: 0.2;
+    transform: translate(-50%, -50%) scale(1.1, 1.3);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes bgPulse {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.1, 1.3);
+  }
+}
+@keyframes bgOpacity {
+  0% {
+    opacity: 1
+  }
+  100% {
+    opacity: .0
+  }
+}
+@keyframes bgOpacityActive {
+  0% {
+    opacity: 1
+  }
+  100% {
+    opacity: .8
+  }
+}
+@keyframes flicker {
+  20%,100% {
+    width: 50%;
+    opacity: 0;
+    transform: translateX(150%) skew(-20deg);
+  }
+}

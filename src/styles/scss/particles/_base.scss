@@ -1,0 +1,397 @@
+/*! Base */
+/*======================================================================================================================*/
+
+
+.#{$lotteryName} {
+
+  a {
+    text-decoration: none;
+    transform: scale(1);
+    will-change: transform;
+    transition: all .5s ease;
+
+    &:active {
+      transform: scale(0.95);
+      transition: all .2s ease;
+    }
+  }
+  section {
+    position: relative;
+    padding: em(50px, $fontSize) 0;
+  }
+
+  .no-animate {
+    animation: none !important;
+  }
+  .breadcrumbs {
+    position: absolute;
+    font-style: normal;
+    z-index: 2;
+    @include em((
+      top: 20px,
+      left: 20px
+    ), $fontSize);
+
+    li {
+      color: #fff;
+      text-transform: uppercase;
+      display: inline-block;
+      position: relative;
+      font-weight: bold;
+      a {
+        color: inherit;
+      }
+      &:first-child:before {
+        content: none;
+      }
+      &:before {
+        content: "/";
+        @include em((
+          margin-left: 4px,
+          margin-right: 8px
+        ), $fontSize);
+      }
+    }
+
+  }
+
+  &-addition {
+    position: fixed;
+    left: 0;
+    bottom: 5%;
+    display: flex;
+    justify-content: flex-end;
+    flex-flow: column;
+    z-index: 999;
+    transition: all 0.5s ease;
+    &__btn {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      font-weight: 900;
+      background: #fff;
+      color: #333;
+      border: 2px solid #fff;
+      outline: none;
+      text-transform: uppercase;
+      transform: scale(1);
+      will-change: transform;
+      transition: all 0.3s ease;
+      @include em((
+        font-size: 22px,
+        padding: 10px 5px,
+        margin-bottom: 5px,
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2)
+      ), $fontSize);
+      span {
+        display: block;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &:hover {
+        background: #333;
+        color: #fff;
+        transition: all 0.3s ease;
+      }
+      &:active {
+        transform: scale(0.9);
+        transition: all 0.1s ease;
+      }
+    }
+  }
+  &-wrapper {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    font-weight: $fontWeight;
+    line-height: 1;
+    color: $colorWrapper;
+    background: $bgWrapper;
+    font-size: $fontSize;
+    font-family: 'Roboto', sans-serif;
+    text-size-adjust: 100%;
+    font-smooth: antialiased;
+    overflow: hidden;
+    transition: all 1s ease;
+    @include mediaMixin(max, 1600) {
+      $fontSize: 15px;
+      font-size: $fontSize;
+    }
+    @include mediaMixin(max, 1300) {
+      $fontSize: 14px;
+      font-size: $fontSize;
+    }
+    @include mediaMixin(max, 800) {
+      $fontSize: 13px;
+      font-size: $fontSize;
+    }
+    @include mediaMixin(max, 570) {
+      $fontSize: 12px;
+      font-size: $fontSize;
+    }
+  }
+  &-inner {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    overflow: hidden;
+    background-size: auto;
+    z-index: 1;
+    background: $bgInner;
+    box-shadow: 5px 5px 100px rgba(0, 0, 0, .5);
+    @include mediaMixin(min, 1900) {
+      width: 1920px;
+    }
+  }
+  &-scroll {
+    .ps-scrollbar-y-rail {
+      position: absolute;
+      display: block;
+      width: 1px !important;
+      background: #333 !important;
+      opacity: 1 !important;
+      right: 6px !important;
+    }
+    .ps-scrollbar-y {
+      position: absolute;
+      display: block;
+      background: #333 !important;
+      width: 7px !important;
+      opacity: 1 !important;
+      right: -3px !important;
+      cursor: pointer;
+      border-radius: 2px !important;
+      transform: scale(1);
+      transition: transform .5s ease;
+    }
+    .ps-scrollbar-y:hover, .ps-scrollbar-y:active {
+      background: #333 !important
+    }
+    .ps-scrollbar-x-rail {
+      display: none !important
+    }
+  }
+
+  &-container {
+    position: relative;
+    width: 100%;
+    max-width: $container;
+    margin: 0 auto;
+    z-index: 1;
+    &--big {
+      position: relative;
+      max-width: $containerBig;
+      margin: 0 auto;
+    }
+    &--small {
+      position: relative;
+      max-width: $containerSmall;
+      margin: 0 auto;
+    }
+  }
+
+  &-title {
+    position: relative;
+    font-size: em(100px, $fontSize);
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &-timer {
+    position: relative;
+    color: #fff;
+    &__title {
+      text-align: center;
+
+      @include em((
+        font-size: 20px,
+        padding: 10px 0
+      ), $fontSize);
+    }
+    &__list {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 auto;
+      width: em(460px, $fontSize);
+      line-height: 1;
+      li {
+        position: relative;
+        flex: 1;
+        flex-basis: 25%;
+        font-weight: 900;
+        text-align: center;
+        b {
+          font-weight: 900;
+          font-size: em(70px, $fontSize);
+        }
+        span {
+          display: block;
+          text-transform: capitalize;
+          font-weight: 500;
+
+          @include em((
+            margin-top: 5px,
+            font-size: 16px
+          ), $fontSize)
+        }
+        & + li:before {
+          content: ':';
+          position: absolute;
+          top: 0;
+          font-size: em(60px, $fontSize);
+          font-weight: 900;
+          left: -50%;
+          width: 100%;
+          height: 100%;
+          transform: translate3d(0, 0, 0);
+        }
+      }
+    }
+  }
+
+  &-actions {
+    text-align: center;
+    padding: em(50px, $fontSize) 0;
+  }
+  &-wrapperBtn {
+    position: absolute;
+    z-index: 5;
+
+    @include em((
+      top: -25px,
+      right: 20px
+    ), $fontSize)
+  }
+
+  &-btn {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    border: 0;
+    margin: 0 auto;
+    color: #333;
+    background: #000;
+    z-index: 2;
+
+    @include em((
+      border-radius: 50px,
+      box-shadow: 10px 10px 24px 3px rgba(0, 0, 0, .25)
+    ), $fontSize);
+
+    span {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      font-weight: 900;
+      transform: translate3d(0, 0, 0);
+      will-change: transform;
+      z-index: 1;
+
+      @include em((
+        border-radius: 50px,
+        padding: 21px 50px,
+        font-size: 18px
+      ), $fontSize);
+
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translateX(-100%) skew(0deg);
+        width: 100%;
+        height: 100%;
+        border: 1px solid transparent;
+        z-index: 0;
+        opacity: 1;
+        animation: flicker 3s ease infinite 1s;
+        display: none;
+      }
+    }
+    //bg
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      background: #eee;
+      z-index: 1;
+      border-radius: em(50px, $fontSize);
+      opacity: 1;
+      transform: translate(-50%, -50%);
+      transition: all 0.5s ease
+    }
+    &:hover {
+      transition: all .5s ease;
+
+      @include em((
+        box-shadow: 10px 10px 20px 0 rgba(0, 0, 0, .25)
+      ), $fontSize);
+
+      &:before {
+        opacity: .5;
+        transition: all .5s ease;
+      }
+    }
+    &:active {
+      transition: all .2s ease;
+
+      @include em((
+        box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, .25)
+      ), $fontSize);
+
+      &:before {
+        opacity: .5;
+        transition: all .5s ease;
+      }
+    }
+  }
+  &-btn--main {
+    color: #fff;
+    background: #4de222;
+    span {
+      @include em((
+        padding: 21px 70px
+      ), $fontSize);
+
+      &:after {
+        display: block;
+        background-color: rgba(#fff, .5);
+      }
+    }
+    &:before {
+      background: linear-gradient(180deg, #4de222 0%, #2e8514 100%);
+    }
+  }
+  &-btn--secondary {
+    background: #777;
+    color: #333;
+    span {
+      font-weight: 600;
+
+      @include em((
+        padding: 12px 55px,
+        font-size: 16px
+      ), $fontSize);
+    }
+    &:before {
+      background: #eee;
+    }
+    &:hover {
+      color: #fff;
+    }
+  }
+}

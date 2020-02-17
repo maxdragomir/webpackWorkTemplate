@@ -41,12 +41,13 @@
     color: #{$color} !important;
   }
 }
-// keyframes
-@mixin animation($name) {
-  @keyframes #{$name} {
-    @content
-  }
-}
+
+// animation
+//@mixin animation($name) {
+//  @keyframes #{$name} {
+//    @content
+//  }
+//}
 
 // gradientText
 @mixin gradientText($direction, $fColor, $fColorPercent, $sColor, $sColorPercent) {
@@ -58,6 +59,12 @@
 
 
 // to em
+@mixin em($properties, $context) {
+  @each $property in map-keys($properties) {
+    #{$property}: em(append(map-get($properties, $property), $context)...);
+  }
+}
+
 @function em-separator($list) {
   @if function-exists("list-separator") == true {
     @return list-separator($list);
@@ -88,10 +95,4 @@
   }
 
   @return if(length($result) == 1, nth($result, 1), $result);
-}
-
-@mixin em($properties, $context) {
-  @each $property in map-keys($properties) {
-    #{$property}: em(append(map-get($properties, $property), $context)...);
-  }
 }

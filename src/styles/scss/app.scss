@@ -2,39 +2,43 @@
 /*======================================================================================================================*/
 
 
-@import "../scss/utils/_reset";
-@import "../scss/utils/_vars";
-@import "../scss/_media-variables";
-@import "../scss/utils/_mixins";
-@import "../scss/utils/_rtl";
-@import "../scss/utils/_animations";
-@import "../scss/utils/_fonts";
-@import "../scss/particles/_base";
-@import "../scss/particles/_modals";
-@import "../scss/pages/_index";
-@import "../scss/pages/_raffle";
-@import "../scss/pages/_account";
+@import "utils/_reset";
+@import "utils/_vars";
+@import "utils/media-variables";
+@import "utils/_mixins";
+@import "utils/_rtl";
+@import "utils/_animations";
+@import "utils/_fonts";
+@import "particles/_base";
+@import "particles/_modals";
+@import "pages/_index";
+@import "pages/_raffle";
+@import "pages/_account";
 
-@import "../scss/_include-media";
+@import "utils/include-media";
 
 
 .#{$lotteryName} {
+  direction: opposite-direction(ltr);
+
   &-timer__title {
     background: #000;
     color: #fff;
+
     @include dir((
-      //margin-left: 20px
-      direction: opposite-direction(ltr),
       text-align: opposite-direction(left),
       margin: 0 10px 0 30px,
     ));
+
     //@include media('<=HD') {
     //  background: red
     //}
+
     //@include mediaMixin(max, 550) {
     //  background: green;
     //}
-    @include mediaDevices(iphone5) {
+
+    @include mediaDevices(iphone6) {
       background: green;
     }
 
