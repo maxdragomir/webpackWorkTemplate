@@ -1,4 +1,4 @@
-# Webpack Template 
+# Webpack Template for work
 **PUG | SASS | Babel7v | PostCss** 
 
 * `npm i && npm run dev` install and start work
