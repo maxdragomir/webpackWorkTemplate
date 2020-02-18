@@ -1,7 +1,6 @@
 // Default:
 // =====================================================================================================================
 
-
 $(document).ready(function() {
 	// Browsers
 	let is_opera = !!window.opera || navigator.userAgent.indexOf(" OPR/") >= 0,

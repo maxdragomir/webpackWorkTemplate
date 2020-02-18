@@ -5,6 +5,7 @@
 @import "utils/_reset";
 @import "utils/_vars";
 @import "utils/media-variables";
+@import "utils/include-media";
 @import "utils/_mixins";
 @import "utils/_rtl";
 @import "utils/_animations";
@@ -15,33 +16,20 @@
 @import "pages/_raffle";
 @import "pages/_account";
 
-@import "utils/include-media";
 
+//@include dir((
+//  text-align: opposite-direction(left),
+//  margin: 0 10px 0 30px,
+//));
 
-.#{$lotteryName} {
-  direction: opposite-direction(ltr);
+//@include media('<=HD') {
+//  background: red
+//}
 
-  &-timer__title {
-    background: #000;
-    color: #fff;
+//@include mediaMixin(max, 550) {
+//  background: green;
+//}
 
-    @include dir((
-      text-align: opposite-direction(left),
-      margin: 0 10px 0 30px,
-    ));
-
-    //@include media('<=HD') {
-    //  background: red
-    //}
-
-    //@include mediaMixin(max, 550) {
-    //  background: green;
-    //}
-
-    @include mediaDevices(iphone6) {
-      background: green;
-    }
-
-
-  }
-}
+//@include mediaDevices(iphone6) {
+//  background: green;
+//}

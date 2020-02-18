@@ -3,6 +3,7 @@
 
 
 .#{$lotteryName} {
+  direction: opposite-direction(ltr);
 
   a {
     text-decoration: none;
@@ -81,8 +82,7 @@
       will-change: transform;
       transition: all 0.3s ease;
       @include em((
-        font-size: 22px,
-        padding: 10px 5px,
+        font-size: 20px,
         margin-bottom: 5px,
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2)
       ), $fontSize);
@@ -201,6 +201,10 @@
     font-weight: 900;
     text-align: center;
     text-transform: uppercase;
+
+    //@include media('screen', '<530px') {
+    //  background: #000;
+    //}
   }
 
   &-timer {
