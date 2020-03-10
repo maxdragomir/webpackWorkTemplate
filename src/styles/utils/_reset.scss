@@ -56,16 +56,24 @@ a:not([class]) {
 img {
   max-width: 100%;
   display: block; /* Указываем понятную периодичность в потоке данных у article*/
-  article > *+ * {
-    margin-top: 1em; /* Наследуем шрифты для инпутов и кнопок */
-  }
-  input,
-  button,
-  textarea,
-  select {
-    font: inherit;
+}
+article > *+ * {
+  margin-top: 1em; /* Наследуем шрифты для инпутов и кнопок */
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+button, a {
+  cursor: pointer;
+  text-decoration: none;
+  &:hover, &:focus, &:active{
+    outline: none;
   }
 }
+
 /* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
 @media (prefers-reduced-motion: reduce) {
   * {

@@ -1,0 +1,41 @@
+include ../mixins/__allMixins
+//- PUG Variables
+block vars
+
+//- JS Variables
+script.
+	var lotteryName = 'testTest',
+			hash = location.search.replace(/\?/, ''),
+			direction = false,
+			isDev = false;
+
+doctype html
+html(lang='en')
+	head
+		title= lotteryName || "Project"
+
+		include ../inclueds/__head
+
+	body
+		// <?php include('../assets/header-new.php'); ?> -------------------------------------------------------------------
+		// -----------------------------------------------------------------------------------------------------------------
+		include ../inclueds/__styles
+		// -----------------------------------------------------------------------------------------------------------------
+
+
+		// Landing
+		div(class=`${lotteryName} ${lotteryName}-wrapper ${lotteryName}-${lotteryPage}`)
+			div(class=`${lotteryName}-inner`)
+				//- Breadcrumbs start
+				+addBreadcrumbs(lotteryName)
+				//- Breadcrumbs end
+
+				//- Content start
+				block content
+				//- Content end
+
+
+		// -----------------------------------------------------------------------------------------------------------------
+		include ../inclueds/__scripts
+		// -----------------------------------------------------------------------------------------------------------------
+		// <?php include('../assets/footer-new.php'); ?> -------------------------------------------------------------------

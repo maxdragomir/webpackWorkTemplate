@@ -2,19 +2,7 @@
 /*======================================================================================================================*/
 
 
-// to rem
-@function rem($pixels, $context: $fontSize) {
-  @if (unitless($pixels)) {
-    $pixels: $pixels * 1px
-  }
-  @if (unitless($context)) {
-    $context: $context * 1px
-  }
-  @return $pixels / $context * 1rem
-}
-
-
-  // size to one line
+// size to one line
 @mixin size($width, $height: $width) {
   width: $width;
   height: $height;
@@ -55,6 +43,18 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   @include ieFix(#{$fColor})
+}
+
+
+// to rem
+@function rem($pixels, $context: $fontSize) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px
+  }
+  @return $pixels / $context * 1rem
 }
 
 

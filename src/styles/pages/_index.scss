@@ -19,11 +19,5 @@
   &-title {
     @include gradientText(top, #febe0d,  0%, #f6ce60, 100%)
   }
-  &-test {
-    @include em((
-      margin: 0 50px,
-      box-shadow: 5px 5px 20px rgba(#000, .5)
-    ), $fontSize)
-  }
 }
 

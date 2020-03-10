@@ -103,7 +103,10 @@ module.exports = {
         },
         {
           loader: MiniCssExtractPlugin.loader,
-          options: {hmr: process.env.NODE_ENV === 'development'}
+          options: {
+            hmr: process.env.NODE_ENV === 'development',
+            publicPath: '../'
+          }
         },
         {
           loader: 'css-loader',
@@ -144,7 +147,7 @@ module.exports = {
     ]),
 
     new MiniCssExtractPlugin({
-      filename: `${PATHS.assets}styles/scss/[name].[hash].css`
+      filename: `${PATHS.assets}styles/[name].[hash].css`
     }),
     ...PAGES.map(page => new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/${page}`,

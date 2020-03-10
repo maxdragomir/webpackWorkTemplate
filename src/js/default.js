@@ -1,7 +1,7 @@
 // Default:
 // =====================================================================================================================
 
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", function() {
 	// Browsers
 	let is_opera = !!window.opera || navigator.userAgent.indexOf(" OPR/") >= 0,
 		is_Edge = navigator.userAgent.indexOf("Edge") > -1,
@@ -11,62 +11,70 @@ $(document).ready(function() {
 		is_firefox = typeof window.InstallTrigger !== "undefined",
 		is_safari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-	// CustomScroll
-	let scrollBar = $(`.${lotteryName}-scroll`);
-	scrollBar.perfectScrollbar();
-	$(window).on("resize", function() {
-		$(`.${lotteryName}-scroll`).perfectScrollbar("update");
+	const blocks = {
+		body: document.querySelector("body"),
+		wrapper: document.querySelector(`.${lotteryName}-wrapper`)
+	};
+	const elements = {};
+	const jsElements = {
+		scrollPS: blocks.wrapper.querySelector(`.${lotteryName}-scroll`),
+		modalShow: blocks.wrapper.querySelectorAll(`.${lotteryName}-modalShow`)
+		// hash: location.search.replace(/\?/,''),
+		// modalHash: blocks.wrapper.querySelector(`.${lotteryName}-modal__${hash}`),
+	};
+
+	//Hash
+	let hash = location.search.replace(/\?/, "");
+
+	if (hash === "righttoleft") {
+		ltrToRtl.href = "/assets/css/right-to-left.css";
+		blocks.body.classList.add("righttoleft");
+	}
+
+	// PerfectScroll
+	// let initPS = new PerfectScrollbar(jsElements.scrollPS);
+	window.addEventListener("resize", function(event) {
+		initPS.update();
 	});
+	// console.log(modalShow);
 
 	// Modal
-	let modal = $(`.${lotteryName}-modalShow`);
-	modal.on("click", function(e) {
-		e.preventDefault();
-		var $this = $(this),
-			modalOpen = $this.data("modal");
-
-		$(modalOpen).arcticmodal({
-			afterOpen: function(data, el) {
-				var scroll = $(el).find(`.${lotteryName}-scroll`);
-				if (scroll.length) scroll.perfectScrollbar("update");
-
-				$(el).addClass(`${lotteryName}-modal--show`);
-			},
-			beforeClose: function(data, el) {
-				$(el).removeClass(`${lotteryName}-modal--show`);
-			}
-		});
-	});
-	$(`.${lotteryName}-modal__${hash}`).arcticmodal({
-		afterOpen: function(data, el) {
-			var scroll = $(el).find(`.${lotteryName}-scroll`);
-			if (scroll.length) scroll.perfectScrollbar("update");
-
-			$(el).addClass(`${lotteryName}-modal--show`);
-		},
-		beforeClose: function(data, el) {
-			$(el).removeClass(`${lotteryName}-modal--show`);
-		}
-	});
-
-	// Timers
-	if (!isDev) {
-		let timerDate = new Date(2030, 12, 12, 0, 15, 0);
-		$(`.${lotteryName}-timer__wrapper`).countdown({
-			until: timerDate,
-			padZeroes: true,
-			format: "DHMS",
-			labels: ["Years", "Months", "Weeks", "дней", "часов", "минут", "секунд"],
-			labels1: ["Year", "Month", "Week", "дней", "часов", "минут", "секунд"],
-			labels2: ["Year", "Month", "Week", "дней", "часов", "минут", "секунд"],
-			layout: `<ul class="${lotteryName}-timer__list">
-				<li><b>{d10}{d1}</b> <span>{dl}</span></li>
-				<li><b>{h10}{h1}</b> <span>{hl}</span></li>
-				<li><b>{m10}{m1}</b> <span>{ml}</span></li>
-				<li><b>{s10}{s1}</b> <span>{sl}</span></li>
-				</ul>`
+	for (let i = 0; i < jsElements.modalShow.length; i++) {
+		jsElements.modalShow[i].addEventListener("click", function(e) {
+			e.preventDefault();
+			let modalClassName = this.dataset.modal;
+			showModal(modalClassName);
 		});
 	}
 
-	// Animation
+	function showModal(modalName) {
+		let curModal = document.querySelector(modalName);
+		curModal.classList.add(`${lotteryName}-modal--open`);
+		blocks.body.style.cssText = "overflow: hidden";
+
+		// initPS.update();
+
+		let curCloseBtnEl = document.querySelector(
+			`${modalName} .${lotteryName}-modal__close`
+		);
+		curCloseBtnEl.addEventListener("click", function(e) {
+			curModal.classList.remove(`${lotteryName}-modal--open`);
+			blocks.body.style.cssText = "";
+		});
+	}
+	document.addEventListener("click", function(e) {
+		if (e.target.classList.contains(`${lotteryName}-modal__overlay`)) {
+			e.target
+				.closest(`.${lotteryName}-modal`)
+				.classList.remove(`${lotteryName}-modal--open`);
+			blocks.body.style.cssText = "";
+		}
+	});
+
+	if (hash !== "") {
+		let modalHash = document.querySelectorAll(`.${lotteryName}-modal${hash}`);
+		if (modalHash.length > 0) {
+			showModal(`.${lotteryName}-modal${hash}`);
+		}
+	}
 });

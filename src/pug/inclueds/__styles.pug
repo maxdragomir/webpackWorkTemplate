@@ -1,16 +1,19 @@
 //- Styles default start
 
 link(href="assets/styles/libs/perfect-scrollbar.css", rel="stylesheet")
-link(href="assets/styles/libs/arcticmodal.css", rel="stylesheet")
-link(href="assets/styles/libs/slick-slider.css", rel="stylesheet")
-link(href="assets/styles/libs/animate.css", rel="stylesheet")
+link(href="assets/styles/libs/tiny-slider.css", rel="stylesheet")
 
 //- Styles default end
+
+
+// =====================================================================================================================
+// =====================================================================================================================
+
 
 //- Styles main start
 
 each cssName in htmlWebpackPlugin.files.css
-	link(href=cssName, rel='stylesheet')
+	link(href=cssName, rel='stylesheet', id='ltrToRtl')
 // - for (var cssIndex = 0; cssIndex < htmlWebpackPlugin.files.css.length; cssIndex++)
 // 	link(href=htmlWebpackPlugin.files.css[cssIndex], rel='stylesheet')
 

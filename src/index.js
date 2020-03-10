@@ -2,7 +2,7 @@
 // =====================================================================================================================
 
 // import "./styles/sass/app.sass";
-import "./styles/scss/app.scss";
+import "./styles/app.scss";
 import "./js/default";
 import "./js/scripts";
 

@@ -1,20 +1,11 @@
 /*! Base */
 /*======================================================================================================================*/
 
-
 .#{$lotteryName} {
   direction: opposite-direction(ltr);
 
   a {
     text-decoration: none;
-    transform: scale(1);
-    will-change: transform;
-    transition: all .5s ease;
-
-    &:active {
-      transform: scale(0.95);
-      transition: all .2s ease;
-    }
   }
   section {
     position: relative;
@@ -109,8 +100,8 @@
     margin: 0 auto;
     font-weight: $fontWeight;
     line-height: 1;
-    color: $colorWrapper;
-    background: $bgWrapper;
+    color: #000;
+    background: #fff;
     font-size: $fontSize;
     font-family: 'Roboto', sans-serif;
     text-size-adjust: 100%;
@@ -142,7 +133,7 @@
     overflow: hidden;
     background-size: auto;
     z-index: 1;
-    background: $bgInner;
+    background: #666;
     box-shadow: 5px 5px 100px rgba(0, 0, 0, .5);
     @include mediaMixin(min, 1900) {
       width: 1920px;

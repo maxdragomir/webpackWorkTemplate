@@ -1,0 +1,94 @@
+/*! Base */
+/*======================================================================================================================*/
+
+
+.#{$lotteryName} {
+  direction: opposite-direction(ltr);
+  font-family: $mainFont;
+
+  .no-animate {
+    animation: none !important;
+  }
+  .breadcrumbs {
+    position: absolute;
+    font-style: normal;
+    z-index: 2;
+    @include em((
+      top: 20px,
+      left: 20px
+    ), $fontSize);
+
+    li {
+      color: #333;
+      text-transform: uppercase;
+      display: inline-block;
+      position: relative;
+      font-weight: bold;
+      a {
+        color: inherit;
+      }
+      &:first-child:before {
+        content: none;
+      }
+      &:before {
+        content: "/";
+        @include em((
+          margin-left: 4px,
+          margin-right: 8px
+        ), $fontSize);
+      }
+    }
+
+  }
+  &-addition {
+    position: fixed;
+    left: 0;
+    bottom: 5%;
+    display: flex;
+    justify-content: flex-end;
+    flex-flow: column;
+    z-index: 999;
+    transition: all 0.5s ease;
+    &__btn {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      font-weight: 900;
+      background: #fff;
+      color: #333;
+      border: 2px solid #fff;
+      outline: none;
+      text-transform: uppercase;
+      transform: scale(1);
+      will-change: transform;
+      transition: all 0.3s ease;
+      @include em((
+        font-size: 20px,
+        margin-bottom: 5px,
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2)
+      ), $fontSize);
+      span {
+        display: block;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &:hover {
+        background: #333;
+        color: #fff;
+        transition: all 0.3s ease;
+      }
+      &:active {
+        transform: scale(0.9);
+        transition: all 0.1s ease;
+      }
+    }
+  }
+  &-scroll {
+    overflow: hidden;
+    position: relative;
+  }
+}
