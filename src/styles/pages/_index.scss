@@ -428,8 +428,8 @@
               right: em(800px, $fontSize);
             }
             @include mediaMixin(max, 1700) {
+              right: em(470px, $fontSize);
               top: em(50px, $fontSize);
-              right: em(580px, $fontSize);
             }
             @include mediaMixin(max, 1300) {
               right: em(470px, $fontSize);
@@ -584,10 +584,11 @@
             width: 100%;
             transform: translateX(0);
             @include mediaMixin(max, 1700) {
-              left: 28%;
+              left: 31%;
               width: em(410px, $fontSize);
             }
             @include mediaMixin(max, 1300) {
+              left: 25%;
               width: em(350px, $fontSize);
             }
           }

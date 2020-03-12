@@ -83,10 +83,10 @@ document.addEventListener("DOMContentLoaded", function() {
 		slideBy: "page",
 		loop: true,
 		rewind: true,
-		autoplay: false,
+		autoplay: true,
 		nav: false,
 		controls: true,
-		speed: 2000,
+		speed: 1500,
 		autoplayTimeout: 3500,
 		autoplayButtonOutput: false
 	});
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		var info = slider.getInfo(),
 			indexCurrent = info.index,
 			controls = info.controlsContainer;
-		console.log(info);
+		// console.log(info);
 		if (indexCurrent === 1) {
 			controls.classList.add(`tns-showPrev`);
 			controls.classList.remove(`tns-showNext`);
