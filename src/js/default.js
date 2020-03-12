@@ -19,24 +19,24 @@ document.addEventListener("DOMContentLoaded", function() {
 	const jsElements = {
 		scrollPS: blocks.wrapper.querySelector(`.${lotteryName}-scroll`),
 		modalShow: blocks.wrapper.querySelectorAll(`.${lotteryName}-modalShow`)
-		// hash: location.search.replace(/\?/,''),
-		// modalHash: blocks.wrapper.querySelector(`.${lotteryName}-modal__${hash}`),
 	};
+
+	setTimeout(function() {
+		blocks.wrapper.classList.add(`${lotteryName}-loaded`);
+	}, 500);
 
 	//Hash
 	let hash = location.search.replace(/\?/, "");
-
 	if (hash === "righttoleft") {
 		ltrToRtl.href = "/assets/css/right-to-left.css";
 		blocks.body.classList.add("righttoleft");
 	}
 
 	// PerfectScroll
-	// let initPS = new PerfectScrollbar(jsElements.scrollPS);
+	let initPS = new PerfectScrollbar(jsElements.scrollPS);
 	window.addEventListener("resize", function(event) {
 		initPS.update();
 	});
-	// console.log(modalShow);
 
 	// Modal
 	for (let i = 0; i < jsElements.modalShow.length; i++) {
@@ -46,13 +46,12 @@ document.addEventListener("DOMContentLoaded", function() {
 			showModal(modalClassName);
 		});
 	}
-
 	function showModal(modalName) {
 		let curModal = document.querySelector(modalName);
 		curModal.classList.add(`${lotteryName}-modal--open`);
 		blocks.body.style.cssText = "overflow: hidden";
 
-		// initPS.update();
+		initPS.update();
 
 		let curCloseBtnEl = document.querySelector(
 			`${modalName} .${lotteryName}-modal__close`
@@ -70,11 +69,39 @@ document.addEventListener("DOMContentLoaded", function() {
 			blocks.body.style.cssText = "";
 		}
 	});
-
 	if (hash !== "") {
 		let modalHash = document.querySelectorAll(`.${lotteryName}-modal${hash}`);
 		if (modalHash.length > 0) {
 			showModal(`.${lotteryName}-modal${hash}`);
 		}
 	}
+
+	// Slider
+	let slider = tns({
+		container: `.${lotteryName}-slider`,
+		items: 1,
+		slideBy: "page",
+		loop: true,
+		rewind: true,
+		autoplay: false,
+		nav: false,
+		controls: true,
+		speed: 2000,
+		autoplayTimeout: 3500,
+		autoplayButtonOutput: false
+	});
+
+	slider.events.on("transitionStart", function(displayIndex, eventName) {
+		var info = slider.getInfo(),
+			indexCurrent = info.index,
+			controls = info.controlsContainer;
+		console.log(info);
+		if (indexCurrent === 1) {
+			controls.classList.add(`tns-showPrev`);
+			controls.classList.remove(`tns-showNext`);
+		} else {
+			controls.classList.add(`tns-showNext`);
+			controls.classList.remove(`tns-showPrev`);
+		}
+	});
 });

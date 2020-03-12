@@ -3,21 +3,626 @@
 
 
 .#{$lotteryName} {
-  section {
-    h1 {
+  &-loaded {
+    .#{$lotteryName} {
+
+      &-slide {
+        &__title {
+          transform: translateX(0);
+          opacity: 1;
+          transition: all .5s ease;
+        }
+        &__subtitle {
+          transform: translateX(0);
+          opacity: 1;
+          transition: all .5s ease .25s;
+        }
+        &__steps {
+          transform: translateX(0);
+          opacity: 1;
+          transition: all .5s ease 1s;
+        }
+        &__man {
+          transform: translateX(0);
+          opacity: 1;
+          transition: all .5s ease 1s;
+        }
+        &__name {
+          opacity: 1;
+          transform: rotate(-90deg) translateX(0);
+          transition: all .5s ease 1.5s;
+        }
+        &__action {
+          opacity: 1;
+          transform: translateX(-50%) translateY(0);
+          transition: all .5s ease 1.5s;
+        }
+      }
+    }
+  }
+  .tns {
+    &-slider {
+      transition-timing-function: ease;
+    }
+    &-controls {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      z-index: 1;
+      outline: none;
+
+      button {
+        color: transparent;
+        border: 0;
+        z-index: 1;
+        overflow: hidden;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        width: em(50px, $fontSize);
+        height: em(50px, $fontSize);
+        @include mediaMixin(max, 1700) {
+          width: em(26px, $fontSize);
+          height: em(26px, $fontSize);
+        }
+
+        &:first-child {
+          position: absolute;
+          top: 0;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateX(0);
+          transition: all .5s linear;
+          left: em(40px, $fontSize);
+          @include mediaMixin(max, 1850) {
+            left: em(20px, $fontSize);
+          }
+
+          &:hover {
+            transform: translateX(em(-10px, $fontSize));
+            transition: all .5s ease;
+          }
+        }
+
+        &:last-child {
+          position: absolute;
+          top: 0;
+          opacity: 1;
+          visibility: visible;
+          transform: translateX(0);
+          transition: all .5s linear;
+          right: em(40px, $fontSize);
+
+          @include mediaMixin(max, 1850) {
+            right: em(20px, $fontSize);
+          }
+
+          &:hover {
+            transform: translateX(em(10px, $fontSize));
+            transition: all .5s ease;
+          }
+
+          &:before {
+            background-position: right top;
+          }
+        }
+
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url(/assets/img/main/arrows.png);
+          background-size: 200% 100%;
+          transition: .2s linear;
+        }
+      }
+    }
+
+    &-showPrev {
+      button {
+        &:first-child {
+          opacity: 1;
+          visibility: visible;
+          transition: all .5s ease;
+        }
+        &:last-child {
+          opacity: 0;
+          visibility: hidden;
+          transition: all .5s ease;
+        }
+      }
+    }
+    &-showNext {
+      button {
+        &:first-child {
+          opacity: 0;
+          visibility: hidden;
+          transition: all .5s ease;
+        }
+        &:last-child {
+          opacity: 1;
+          visibility: visible;
+          transition: all .5s ease;
+        }
+      }
+    }
+
+    &-slide-active {
+      .#{$lotteryName} {
+        &-slide {
+          &__name {
+            span {
+              opacity: 1;
+              transform: translateX(0%);
+              transition: all 2s ease
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-slide {
+    position: relative;
+    overflow: hidden;
+    font-family: $secondaryFont;
+    min-height: em(855px, $fontSize);
+    @include mediaMixin(max, 1700) {
+      min-height: em(520px, $fontSize);
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(to bottom, transparent 0%, #000 90%);
+      z-index: 2;
+      height: em(250px, $fontSize);
+      @include mediaMixin(max, 1700) {
+        height: em(150px, $fontSize);
+      }
+    }
+    &__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    &__row {
+      position: relative;
+      display: flex;
+      height: 100%;
+    }
+    &__col {
+      flex-basis: 50%;
+      max-width: 50%;
+    }
+    &__content {
+      color: #fff;
+      padding: em(80px 20px 0, $fontSize);
+      @include mediaMixin(max, 1700) {
+        padding: em(30px 0 0 0, $fontSize);
+      }
+    }
+    &__title {
+      line-height: .9;
+      font-weight: 600;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateX(-50%);
+      transition: all .5s ease;
+      &-text {
+        font-size: em(90px, $fontSize);
+        @include mediaMixin(max, 1700) {
+          font-size: em(60px, $fontSize);
+        }
+      }
+    }
+    &__date {
       position: relative;
       color: #fff;
       text-transform: uppercase;
+      text-align: right;
+      z-index: 1;
+      font-size: em(38px, $fontSize);
+      margin-bottom: em(2.5px, $fontSize);
+      @include mediaMixin(max, 1700) {
+        font-size: em(24px, $fontSize);
+      }
+      span {
+        position: relative;
+        display: inline-block;
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          background: #0082d5;
+          z-index: -1;
+          transform: scale(1.1) skew(-10deg);
+        }
+      }
+    }
+    &__subtitle {
+      text-transform: uppercase;
+      font-weight: 700;
+      line-height: 1.1;
+      color: #c1c1c1;
+      opacity: 0;
+      transform: translateX(-50%);
+      transition: all .5s ease;
+      margin: em(10px 0 0, $fontSize);
+      span {
+        font-size: em(40px, $fontSize);
+        @include mediaMixin(max, 1700) {
+          font-size: em(26px, $fontSize);
+        }
+      }
+    }
+    &__steps {
+      display: flex;
+      color: #ebebeb;
+      text-transform: uppercase;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateX(-50%);
+      transition: all .5s ease;
+      margin-top: em(115px, $fontSize);
+      @include mediaMixin(max, 1700) {
+        margin-top: em(40px, $fontSize);
+      }
+      ul {
+        counter-reset: list;
+        list-style: none;
+      }
+      li {
+        position: relative;
+        font-weight: 600;
+        padding-left: em(80px, $fontSize);
+        margin: em(40px 0, $fontSize);
+
+        @include mediaMixin(max, 1700) {
+          margin: em(30px 0, $fontSize);
+          padding-left: em(45px, $fontSize);
+        }
+
+        span {
+          font-size: em(30px, $fontSize);
+
+          @include mediaMixin(max, 1700) {
+            font-size: em(20px, $fontSize);
+          }
+        }
+
+        &:before {
+          content: counter(list);
+          counter-increment: list;
+          position: absolute;
+          left: 0;
+          top: 50%;
+          color: #fff;
+          transform: translateY(-50%);
+          font-size: em(70px, $fontSize);
+
+          @include mediaMixin(max, 1700) {
+            font-size: em(44px, $fontSize);
+          }
+        }
+        &:after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          background: url(/assets/img/modal/step-arr.png) no-repeat center;
+          background-size: cover;
+          transform: translateY(-50%);
+          width: em(21px, $fontSize);
+          height: em(20px, $fontSize);
+          left: em(45px, $fontSize);
+
+          @include mediaMixin(max, 1700) {
+            width: em(14px, $fontSize);
+            height: em(13px, $fontSize);
+            left: em(25px, $fontSize);
+          }
+        }
+      }
+    }
+    &__boxer {
+      position: relative;
+      top: em(50px, $fontSize);
+    }
+    &__man {
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      transform: translateX(50%);
+      transition: all .5s ease;
+      @include mediaMixin(max, 1700) {
+        width: em(450px, $fontSize);
+      }
+      img {
+        margin: 0 auto;
+      }
+    }
+    &__name {
+      position: absolute;
+      top: 0;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 600;
+      transform-origin: 100% 0;
+      z-index: 0;
+      font-family: BebasNeue, sans-serif;
+      opacity: 0;
+      transform: rotate(-90deg) translateX(-50%);
+      transition: all .5s ease;
+      right: em(140px, $fontSize);
+      @include mediaMixin(max, 1700) {
+        right: em(110px, $fontSize);
+      }
+      @include mediaMixin(max, 1300) {
+        right: em(120px, $fontSize);
+      }
+
+      span {
+        display: block;
+        opacity: 0;
+        transform: translateX(-100%);
+        transition: all 2s ease;
+        font-size: em(158px, $fontSize);
+        @include mediaMixin(max, 1700) {
+          font-size: em(103px, $fontSize);
+        }
+      }
+    }
+    &__action {
+      position: absolute;
+      left: 50%;
+      z-index: 5;
+      text-align: center;
+      opacity: 0;
+      transform: translateX(-50%) translateY(50%);
+      transition: all .5s ease;
+      bottom: em(50px, $fontSize);
+      @include mediaMixin(max, 1700) {
+        bottom: em(30px, $fontSize);
+      }
+    }
+
+    &--reverse {
+      .#{$lotteryName} {
+        &-slide {
+          &__date {
+            text-align: left;
+          }
+          &__subtitle {
+            text-align: right;
+          }
+          &__steps {
+            justify-content: flex-end;
+          }
+          &__man {
+            margin: 0 0 0 auto;
+            @include mediaMixin(max, 1700) {
+              width: em(400px, $fontSize);
+            }
+          }
+          &__name {
+            top: em(100px, $fontSize);
+            right: em(825px, $fontSize);
+
+            @include mediaMixin(max, 1850) {
+              right: em(800px, $fontSize);
+            }
+            @include mediaMixin(max, 1700) {
+              top: em(50px, $fontSize);
+              right: em(580px, $fontSize);
+            }
+            @include mediaMixin(max, 1300) {
+              right: em(470px, $fontSize);
+            }
+
+
+            span {
+              font-size: em(254px, $fontSize);
+
+              @include mediaMixin(max, 1700) {
+                font-size: em(156px, $fontSize);
+              }
+            }
+          }
+        }
+      }
     }
   }
-  &-titleWrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  &-title {
-    @include gradientText(top, #febe0d,  0%, #f6ce60, 100%)
-  }
-}
 
+  &-btn--main {
+    display: block;
+    color: #fff;
+    background: #4de222;
+    span {
+      text-transform: uppercase;
+      font-size: em(28px, $fontSize);
+      padding: em(13px 23px, $fontSize);
+      @include mediaMixin(max, 1700) {
+        font-size: em(18px, $fontSize);
+      }
+      &:after {
+        display: block;
+        background-color: rgba(#fff, .5);
+      }
+    }
+    &:before {
+      background: linear-gradient(180deg, #4de222 0%, #2e8514 100%);
+    }
+  }
+  &-link {
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-block;
+    border-bottom: 2px solid;
+    line-height: .9;
+    transition: .2s linear;
+    font-size: em(22px, $fontSize);
+    margin-top: em(20px , $fontSize);
+    @include mediaMixin(max, 1700) {
+      font-size: em(14px, $fontSize);
+      margin-top: em(15px , $fontSize);
+    }
+
+    &:hover {
+      border-bottom: 2px solid rgba(255,255,255, 0);
+      transition: .2s linear;
+    }
+  }
+
+  &-bgImages {
+    pointer-events: none;
+    &__ring {
+      position: absolute;
+      top: 0;
+      left: em(-750px, $fontSize);
+      @include mediaMixin(max, 1700) {
+        left: em(-450px, $fontSize);
+        width: em(1090px, $fontSize);
+      }
+    }
+    &__man {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      @include mediaMixin(max, 1700) {
+        width: em(1090px, $fontSize);
+      }
+      img {
+        margin: 0 auto;
+      }
+    }
+    &__blue {
+      position: absolute;
+      width: 100%;
+      right: -45%;
+      top: em(-100px, $fontSize);
+    }
+    &__blueLight {
+      position: absolute;
+      top: em(-370px, $fontSize);
+      right: em(-600px, $fontSize);
+      @include mediaMixin(max, 1300) {
+        top: em(-330px, $fontSize);
+        width: em(1000px, $fontSize);
+      }
+    }
+    &__smoke {
+      position: absolute;
+      right: 0;
+      top: em(360px, $fontSize);
+      @include mediaMixin(max, 1700) {
+        top: em(100px, $fontSize);
+        width: em(1090px, $fontSize);
+      }
+    }
+    &__dust {
+      position: absolute;
+      right: -10%;
+      top: em(160px, $fontSize);
+      @include mediaMixin(max, 1700) {
+        top: em(70px, $fontSize);
+        width: em(1090px, $fontSize);;
+      }
+    }
+    &__blueEffect {
+      position: absolute;
+      top: 0;
+      left: em(-170px, $fontSize);
+
+      @include mediaMixin(max, 1850) {
+        width: em(1090px, $fontSize);
+      }
+      @include mediaMixin(max, 1700) {
+        width: em(800px, $fontSize);
+        left: em(-120px, $fontSize);
+      }
+      @include mediaMixin(max, 1300) {
+        width: em(600px, $fontSize);
+        left: em(-140px, $fontSize);
+      }
+    }
+
+    &--reverse {
+      .#{$lotteryName} {
+        &-bgImages {
+          &__ring {
+            left: auto;
+            right: em(-750px, $fontSize);
+            @include mediaMixin(max, 1700) {
+              width: em(1090px, $fontSize);
+              right: em(-450px, $fontSize);
+            }
+            img {
+              transform: scaleX(-1);
+            }
+          }
+          &__man {
+            left: -7%;
+            width: 100%;
+            transform: translateX(0);
+            @include mediaMixin(max, 1700) {
+              left: 28%;
+              width: em(410px, $fontSize);
+            }
+            @include mediaMixin(max, 1300) {
+              width: em(350px, $fontSize);
+            }
+          }
+          &__blue {
+            right: auto;
+            left: -50%;
+            img {
+              margin: 0 auto;
+            }
+          }
+          &__blueLight {
+            right: auto;
+            left: em(-600px, $fontSize);
+            @include mediaMixin(max, 1300) {
+              top: em(-330px, $fontSize);
+              width: em(1000px, $fontSize);
+            }
+          }
+          &__smoke {
+            left: 0;
+            right: auto;
+            img {
+              transform: scaleX(-1);
+            }
+          }
+          &__dust {
+            left: -10%;
+            right: auto;
+            img {
+              transform: scaleX(-1);
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

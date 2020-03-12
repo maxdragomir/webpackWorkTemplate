@@ -2,11 +2,7 @@
 //- ====================================================================================================================
 
 
-mixin addImg(classImg, urlImg)
-	if classImg
-		- var newClass = `${lotteryName}-${classImg}`
-	else
-		- var newClass = ""
+mixin addImg(urlImg)
 
-	div(class=`${lotteryName}-img ${newClass}`)&attributes(attributes)
+	div&attributes(attributes)
 		img(src=urlImg)

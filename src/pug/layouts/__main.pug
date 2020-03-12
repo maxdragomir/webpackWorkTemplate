@@ -2,13 +2,6 @@ include ../mixins/__allMixins
 //- PUG Variables
 block vars
 
-//- JS Variables
-script.
-	var lotteryName = 'testTest',
-			hash = location.search.replace(/\?/, ''),
-			direction = false,
-			isDev = false;
-
 doctype html
 html(lang='en')
 	head
@@ -24,15 +17,14 @@ html(lang='en')
 
 
 		// Landing
-		div(class=`${lotteryName} ${lotteryName}-wrapper ${lotteryName}-${lotteryPage}`)
-			div(class=`${lotteryName}-inner`)
-				//- Breadcrumbs start
-				+addBreadcrumbs(lotteryName)
-				//- Breadcrumbs end
+		div(class=`${lotteryName} ${lotteryName}-wrapper`)
+			//- Breadcrumbs start
+			+addBreadcrumbs(lotteryName)
+			//- Breadcrumbs end
 
-				//- Content start
-				block content
-				//- Content end
+			//- Content start
+			block content
+			//- Content end
 
 
 		// -----------------------------------------------------------------------------------------------------------------

@@ -3,25 +3,23 @@
 
 mixin addModalEnter()
 	div(class=`${lotteryName}-modal ${lotteryName}-modalEnter`)
-
 		div(class=`${lotteryName}-modal__overlay`)
 
 		div(class=`${lotteryName}-modal__block ${lotteryName}-modal__block--enter`)
-
 			div(class=`${lotteryName}-modal__close`)
 				div(class=`${lotteryName}-modal__closeImg`, style="background-image: url(assets/img/modal/close.png)")
 
 			div(class=`${lotteryName}-modal__bg`)
-
 			div(class=`${lotteryName}-modal__body`)
-				div(class=`${lotteryName}-modal__text ${lotteryName}-modal__text--color`)
-					| Для участия Вам необходимо
+				div(class=`${lotteryName}-modal__text`)
+					span Для продолжения
+					| вам необходимо
 					span войти
 					| или
 					span зарегистрироваться
 					| !
 				div(class=`${lotteryName}-modal__action`)
 					a(href="#!" class=`${lotteryName}-modal__btn ${lotteryName}-modal__btn--main ${lotteryName}-btn ${lotteryName}-btn--main`)
-						span Войти
+						span Вход
 					a(href="#!" class=`${lotteryName}-modal__btn ${lotteryName}-modal__btn--secondary ${lotteryName}-btn ${lotteryName}-btn--secondary`)
 						span Регистрация

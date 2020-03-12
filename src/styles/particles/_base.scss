@@ -3,8 +3,38 @@
 
 
 .#{$lotteryName} {
-  direction: opposite-direction(ltr);
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  font-weight: $fontWeight;
+  line-height: 1;
+  color: #000;
+  background: #000;
+  font-size: $fontSize;
   font-family: $mainFont;
+  text-size-adjust: 100%;
+  font-smooth: antialiased;
+  overflow: hidden;
+  direction: opposite-direction(ltr);
+  box-sizing: border-box;
+  transition: all 1s ease;
+  //@include mediaMixin(max, 1600) {
+  //  $fontSize: 15px;
+  //  font-size: $fontSize;
+  //}
+  //@include mediaMixin(max, 1300) {
+  //  $fontSize: 14px;
+  //  font-size: $fontSize;
+  //}
+  //@include mediaMixin(max, 800) {
+  //  $fontSize: 13px;
+  //  font-size: $fontSize;
+  //}
+  //@include mediaMixin(max, 570) {
+  //  $fontSize: 12px;
+  //  font-size: $fontSize;
+  //}
+
 
   .no-animate {
     animation: none !important;
@@ -19,7 +49,7 @@
     ), $fontSize);
 
     li {
-      color: #333;
+      color: #fff;
       text-transform: uppercase;
       display: inline-block;
       position: relative;
@@ -91,4 +121,121 @@
     overflow: hidden;
     position: relative;
   }
+  &-container {
+    position: relative;
+    max-width: $container;
+    margin: 0 auto;
+    @include mediaMixin(max, 1700) {
+      max-width: 1000px;
+    }
+  }
+
+  &-btn {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    border: 0;
+    margin: 0 auto;
+    color: #333;
+    background: #000;
+    z-index: 2;
+
+    @include em((
+            border-radius: 50px,
+            box-shadow: 10px 10px 24px 3px rgba(0, 0, 0, .25)
+    ), $fontSize);
+
+    span {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      font-weight: 900;
+      transform: translate3d(0, 0, 0);
+      will-change: transform;
+      z-index: 1;
+
+      @include em((
+              border-radius: 50px,
+              padding: 21px 50px,
+              font-size: 18px
+      ), $fontSize);
+
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translateX(-100%) skew(0deg);
+        width: 100%;
+        height: 100%;
+        border: 1px solid transparent;
+        z-index: 0;
+        opacity: 1;
+        animation: flicker 3s ease infinite 1s;
+        display: none;
+      }
+    }
+    //bg
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      background: #eee;
+      z-index: 1;
+      border-radius: em(50px, $fontSize);
+      opacity: 1;
+      transform: translate(-50%, -50%);
+      transition: all 0.5s ease
+    }
+    &:hover {
+      transition: all .5s ease;
+
+      @include em((
+        box-shadow: 10px 10px 20px 0 rgba(0, 0, 0, .25)
+      ), $fontSize);
+
+      &:before {
+        opacity: .5;
+        transition: all .5s ease;
+      }
+    }
+    &:active {
+      transition: all .2s ease;
+
+      @include em((
+              box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, .25)
+      ), $fontSize);
+
+      &:before {
+        opacity: .5;
+        transition: all .5s ease;
+      }
+    }
+  }
+  &-btn--secondary {
+    background: #777;
+    color: #333;
+    span {
+      font-weight: 600;
+
+      @include em((
+              padding: 12px 55px,
+              font-size: 16px
+      ), $fontSize);
+    }
+    &:before {
+      background: #eee;
+    }
+    &:hover {
+      color: #fff;
+    }
+  }
+
 }

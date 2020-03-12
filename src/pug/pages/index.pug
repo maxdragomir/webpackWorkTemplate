@@ -6,95 +6,169 @@ block vars
 
 block content
 
-	section(class=`${lotteryName}-sectionMain`)
-		h1= lotteryPage
+
+	section(class=`${lotteryName}-sectionSlider ${lotteryName}-slider`)
+		div(class=`${lotteryName}-slide`)
+			div(class=`${lotteryName}-slide__bg ${lotteryName}-bgImages`)
+				+addImg("assets/img/main/ring.jpg")(class=`${lotteryName}-bgImages__ring`)
+				+addImg("assets/img/main/smoke.png")(class=`${lotteryName}-bgImages__smoke`)
+				+addImg("assets/img/main/dust.png")(class=`${lotteryName}-bgImages__dust`)
+				+addImg("assets/img/main/man1/man-bg.png")(class=`${lotteryName}-bgImages__man`)
+				+addImg("assets/img/main/blue-bg.png")(class=`${lotteryName}-bgImages__blue`)
+				+addImg("assets/img/main/blue-light.png")(class=`${lotteryName}-bgImages__blueLight`)
+
+
+			div(class=`${lotteryName}-container`)
+				div(class=`${lotteryName}-slide__row`)
+					div(class=`${lotteryName}-slide__col ${lotteryName}-slide__content`)
+						div(class=`${lotteryName}-slide__title`)
+							div(class=`${lotteryName}-slide__date`)
+								span 19.04.2020
+							span(class=`${lotteryName}-slide__title-text`) Ставка без риска
+						div(class=`${lotteryName}-slide__subtitle`)
+							span Как ни ставь – победа за тобой!
+						div(class=`${lotteryName}-slide__steps`)
+							ul
+								li
+									span Регистрируйся на 1xBet
+								li
+									span Делай ставки от 500 RUB
+								li
+									span Возвращай до - 20%​ от ставки
+
+					div(class=`${lotteryName}-slide__col ${lotteryName}-slide__boxer`)
+						div(class=`${lotteryName}-slide__name`)
+							span Ferguson
+						+addImg("assets/img/main/man1/man.png")(class=`${lotteryName}-slide__man`)
+
+
+
+				div(class=`${lotteryName}-slide__action`)
+					+addMainBtn('Сделать ставку', 'main')
+					a(href="#!" class=`${lotteryName}-link ${lotteryName}-modalShow` data-modal=`.${lotteryName}-modalRules`) Правила
+
+
+		div(class=`${lotteryName}-slide ${lotteryName}-slide--reverse`)
+			div(class=`${lotteryName}-slide__bg ${lotteryName}-bgImages ${lotteryName}-bgImages--reverse`)
+				+addImg("assets/img/main/ring.jpg")(class=`${lotteryName}-bgImages__ring`)
+				+addImg("assets/img/main/smoke.png")(class=`${lotteryName}-bgImages__smoke`)
+				+addImg("assets/img/main/dust.png")(class=`${lotteryName}-bgImages__dust`)
+				+addImg("assets/img/main/man2/man-bg.png")(class=`${lotteryName}-bgImages__man`)
+				+addImg("assets/img/main/blue-bg.png")(class=`${lotteryName}-bgImages__blue`)
+				+addImg("assets/img/main/blue-light.png")(class=`${lotteryName}-bgImages__blueLight`)
+				+addImg("assets/img/main/man2/effect.png")(class=`${lotteryName}-bgImages__blueEffect`)
+
+			div(class=`${lotteryName}-container`)
+				div(class=`${lotteryName}-slide__row`)
+					div(class=`${lotteryName}-slide__col ${lotteryName}-slide__boxer`)
+						div(class=`${lotteryName}-slide__name`)
+							span KHABIB
+						+addImg("assets/img/main/man2/man.png")(class=`${lotteryName}-slide__man`)
+
+					div(class=`${lotteryName}-slide__col ${lotteryName}-slide__content`)
+						div(class=`${lotteryName}-slide__title`)
+							div(class=`${lotteryName}-slide__date`)
+								span 19.04.2020
+							span(class=`${lotteryName}-slide__title-text`) Ставка без риска
+						div(class=`${lotteryName}-slide__subtitle`)
+							span Как ни ставь – победа за тобой!
+						div(class=`${lotteryName}-slide__steps`)
+							ul
+								li
+									span Регистрируйся на 1xBet
+								li
+									span Делай ставки от 500 RUB
+								li
+									span Возвращай до - 20%​ от ставки
+
+				div(class=`${lotteryName}-slide__action`)
+					+addMainBtn('Сделать ставку', 'main')
+					a(href="#!" class=`${lotteryName}-link ${lotteryName}-modalShow` data-modal=`.${lotteryName}-modalRules`) Правила
 
 	//- Addition Btn start
 	div(class=`${lotteryName}-addition`)
 		+addBtnModal("Enter", "E")
-		+addBtnModal("rules", "R")
-		+addBtnModal("tickets", "T")
-		+addBtnModal("win1", "W1")
-		+addBtnModal("win2", "W2")
+		+addBtnModal("Rules", "R")
+		+addBtnModal("Hello", "H")
 	//- Addition Btn end
 
 
 	//- Modal Start
 	+addModalEnter()
-	//+addModalRules()
-	//	div(class=`${lotteryName}-modal__title`) ПРАВИЛА
-	//	div(class=`${lotteryName}-modal__text`)
-	//		p(class=`${lotteryName}-modal__text--big`) Как принять участие?
-	//		ol(class=`${lotteryName}-modal__list ${lotteryName}-modal__list--none`)
-	//			li
-	//				span(class=`${lotteryName}-modal__text--color`) 1)
-	//				| Зарегистрируйся или авторизируйся на сайте MELBET.
-	//			li
-	//				span(class=`${lotteryName}-modal__text--color`) 2)
-	//				| Делай ставки типа экспресс. Чем выше коэффициент, больше событий в экспрессе и крупнее сумма ставки — тем выше шансы на победу!
-	//			li
-	//				span(class=`${lotteryName}-modal__text--color`) 3)
-	//				| Набирай наибольшее количество очков за месяц среди всех участников.
-	//			li
-	//				span(class=`${lotteryName}-modal__text--color`) 4)
-	//				| Занимай призовые места в турнирной таблице и выигрывай крутые призы!
-	//
-	//
-	//		p(class=`${lotteryName}-modal__text--big`) Ежемесячный призовой фонд:
-	//		ul(class=`${lotteryName}-modal__list ${lotteryName}-modal__list--none`)
-	//			li
-	//				span(class=`${lotteryName}-modal__text--color`) 1-е место - суперприз на выбор:
-	//				| Приставка Sony PlayStation 4 Pro (PS4 Pro) 1TB или Приставка Xbox ONE X 1TB (1 победитель)
-	//			li
-	//				span(class=`${lotteryName}-modal__text--color`) 2-е место:
-	//				| Наушники Beats Solo 3 Wireless (3 победителя)
-	//			li
-	//				span(class=`${lotteryName}-modal__text--color`) 3-е место:
-	//				| JBL Charge 4 (5 победителей)
-	//
-	//
-	//		p(class=`${lotteryName}-modal__text--big`) Фрибеты:
-	//		ul(class=`${lotteryName}-modal__list ${lotteryName}-modal__list--none`)
-	//			li
-	//				span(class=`${lotteryName}-modal__text--color`) 4 место:
-	//				| 10 000 рублей
-	//			li
-	//				span(class=`${lotteryName}-modal__text--color`) 6 место:
-	//				| 5 000 рублей
-	//			li
-	//				span(class=`${lotteryName}-modal__text--color`) 6 место:
-	//				| 2 000 рублей
-	//			li
-	//				span(class=`${lotteryName}-modal__text--color`) 7 место:
-	//				| 1 000 рублей
-	//			li
-	//				span(class=`${lotteryName}-modal__text--color`) 8 место:
-	//				| 500 рублей
-	//			li
-	//				span(class=`${lotteryName}-modal__text--color`) 9 место:
-	//				| 200 рублей
-	//			li
-	//				span(class=`${lotteryName}-modal__text--color`) 10 место:
-	//				| 100 рублей
-	//
-	//		p(class=`${lotteryName}-modal__text--big`) Правила и условия:
-	//		ol(class=`${lotteryName}-modal__list ${lotteryName}-modal__list--decimal`)
-	//			li Принимая участие в акции, вы подтверждаете, что ознакомились с правилами ее проведения и принимаете их.
-	//			li Акция проводится с _____ декабря (00:00 +3 UTC) по ___ 2020 года  (23:59 +3 UTC) включительно.
-	//			li Только зарегистрированные участники могут принимать участие в акции. Обязательны для заполнения поля: Фамилия Имя Отчество, номер мобильного телефона (активация обязательна), электронный адрес (email), страна и город проживания.
-	//			li В акции участвуют только ставки типа экспресс из 3-х и более событий до начала матча по Линии на любые спортивные события с минимальной суммой ставки 100 RUB.
-	//			li Каждая выигравшая ставка приносит участнику очки, которые рассчитываются по формуле: (число событий в экспрессе * итоговый коэффициент) + сумма ставки /100.
-	//			li Каждому участнику засчитывается только один выигрышный экспресс, который набрал наибольшее количество очков.
-	//			li Лидеры с наибольшим количеством очков отображаются в таблице, по которой подводятся итоги акции. Чем больше очков — тем выше место в таблице.
-	//			li Количество ставок не ограничено.
-	//			li Участник, выигравший главный приз, выбирает один подарок из двух предложенных.
-	//			li Каждый месяц производится замена одного подарка (который выбрал победитель ) на новый.
-	//			li В акции учитываются исключительно ставки на реальные денежные средства участника пари. Ставки за авансовые и бонусные средства (в том числе промокоды) не учитываются. Также не учитываются ставки, рассчитанные возвратом.
-	//			li Акция действует только для одного IP-адреса, одного ПК, одной семьи и одного аккаунта.
-	//			li Компания MELBET имеет право отменить или отозвать настоящее предложение либо изменить любое из его положений в любое время без предварительного уведомления или указания причин.
-	//			li При необходимости пользователь обязан предоставить идентификационные документы для верификации (KYC). Если он не предоставит документы по запросу MELBET, то бонусное предложение и выигрыш аннулируются.
-	//			li Компания имеет право в любое время потребовать фото пользователя со своим документом (чтобы видно было лицо) или идентификацию по телефону.
-	//			li Если MELBET обнаружит, что он стал жертвой мошенничества или отмывания денег, то он имеет право закрыть аккаунт пользователя и заморозить остаток на счету.
-	//			li Любые решения компании относительно данной акции являются окончательными и обязательными для исполнения.
+	+addModalRules()
+		p(class=`${lotteryName}-modal__text ${lotteryName}-modal__text--big`) Отыграйтесь с Хабибом и Фергюсоном!
+		p(class=`${lotteryName}-modal__text`)
+			| Делайте ставки на бой
+			span Хабиба Нурмагомедова
+			| и
+			span Тони Фергюсона
+			| , который состоится 19.04.2020 (+3 UTC), и 1xBet вернет вам деньги в случае неудачи!
 
+
+		p(class=`${lotteryName}-modal__text ${lotteryName}-modal__text--big`) Как получить бесплатную ставку?
+		ul(class=`${lotteryName}-modal__list ${lotteryName}-modal__list--custom`)
+			li
+				| Сделайте любую
+				span одиночную
+				| ставку по
+				span Линии/Live
+				| на сумму от 500 RUB на бой Хабиба Нурмагомедова и Тони Фергюсона на сайте 1xBet.
+			li В случае проигрыша вы получите промокод для совершения бесплатной ставки на сайте в течение 24 часов после завершения боя.
+
+
+		p(class=`${lotteryName}-modal__text ${lotteryName}-modal__text--big`) От чего зависит размер суммы бесплатной ставки?
+		p(class=`${lotteryName}-modal__text`)
+			| Сумма для совершения бесплатной ставки по промокоду зависит от величины первоначальной ставки
+		ul(class=`${lotteryName}-modal__list ${lotteryName}-modal__list--decimal`)
+			li
+				| От 500 до 9 999 RUB –
+				span 10%
+			li
+				| От 10 000 до 49 999 RUB –
+				span 15%
+			li
+				| От 50 000 RUB –
+				span 20%
+		p(class=`${lotteryName}-modal__text`)
+			| Максимальная сумма возврата равна
+			span 10 000 RUB.
+
+
+		p(class=`${lotteryName}-modal__text ${lotteryName}-modal__text--big`) Условия отыгрыша промокода
+		p(class=`${lotteryName}-modal__text`)
+			| Чтобы отыграться, проставьте сумму промокода ставками типа экспресс по Линии/Live с минимальным количеством событий не менее
+			span 3-х, каждое событие должно иметь коэффициент не ниже 1.8.
+
+
+		p(class=`${lotteryName}-modal__text ${lotteryName}-modal__text--big`) ПОДРОБНЫЕ УСЛОВИЯ АКЦИИ:
+		ul(class=`${lotteryName}-modal__list ${lotteryName}-modal__list--decimal`)
+			li Учитывается только первая ставка с момента начала акции. Если данная ставка одиночная и она проиграет — вы получаете бонус, соответствующий проценту (согласно градации) от первоначальной ставки. Если ваша первая ставка на этот бой выиграет (или вид ставки будет отличный от одиночной), бонус в таком случае не зачисляется.
+			li Максимальная сумма возврата равна 10 000 RUB.
+			li
+				| В акции принимают участие ставки начиная с
+				span 00.00 20.03.2020 (+3 UTC).
+			li Для участия в акции пользователь должен дать согласие на участие в бонусных акциях в Личном кабинете в настройках аккаунта (Настройки аккаунта — Участие в бонусных акциях).
+			li Разместите ставку за собственные средства.
+			li В данной акции не учитываются бонусные ставки, ставки сделанные за авансовые средства, ставки на промокод.
+			li В расчет не будут приниматься ставки на различные виды фор и тоталов, а также маркеты с исходами чет/нечет.
+			li Промокод начисляется в течение 24 часов с момента расчета ставки.
+			li Ставки, рассчитанные с коэффициентом «1», аннулированные ставки, а также ставки, рассчитанные возвратом, не учитываются в данной акции.
+			li Компания оставляет за собой право потребовать от любого участника пари документы, удостоверяющие личность, прежде чем начислить любой бонус.
+			li Компания имеет право отменить или отозвать настоящее предложение либо изменить любое из его положений в любое время без уведомления или указания причин.
+			li Данное предложение действительно только один раз для одного участника пари, для одного дома/квартиры, одного счета, одного IP-адреса. Со всех счетов, уличенных в попытке открыть дублирующие счета, бонусы будут удалены.
+	+addModalCustom("Hello")
+		+addImg("assets/img/modal/modal-bg.png")(class=`${lotteryName}-modal__bg`)
+		div(class=`${lotteryName}-modal__title`) Ставка без риска
+		div(class=`${lotteryName}-modal__subtitle`) Как ни ставь – победа за тобой!
+		div(class=`${lotteryName}-modal__names`)
+			div(class=`${lotteryName}-modal__name`) Фергюссон
+			span VS
+			div(class=`${lotteryName}-modal__name`) Хабиб
+		div(class=`${lotteryName}-modal__action`)
+			a(href="#!" class=`${lotteryName}-modal__btn ${lotteryName}-modal__btn--main ${lotteryName}-btn ${lotteryName}-btn--main`)
+				span Подробнее
+
+		//div(class=`${lotteryName}-modal__images`)
+		+addImg("assets/img/modal/man2.png")(class=`${lotteryName}-modal__img ${lotteryName}-modal__img--man2`)
+		+addImg("assets/img/modal/man1.png")(class=`${lotteryName}-modal__img ${lotteryName}-modal__img--man1`)
 	//- Modal End
