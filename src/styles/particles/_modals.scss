@@ -46,13 +46,16 @@
       width: 21px;
       height: 21px;
       position: absolute;
-      right: -30px;
       top: 0;
       cursor: pointer;
       z-index: 5;
       transform-origin: center;
       transform: scale(1) rotate(0);
       transition: .5s ease;
+      background-image: url(/img/modal/close.png);
+      @include dir((
+              right: -30px
+      ));
       &Img {
         position: absolute;
         top: 0;
@@ -73,31 +76,35 @@
 
       &:active {
         transform: scale(0.8) rotate(90deg);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-shadow: em(0 0 10px, $fontSize) rgba(0, 0, 0, 0.1);
         transition: all .2s ease;
       }
     }
     &__scrollBlock {
-      @include em((
-        padding: 0 22px
-      ), $fontSize);
+      @include dir((
+          padding: em(0 22px, $fontSize)
+      ));
 
       &.ps--active-y > .ps__rail-y {
         background-color: #666;
         display: block;
-        width: 1px;
+        width: em(1px, $fontSize);
         opacity: 1;
-        right: 2px !important;
+        @include dir((
+                left: auto !important,
+                right: em(2px, $fontSize) !important
+        ));
       }
 
       .ps__thumb-y,
       .ps__rail-y:hover > .ps__thumb-y, .ps__rail-y:focus > .ps__thumb-y, .ps__rail-y.ps--clicking .ps__thumb-y,{
-        width: 3px;
+        width: em(3px, $fontSize);
         background-color: #666;
         border-radius: 0;
         cursor: pointer;
         @include dir((
-          right: -1px
+                left: auto,
+                right: em(-1px, $fontSize)
         ));
       }
 
@@ -106,8 +113,10 @@
     &__bg {
       position: absolute;
       top: 0;
-      right: 0;
       z-index: -1;
+      @include dir((
+              right: 0
+      ));
     }
 
     &__block {
@@ -138,19 +147,14 @@
     }
     &__btn {
       text-transform: uppercase;
-      @include em((
-        margin: 0 15px
-      ), $fontSize);
+      margin: em(0 15px, $fontSize);
     }
 
     &Enter & {
       &__block {
         line-height: 1.25;
-
-        @include em((
-          width: 650px,
-          height: 320px,
-        ), $fontSize);
+        width: em(650px, $fontSize);
+        height: em(320px, $fontSize);
       }
       &__text {
         position: relative;
@@ -159,28 +163,19 @@
         text-transform: uppercase;
         width: 70%;
         margin: 0 auto;
-
-        @include em((
-          font-size: 30px,
-        ), $fontSize);
+        font-size: em(30px, $fontSize);
 
         span:first-child {
           display: block;
         }
         span {
           display: inline-block;
-
-          @include em((
-            padding: 0 3px,
-          ), $fontSize);
+          padding: em(0 3px, $fontSize);
         }
       }
       &__action {
         position: relative;
-
-        @include em((
-          margin-top: 45px
-        ), $fontSize);
+        margin-top: em(45px, $fontSize);
       }
       &__btn--main {
         display: inline-block;
@@ -188,10 +183,8 @@
         background: #6ab229;
 
         span {
-          @include em((
-            font-size: 30px,
-            padding: 4px 48px
-          ), $fontSize);
+          font-size: em(30px, $fontSize);
+          padding: em(4px 48px, $fontSize);
 
           &:after {
             display: none;
@@ -212,10 +205,8 @@
         color: #fff;
         background: #2fa9ef;
         span {
-          @include em((
-            font-size: 30px,
-            padding: 4px 20px
-          ), $fontSize);
+          font-size: em(30px, $fontSize);
+          padding: em(4px 20px, $fontSize);
 
           &:after {
             display: none;
@@ -235,15 +226,24 @@
     &Rules & {
       &__block {
         line-height: 1.25;
-        @include em((
-          width: 980px,
-          height: 700px,
-        ), $fontSize);
+        width: em(980px, $fontSize);
+        height: em(700px, $fontSize);
+        @include mediaMixin(max, 1700) {
+          width: em(900px, $fontSize);
+          height: em(500px, $fontSize);
+        }
       }
       &__body {
-        @include em((
-                padding: 40px 15px
-        ), $fontSize);
+        display: block;
+        @include dir((
+                padding: em(40px 15px, $fontSize)
+        ));
+      }
+      &__scrollBlock {
+        max-height: em(617px, $fontSize);
+        @include mediaMixin(max, 1700) {
+          max-height: em(418px, $fontSize);
+        }
       }
       &__text {
         font-family: $mainFont;
@@ -252,21 +252,19 @@
         span {
           display: inline-block;
           color: #0082d5;
-
-          @include em((
-            padding: 0 3px,
-          ), $fontSize);
+          @include dir((
+                  padding: em(0 3px, $fontSize)
+          ));
         }
         &--big  {
           text-transform: uppercase;
           text-align: center;
           font-weight: bold;
           font-family: $secondaryFont;
-
-          @include em((
-            font-size: 30px,
-            margin: 30px 0 15px
-          ), $fontSize);
+          font-size: em(30px, $fontSize);
+          @include dir((
+                  margin: em(30px 0 15px, $fontSize)
+          ));
 
           &:first-of-type {
             margin-top: 0;
@@ -277,18 +275,16 @@
         font-family: $mainFont;
         li {
           position: relative;
-
-          @include em((
-            margin: 6px 0,
-            padding-left: 40px
-          ), $fontSize);
+          margin: em(6px 0, $fontSize);
+          @include dir((
+                  padding-left: em(40px, $fontSize)
+          ));
           span {
             display: inline-block;
             color: #0082d5;
-
-            @include em((
-              padding: 0 3px,
-            ), $fontSize);
+            @include dir((
+                    padding: em(0 3px, $fontSize)
+            ));
           }
         }
 
@@ -297,15 +293,15 @@
             &:before {
               content: '';
               position: absolute;
-              background: url(/assets/img/modal/step-arr.png) no-repeat center;
+              background: url(/img/modal/step-arr.png) no-repeat center;
               background-size: 100% 100%;
+              top: em(5px, $fontSize);
+              width: em(10px, $fontSize);
+              height: em(9px, $fontSize);
 
-              @include em((
-                left: 10px,
-                top: 5px,
-                width: 10px,
-                height: 9px
-              ), $fontSize);
+              @include dir((
+                      left: em(10px, $fontSize)
+              ));
             }
           }
         }
@@ -316,8 +312,10 @@
               content: counter(list)'.';
               counter-increment: list;
               position: absolute;
-              left: 10px;
               top: 0;
+              @include dir((
+                      left: em(10px, $fontSize)
+              ));
             }
           }
         }
@@ -329,64 +327,78 @@
         font-weight: 600;
         line-height: 1;
         text-align: center;
-
-        @include em((
-          width: 1097px,
-          height: 492px
-        ), $fontSize);
+        width: em(1097px, $fontSize);
+        height: em(492px, $fontSize);
+        @include mediaMixin(max, 1700) {
+          width: em(900px, $fontSize);
+          height: em(430px, $fontSize);
+        }
       }
       &__body {
-        @include em((
-                padding: 45px 15px
-        ), $fontSize);
+        @include dir((
+            padding: em(45px 15px, $fontSize)
+        ));
       }
       &__title {
-        @include em((
-          font-size: 52px
-        ), $fontSize);
+        font-size: em(52px, $fontSize);
+        @include mediaMixin(max, 1700) {
+          font-size: em(48px, $fontSize);
+        }
       }
       &__subtitle {
-        @include em((
-          font-size: 30px
-        ), $fontSize);
+        font-size: em(30px, $fontSize);
+        @include mediaMixin(max, 1700) {
+          font-size: em(26px, $fontSize);
+        }
       }
       &__names {
-        @include em((
-          margin: 40px 0
-        ), $fontSize);
+        margin: em(40px 0, $fontSize);
 
         span {
           display: block;
-
-          @include em((
-            margin: 3px 0,
-            font-size: 34px
-          ), $fontSize);
+          margin: em(3px 0, $fontSize);
+          font-size: em(34px, $fontSize);
+          @include mediaMixin(max, 1700) {
+            font-size: em(30px, $fontSize);
+          }
         }
       }
       &__name {
         color: #0082d5;
-
-        @include em((
-          font-size: 70px
-        ), $fontSize);
+        font-size: em(70px, $fontSize);
+        @include mediaMixin(max, 1700) {
+          font-size: em(60px, $fontSize);
+        }
       }
       &__img {
         position: absolute;
         z-index: -1;
+
+        img {
+          transform: scaleX(opposite-number(1))
+        }
         &--man2 {
-          left: -3%;
-          @include em((
-            top: -32px,
-            width: 413px
-          ), $fontSize);
+          top: em(-32px, $fontSize);
+          width: em(413px, $fontSize);
+
+          @include dir((
+                  left: -3%
+          ));
+          @include mediaMixin(max, 1700) {
+            top: em(5px, $fontSize);
+            width: em(335px, $fontSize);
+          }
         }
         &--man1 {
-          right: -7%;
-          @include em((
-            top: -30px,
-            width: 479px
-          ), $fontSize);
+          @include dir((
+                  right: -7%
+          ));
+          top: em(-30px, $fontSize);
+          width: em(479px, $fontSize);
+          @include mediaMixin(max, 1700) {
+            top: em(-2px, $fontSize);
+            width: em(396px, $fontSize);
+          }
         }
       }
 
@@ -395,10 +407,14 @@
         background: #6ab229;
 
         span {
-          @include em((
-            font-size: 30px,
-            padding: 6px 28px
-          ), $fontSize);
+          font-size: em(30px, $fontSize);
+          @include dir((
+                  padding: em(6px 28px, $fontSize)
+          ));
+
+          @include mediaMixin(max, 1700) {
+            font-size: em(26px, $fontSize);
+          }
 
           &:after {
             display: none;

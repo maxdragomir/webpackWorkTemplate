@@ -11,7 +11,7 @@
           'left':   'right',
           'center': 'center',
           'ltr':    'rtl',
-          'rtl':    'ltr'
+          'rtl':    'ltr',
   );
 
   @each $direction in $directions {
@@ -31,7 +31,13 @@
     @return $opposite-directions;
   }
 }
-
+@function opposite-number($directions) {
+  @if ($is_rtl == 0) {
+    @return $directions;
+  } @else if ($is_rtl == 1) {
+    @return -$directions;
+  }
+}
 /*
  * Функция возвращающая null вместо error если значение в списке не найдено
  * @param {List} $list - список

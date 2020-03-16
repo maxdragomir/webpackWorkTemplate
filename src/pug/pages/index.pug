@@ -10,12 +10,12 @@ block content
 	section(class=`${lotteryName}-sectionSlider ${lotteryName}-slider`)
 		div(class=`${lotteryName}-slide`)
 			div(class=`${lotteryName}-slide__bg ${lotteryName}-bgImages`)
-				+addImg("assets/img/main/ring.jpg")(class=`${lotteryName}-bgImages__ring`)
-				+addImg("assets/img/main/smoke.png")(class=`${lotteryName}-bgImages__smoke`)
-				+addImg("assets/img/main/dust.png")(class=`${lotteryName}-bgImages__dust`)
-				+addImg("assets/img/main/man1/man-bg.png")(class=`${lotteryName}-bgImages__man`)
-				+addImg("assets/img/main/blue-bg.png")(class=`${lotteryName}-bgImages__blue`)
-				+addImg("assets/img/main/blue-light.png")(class=`${lotteryName}-bgImages__blueLight`)
+				+addImg(" img/main/ring.jpg")(class=`${lotteryName}-bgImages__ring`)
+				+addImg(" img/main/smoke.png")(class=`${lotteryName}-bgImages__smoke`)
+				+addImg(" img/main/man1/man-bg.png")(class=`${lotteryName}-bgImages__man`)
+				+addImg(" img/main/dust.png")(class=`${lotteryName}-bgImages__dust`)
+				+addImg(" img/main/blue-bg.png")(class=`${lotteryName}-bgImages__blue`)
+				+addImg(" img/main/blue-light.png")(class=`${lotteryName}-bgImages__blueLight`)
 
 
 			div(class=`${lotteryName}-container`)
@@ -30,16 +30,19 @@ block content
 						div(class=`${lotteryName}-slide__steps`)
 							ul
 								li
+									span(class=`${lotteryName}-slide__stepsNumber`) 1
 									span Регистрируйся на 1xBet
 								li
+									span(class=`${lotteryName}-slide__stepsNumber`) 2
 									span Делай ставки от 500 RUB
 								li
+									span(class=`${lotteryName}-slide__stepsNumber`) 3
 									span Возвращай до - 20%​ от ставки
 
 					div(class=`${lotteryName}-slide__col ${lotteryName}-slide__boxer`)
 						div(class=`${lotteryName}-slide__name`)
 							span Ferguson
-						+addImg("assets/img/main/man1/man.png")(class=`${lotteryName}-slide__man`)
+						+addImg(" img/main/man1/man.png")(class=`${lotteryName}-slide__man`)
 
 
 
@@ -50,20 +53,20 @@ block content
 
 		div(class=`${lotteryName}-slide ${lotteryName}-slide--reverse`)
 			div(class=`${lotteryName}-slide__bg ${lotteryName}-bgImages ${lotteryName}-bgImages--reverse`)
-				+addImg("assets/img/main/ring.jpg")(class=`${lotteryName}-bgImages__ring`)
-				+addImg("assets/img/main/smoke.png")(class=`${lotteryName}-bgImages__smoke`)
-				+addImg("assets/img/main/dust.png")(class=`${lotteryName}-bgImages__dust`)
-				+addImg("assets/img/main/man2/man-bg.png")(class=`${lotteryName}-bgImages__man`)
-				+addImg("assets/img/main/blue-bg.png")(class=`${lotteryName}-bgImages__blue`)
-				+addImg("assets/img/main/blue-light.png")(class=`${lotteryName}-bgImages__blueLight`)
-				+addImg("assets/img/main/man2/effect.png")(class=`${lotteryName}-bgImages__blueEffect`)
+				+addImg(" img/main/ring.jpg")(class=`${lotteryName}-bgImages__ring`)
+				+addImg(" img/main/smoke.png")(class=`${lotteryName}-bgImages__smoke`)
+				+addImg(" img/main/dust.png")(class=`${lotteryName}-bgImages__dust`)
+				+addImg(" img/main/man2/man-bg.png")(class=`${lotteryName}-bgImages__man`)
+				+addImg(" img/main/blue-bg.png")(class=`${lotteryName}-bgImages__blue`)
+				+addImg(" img/main/blue-light.png")(class=`${lotteryName}-bgImages__blueLight`)
+				+addImg(" img/main/man2/effect.png")(class=`${lotteryName}-bgImages__blueEffect`)
 
 			div(class=`${lotteryName}-container`)
 				div(class=`${lotteryName}-slide__row`)
 					div(class=`${lotteryName}-slide__col ${lotteryName}-slide__boxer`)
 						div(class=`${lotteryName}-slide__name`)
 							span KHABIB
-						+addImg("assets/img/main/man2/man.png")(class=`${lotteryName}-slide__man`)
+						+addImg(" img/main/man2/man.png")(class=`${lotteryName}-slide__man`)
 
 					div(class=`${lotteryName}-slide__col ${lotteryName}-slide__content`)
 						div(class=`${lotteryName}-slide__title`)
@@ -75,15 +78,20 @@ block content
 						div(class=`${lotteryName}-slide__steps`)
 							ul
 								li
+									span(class=`${lotteryName}-slide__stepsNumber`) 1
 									span Регистрируйся на 1xBet
 								li
+									span(class=`${lotteryName}-slide__stepsNumber`) 2
 									span Делай ставки от 500 RUB
 								li
+									span(class=`${lotteryName}-slide__stepsNumber`) 3
 									span Возвращай до - 20%​ от ставки
 
 				div(class=`${lotteryName}-slide__action`)
 					+addMainBtn('Сделать ставку', 'main')
 					a(href="#!" class=`${lotteryName}-link ${lotteryName}-modalShow` data-modal=`.${lotteryName}-modalRules`) Правила
+
+
 
 	//- Addition Btn start
 	div(class=`${lotteryName}-addition`)
@@ -157,11 +165,11 @@ block content
 			li Компания имеет право отменить или отозвать настоящее предложение либо изменить любое из его положений в любое время без уведомления или указания причин.
 			li Данное предложение действительно только один раз для одного участника пари, для одного дома/квартиры, одного счета, одного IP-адреса. Со всех счетов, уличенных в попытке открыть дублирующие счета, бонусы будут удалены.
 	+addModalCustom("Hello")
-		+addImg("assets/img/modal/modal-bg.png")(class=`${lotteryName}-modal__bg`)
+		+addImg(" img/modal/modal-bg.png")(class=`${lotteryName}-modal__bg`)
 		div(class=`${lotteryName}-modal__title`) Ставка без риска
 		div(class=`${lotteryName}-modal__subtitle`) Как ни ставь – победа за тобой!
 		div(class=`${lotteryName}-modal__names`)
-			div(class=`${lotteryName}-modal__name`) Фергюссон
+			div(class=`${lotteryName}-modal__name`) Фергюсон
 			span VS
 			div(class=`${lotteryName}-modal__name`) Хабиб
 		div(class=`${lotteryName}-modal__action`)
@@ -169,6 +177,6 @@ block content
 				span Подробнее
 
 		//div(class=`${lotteryName}-modal__images`)
-		+addImg("assets/img/modal/man2.png")(class=`${lotteryName}-modal__img ${lotteryName}-modal__img--man2`)
-		+addImg("assets/img/modal/man1.png")(class=`${lotteryName}-modal__img ${lotteryName}-modal__img--man1`)
+		+addImg(" img/modal/man2.png")(class=`${lotteryName}-modal__img ${lotteryName}-modal__img--man2`)
+		+addImg(" img/modal/man1.png")(class=`${lotteryName}-modal__img ${lotteryName}-modal__img--man1`)
 	//- Modal End

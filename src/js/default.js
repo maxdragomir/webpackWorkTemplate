@@ -28,8 +28,9 @@ document.addEventListener("DOMContentLoaded", function() {
 	//Hash
 	let hash = location.search.replace(/\?/, "");
 	if (hash === "righttoleft") {
-		ltrToRtl.href = "/assets/css/right-to-left.css";
+		// ltrToRtl.href = "/assets/css/right-to-left.css";
 		blocks.body.classList.add("righttoleft");
+		direction = true;
 	}
 
 	// PerfectScroll
@@ -63,12 +64,37 @@ document.addEventListener("DOMContentLoaded", function() {
 	}
 	document.addEventListener("click", function(e) {
 		if (e.target.classList.contains(`${lotteryName}-modal__overlay`)) {
+			console.log(1);
 			e.target
 				.closest(`.${lotteryName}-modal`)
 				.classList.remove(`${lotteryName}-modal--open`);
 			blocks.body.style.cssText = "";
 		}
 	});
+	// проверяем поддержку
+	if (!Element.prototype.closest) {
+
+		// реализуем
+		Element.prototype.closest = function(css) {
+			var node = this;
+
+			while (node) {
+				if (node.matches(css)) return node;
+				else node = node.parentElement;
+			}
+			return null;
+		};
+	}
+	// проверяем поддержку
+	if (!Element.prototype.matches) {
+
+		// определяем свойство
+		Element.prototype.matches = Element.prototype.matchesSelector ||
+			Element.prototype.webkitMatchesSelector ||
+			Element.prototype.mozMatchesSelector ||
+			Element.prototype.msMatchesSelector;
+
+	}
 	if (hash !== "") {
 		let modalHash = document.querySelectorAll(`.${lotteryName}-modal${hash}`);
 		if (modalHash.length > 0) {
@@ -94,14 +120,23 @@ document.addEventListener("DOMContentLoaded", function() {
 	slider.events.on("transitionStart", function(displayIndex, eventName) {
 		var info = slider.getInfo(),
 			indexCurrent = info.index,
+			container = info.container,
 			controls = info.controlsContainer;
-		// console.log(info);
+		// console.log(container);
 		if (indexCurrent === 1) {
 			controls.classList.add(`tns-showPrev`);
 			controls.classList.remove(`tns-showNext`);
+
+			if (direction) {
+				container.classList.add(`tns-rtl`);
+			}
 		} else {
 			controls.classList.add(`tns-showNext`);
 			controls.classList.remove(`tns-showPrev`);
+
+			if (direction) {
+				container.classList.remove(`tns-rtl`);
+			}
 		}
 	});
 });

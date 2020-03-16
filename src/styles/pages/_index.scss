@@ -29,7 +29,7 @@
         }
         &__name {
           opacity: 1;
-          transform: rotate(-90deg) translateX(0);
+          transform: rotate(opposite-number(-90deg)) translateX(0);
           transition: all .5s ease 1.5s;
         }
         &__action {
@@ -43,16 +43,22 @@
   .tns {
     &-slider {
       transition-timing-function: ease;
+      transform: translate3d(0%, 0px, 0px);
+    }
+    &-rtl {
+      transform: translate3d(50%, 0px, 0px) !important;
     }
     &-controls {
       position: absolute;
       top: 50%;
-      left: 0;
       width: 100%;
       display: flex;
       justify-content: space-between;
       z-index: 1;
       outline: none;
+      @include dir((
+              left: 0
+      ));
 
       button {
         color: transparent;
@@ -77,13 +83,19 @@
           visibility: hidden;
           transform: translateX(0);
           transition: all .5s linear;
-          left: em(40px, $fontSize);
+          @include dir((
+                  left: em(40px, $fontSize)
+          ));
           @include mediaMixin(max, 1850) {
-            left: em(20px, $fontSize);
+            @include dir((
+              left: em(20px, $fontSize)
+            ));
           }
 
           &:hover {
-            transform: translateX(em(-10px, $fontSize));
+            @include dir((
+                    transform: translateX(opposite-number(em(-10px, $fontSize)))
+            ));
             transition: all .5s ease;
           }
         }
@@ -95,19 +107,25 @@
           visibility: visible;
           transform: translateX(0);
           transition: all .5s linear;
-          right: em(40px, $fontSize);
+          @include dir((
+                  right: em(40px, $fontSize)
+          ));
 
           @include mediaMixin(max, 1850) {
-            right: em(20px, $fontSize);
+            @include dir((
+                    right: em(20px, $fontSize)
+            ));
           }
 
           &:hover {
-            transform: translateX(em(10px, $fontSize));
+            @include dir((
+                    transform: translateX(opposite-number(em(10px, $fontSize)))
+            ));
             transition: all .5s ease;
           }
 
           &:before {
-            background-position: right top;
+            background-position: opposite-direction(right);
           }
         }
 
@@ -118,8 +136,9 @@
           left: 0;
           width: 100%;
           height: 100%;
-          background-image: url(/assets/img/main/arrows.png);
+          background-image: url(/img/main/arrows.png);
           background-size: 200% 100%;
+          background-position: opposite-direction(left);
           transition: .2s linear;
         }
       }
@@ -174,6 +193,7 @@
     overflow: hidden;
     font-family: $secondaryFont;
     min-height: em(855px, $fontSize);
+    font-size: 16px !important;
     @include mediaMixin(max, 1700) {
       min-height: em(520px, $fontSize);
     }
@@ -182,11 +202,13 @@
       content: '';
       position: absolute;
       bottom: 0;
-      left: 0;
       width: 100%;
       background: linear-gradient(to bottom, transparent 0%, #000 90%);
       z-index: 2;
       height: em(250px, $fontSize);
+      @include dir((
+              left: 0
+      ));
       @include mediaMixin(max, 1700) {
         height: em(150px, $fontSize);
       }
@@ -194,9 +216,11 @@
     &__bg {
       position: absolute;
       top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
+      @include dir((
+              left: 0
+      ));
     }
 
     &__row {
@@ -220,12 +244,14 @@
       font-weight: 600;
       text-transform: uppercase;
       opacity: 0;
-      transform: translateX(-50%);
       transition: all .5s ease;
+      @include dir((
+              transform: translateX(opposite-number(-50%))
+      ));
       &-text {
-        font-size: em(90px, $fontSize);
+        font-size: em(98px, $fontSize);
         @include mediaMixin(max, 1700) {
-          font-size: em(60px, $fontSize);
+          font-size: em(58px, $fontSize);
         }
       }
     }
@@ -233,26 +259,31 @@
       position: relative;
       color: #fff;
       text-transform: uppercase;
-      text-align: right;
+      text-align: opposite-direction(right);
       z-index: 1;
-      font-size: em(38px, $fontSize);
       margin-bottom: em(2.5px, $fontSize);
-      @include mediaMixin(max, 1700) {
-        font-size: em(24px, $fontSize);
-      }
+      @include dir((
+              margin-right: em(15px, $fontSize)
+      ));
       span {
         position: relative;
         display: inline-block;
+        font-size: em(38px, $fontSize);
+        @include mediaMixin(max, 1700) {
+          font-size: em(24px, $fontSize);
+        }
         &:after {
           content: '';
           position: absolute;
           top: 0;
-          right: 0;
           width: 100%;
           height: 100%;
           background: #0082d5;
           z-index: -1;
-          transform: scale(1.1) skew(-10deg);
+          transform: scale(1.1) skew(opposite-number(-10deg));
+          @include dir((
+                  right: 0
+          ));
         }
       }
     }
@@ -262,9 +293,12 @@
       line-height: 1.1;
       color: #c1c1c1;
       opacity: 0;
-      transform: translateX(-50%);
       transition: all .5s ease;
       margin: em(10px 0 0, $fontSize);
+
+      @include dir((
+              transform: translateX(opposite-number(-50%))
+      ));
       span {
         font-size: em(40px, $fontSize);
         @include mediaMixin(max, 1700) {
@@ -278,9 +312,12 @@
       text-transform: uppercase;
       font-weight: 600;
       opacity: 0;
-      transform: translateX(-50%);
       transition: all .5s ease;
       margin-top: em(115px, $fontSize);
+
+      @include dir((
+              transform: translateX(opposite-number(-50%))
+      ));
       @include mediaMixin(max, 1700) {
         margin-top: em(40px, $fontSize);
       }
@@ -291,15 +328,21 @@
       li {
         position: relative;
         font-weight: 600;
-        padding-left: em(80px, $fontSize);
         margin: em(40px 0, $fontSize);
+
+        @include dir((
+                padding-left: em(80px, $fontSize)
+        ));
 
         @include mediaMixin(max, 1700) {
           margin: em(30px 0, $fontSize);
-          padding-left: em(45px, $fontSize);
+
+          @include dir((
+                  padding-left: em(45px, $fontSize)
+          ));
         }
 
-        span {
+        span:nth-child(2) {
           font-size: em(30px, $fontSize);
 
           @include mediaMixin(max, 1700) {
@@ -307,35 +350,57 @@
           }
         }
 
-        &:before {
-          content: counter(list);
-          counter-increment: list;
-          position: absolute;
-          left: 0;
-          top: 50%;
-          color: #fff;
-          transform: translateY(-50%);
-          font-size: em(70px, $fontSize);
-
-          @include mediaMixin(max, 1700) {
-            font-size: em(44px, $fontSize);
-          }
+        //&:before {
+        //  content: counter(list);
+        //  counter-increment: list;
+        //  position: absolute;
+        //  top: 50%;
+        //  color: #fff;
+        //  transform: translateY(-50%);
+        //  font-size: em(70px, $fontSize);
+        //  @include dir((
+        //          left: 0
+        //  ));
+        //
+        //  @include mediaMixin(max, 1700) {
+        //    font-size: em(44px, $fontSize);
+        //  }
+        //}
+      }
+      &Number {
+        position: absolute;
+        top: 50%;
+        display: inline-block;
+        font-size: em(70px, $fontSize);;
+        transform: translateY(-50%);
+        @include dir((
+                left: 0
+        ));
+        @include mediaMixin(max, 1700) {
+          font-size: em(44px, $fontSize);
         }
+
         &:after {
           content: '';
           position: absolute;
           top: 50%;
-          background: url(/assets/img/modal/step-arr.png) no-repeat center;
+          background: url(/img/modal/step-arr.png) no-repeat center;
           background-size: cover;
-          transform: translateY(-50%);
-          width: em(21px, $fontSize);
-          height: em(20px, $fontSize);
-          left: em(45px, $fontSize);
+          transform: translateY(-50%) scaleX(opposite-number(1));
+          width: em(21px, 70px);
+          height: em(20px, 70px);
+
+          @include dir((
+                  left: em(45px, 70px)
+          ));
 
           @include mediaMixin(max, 1700) {
-            width: em(14px, $fontSize);
-            height: em(13px, $fontSize);
-            left: em(25px, $fontSize);
+            width: em(14px, 44px);
+            height: em(13px, 44px);
+
+            @include dir((
+                    left: em(25px, 44px)
+            ));
           }
         }
       }
@@ -348,41 +413,51 @@
       position: relative;
       z-index: 1;
       opacity: 0;
-      transform: translateX(50%);
       transition: all .5s ease;
+      @include dir((
+              transform: translateX(opposite-number(50%))
+      ));
       @include mediaMixin(max, 1700) {
         width: em(450px, $fontSize);
       }
       img {
         margin: 0 auto;
+        transform: scaleX(opposite-number(1))
       }
     }
     &__name {
       position: absolute;
-      top: 0;
+      top: em(160px, $fontSize);
       color: #fff;
       text-transform: uppercase;
       font-weight: 600;
-      transform-origin: 100% 0;
       z-index: 0;
       font-family: BebasNeue, sans-serif;
       opacity: 0;
-      transform: rotate(-90deg) translateX(-50%);
       transition: all .5s ease;
-      right: em(140px, $fontSize);
+      transform: rotate(opposite-number(-90deg)) translateX(-50%);
+      @include dir((
+          left: auto,
+          right: em(-180px, $fontSize)
+      ));
       @include mediaMixin(max, 1700) {
-        right: em(110px, $fontSize);
+        top: em(100px, $fontSize);
+        @include dir((
+          right: em(-100px, $fontSize)
+        ));
       }
       @include mediaMixin(max, 1300) {
-        right: em(120px, $fontSize);
+        @include dir((
+                right: em(-90px, $fontSize)
+        ));
       }
 
       span {
         display: block;
         opacity: 0;
-        transform: translateX(-100%);
         transition: all 2s ease;
         font-size: em(158px, $fontSize);
+        transform: translateX(opposite-number(-100%));
         @include mediaMixin(max, 1700) {
           font-size: em(103px, $fontSize);
         }
@@ -390,13 +465,13 @@
     }
     &__action {
       position: absolute;
-      left: 50%;
       z-index: 5;
       text-align: center;
       opacity: 0;
-      transform: translateX(-50%) translateY(50%);
       transition: all .5s ease;
       bottom: em(50px, $fontSize);
+      left: 50%;
+      transform: translateX(-50%) translateY(50%);
       @include mediaMixin(max, 1700) {
         bottom: em(30px, $fontSize);
       }
@@ -405,35 +480,59 @@
     &--reverse {
       .#{$lotteryName} {
         &-slide {
+          &__title {
+            text-align: opposite-direction(right);
+          }
           &__date {
-            text-align: left;
+            text-align: opposite-direction(left);
+            @include dir((
+                    margin-left: em(15px, $fontSize)
+            ));
+            span {
+              &:after {
+                transform: scale(1.1) skew(opposite-number(10deg));
+              }
+            }
           }
           &__subtitle {
-            text-align: right;
+            text-align: opposite-direction(right);
           }
           &__steps {
-            justify-content: flex-end;
+            @include dir((
+                    justify-content: flex-end
+            ));
           }
           &__man {
-            margin: 0 0 0 auto;
+            @include dir((
+                    margin: 0 0 0 auto
+            ));
             @include mediaMixin(max, 1700) {
               width: em(400px, $fontSize);
             }
           }
           &__name {
-            top: em(100px, $fontSize);
-            right: em(825px, $fontSize);
+            top: em(200px, $fontSize);
+            @include dir((
+                    right: auto,
+                    left: em(-180px, $fontSize)
+            ));
 
             @include mediaMixin(max, 1850) {
-              right: em(800px, $fontSize);
+              @include dir((
+                      left: em(-170px, $fontSize)
+              ));
             }
             @include mediaMixin(max, 1700) {
-              right: em(470px, $fontSize);
-              top: em(50px, $fontSize);
+              top: em(150px, $fontSize);
+              @include dir((
+                      left: em(-70px, $fontSize)
+              ));
             }
-            @include mediaMixin(max, 1300) {
-              right: em(470px, $fontSize);
-            }
+            //@include mediaMixin(max, 1300) {
+            //  @include dir((
+            //          right: em(470px, $fontSize)
+            //  ));
+            //}
 
 
             span {
@@ -456,7 +555,9 @@
     span {
       text-transform: uppercase;
       font-size: em(28px, $fontSize);
-      padding: em(13px 23px, $fontSize);
+      @include dir((
+              padding: em(13px 23px, $fontSize)
+      ));
       @include mediaMixin(max, 1700) {
         font-size: em(18px, $fontSize);
       }
@@ -495,10 +596,18 @@
     &__ring {
       position: absolute;
       top: 0;
-      left: em(-750px, $fontSize);
+      @include dir((
+              left: em(-750px, $fontSize)
+      ));
+      img {
+        transform: scaleX(opposite-number(1))
+      }
+
       @include mediaMixin(max, 1700) {
-        left: em(-450px, $fontSize);
         width: em(1090px, $fontSize);
+        @include dir((
+                left: em(-450px, $fontSize)
+        ));
       }
     }
     &__man {
@@ -506,24 +615,34 @@
       top: 0;
       width: 100%;
       left: 50%;
-      transform: translateX(-50%);
+      @include dir((
+              transform: translateX(-50%)
+      ));
       @include mediaMixin(max, 1700) {
         width: em(1090px, $fontSize);
       }
       img {
         margin: 0 auto;
+        transform: scaleX(opposite-number(1))
       }
     }
     &__blue {
       position: absolute;
       width: 100%;
-      right: -45%;
       top: em(-100px, $fontSize);
+      @include dir((
+              right: -45%
+      ));
+      img {
+        transform: scaleX(opposite-number(1))
+      }
     }
     &__blueLight {
       position: absolute;
       top: em(-370px, $fontSize);
-      right: em(-600px, $fontSize);
+      @include dir((
+              right: em(-600px, $fontSize)
+      ));
       @include mediaMixin(max, 1300) {
         top: em(-330px, $fontSize);
         width: em(1000px, $fontSize);
@@ -531,37 +650,54 @@
     }
     &__smoke {
       position: absolute;
-      right: 0;
       top: em(360px, $fontSize);
+      @include dir((
+              right: 0
+      ));
       @include mediaMixin(max, 1700) {
         top: em(100px, $fontSize);
         width: em(1090px, $fontSize);
       }
+      img {
+        transform: scaleX(opposite-number(1))
+      }
     }
     &__dust {
       position: absolute;
-      right: -10%;
       top: em(160px, $fontSize);
+      @include dir((
+              right: -10%
+      ));
       @include mediaMixin(max, 1700) {
         top: em(70px, $fontSize);
         width: em(1090px, $fontSize);;
+      }
+      img {
+        transform: scaleX(opposite-number(1))
       }
     }
     &__blueEffect {
       position: absolute;
       top: 0;
-      left: em(-170px, $fontSize);
+      @include dir((
+              left: em(-170px, $fontSize)
+      ));
+
+      img {
+        transform: scaleX(opposite-number(1))
+      }
 
       @include mediaMixin(max, 1850) {
         width: em(1090px, $fontSize);
       }
       @include mediaMixin(max, 1700) {
         width: em(800px, $fontSize);
-        left: em(-120px, $fontSize);
+        @include dir((
+                left: em(-120px, $fontSize)
+        ));
       }
       @include mediaMixin(max, 1300) {
-        width: em(600px, $fontSize);
-        left: em(-140px, $fontSize);
+        display: none;
       }
     }
 
@@ -569,56 +705,82 @@
       .#{$lotteryName} {
         &-bgImages {
           &__ring {
-            left: auto;
-            right: em(-750px, $fontSize);
+            @include dir((
+                    left: auto,
+                    right: em(-750px, $fontSize)
+            ));
             @include mediaMixin(max, 1700) {
               width: em(1090px, $fontSize);
-              right: em(-450px, $fontSize);
+              @include dir((
+                      right: em(-450px, $fontSize)
+              ));
             }
             img {
-              transform: scaleX(-1);
+              transform: scaleX(opposite-number(-1))
             }
           }
           &__man {
-            left: -7%;
             width: 100%;
-            transform: translateX(0);
+
+            @include dir((
+                    left: -7%,
+                    transform: translateX(0)
+            ));
+
+            img {
+              transform: scaleX(opposite-number(1))
+            }
+
             @include mediaMixin(max, 1700) {
-              left: 31%;
               width: em(410px, $fontSize);
+              @include dir((
+                      left: 31%
+              ));
             }
             @include mediaMixin(max, 1300) {
-              left: 25%;
               width: em(350px, $fontSize);
+              @include dir((
+                      left: 25%
+              ));
             }
           }
           &__blue {
-            right: auto;
-            left: -50%;
+            @include dir((
+                    right: auto,
+                    left: -50%
+            ));
             img {
               margin: 0 auto;
             }
           }
           &__blueLight {
-            right: auto;
-            left: em(-600px, $fontSize);
+            @include dir((
+                    right: auto,
+            left: em(-600px, $fontSize)
+            ));
             @include mediaMixin(max, 1300) {
               top: em(-330px, $fontSize);
               width: em(1000px, $fontSize);
             }
           }
           &__smoke {
-            left: 0;
-            right: auto;
+            @include dir((
+                    left: 0,
+            right: auto
+            ));
             img {
-              transform: scaleX(-1);
+              transform: scaleX(opposite-number(-1))
             }
           }
           &__dust {
-            left: -10%;
-            right: auto;
+            @include dir((
+                    left: -10%,
+            right: auto
+            ));
             img {
-              transform: scaleX(-1);
+              @include dir((
+                      transform: scaleX(opposite-number(-1))
+              ));
             }
           }
         }
